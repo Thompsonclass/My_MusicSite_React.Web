@@ -4,24 +4,33 @@ import JoinApp from './JoinApp';
 const LoginApp = () => {
   const [inputIdValue, setInputIdValue] = useState(''); //ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); //PW값 저장
-  const [JoinValue, setJoinValue] = useState(null);
+  const [JoinShowValue, setJoinShowValue] = useState(false); //JoinApp component로 이동
+  const [customerData, setcustomerData] = useState('');
   
   const mainLogin = () => {
 
   }
 
-  const JoinClick = () => {
-    setJoinValue(JoinValue === true);
+  const onJoin = (data) => {
+    setcustomerData([...customerData, data]);
+    inputIdValue('');
+    inputPassValue('');
   }
+
+  const JoinClick = () => {
+    setJoinShowValue(true);
+  }
+
   return (
     <div>
-      {!JoinValue?(
+      {!JoinShowValue?( //JoinShowValue === true
         <div>
           <div>
             <label>아이디 : </label>
             <input
               type="text"
               value={inputIdValue}
+              placeholder='아이디를 입력하세요.'
               onChange={(e) => {
                 setInputIdValue(e.target.value);
               }}
@@ -32,6 +41,7 @@ const LoginApp = () => {
             <input
               type="password"
               value={inputPassValue}
+              placeholder='비밀번호를 입력하세요.'
               onChange={(e) => {
                 setInputPassValue(e.target.value);
               }}
