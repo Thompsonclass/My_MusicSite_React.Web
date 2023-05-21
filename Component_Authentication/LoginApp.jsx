@@ -5,20 +5,20 @@ const LoginApp = () => {
   const [inputIdValue, setInputIdValue] = useState(''); //ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); //PW값 저장
   const [JoinShowValue, setJoinShowValue] = useState(false); //JoinApp component로 이동
-  const [customerData, setcustomerData] = useState([]); //회원 정보(객체) 저장
+  const [customerData, setcustomerData] = useState([]); //회원 정보 저장
   
-  const mainLogin = () => {
+  const mainLogin = () => { //로그인 처리 로직
     if(inputIdValue === '') {
-      return alert("아이디를 입력하세요.")
+      alert(`아이디를 입력하세요.`)
     } else if(inputPassValue === '') {
-      return alert("비밀번호를 입력하세요.")
+      alert(`비밀번호를 입력하세요.`)
     }
     for(let i = 0; i < customerData.length; i++) {
-      const userTest = customerData[i] //customerData 배열의 요소를 userTest 변수에 할당
+      const userTest = customerData[i]
       if (userTest.inputIdValue === inputIdValue && userTest.inputPassValue === inputPassValue) {
-        alert("성공적으로 로그인 되었습니다.");
+        alert(`성공적으로 로그인 되었습니다.`);
       } else {
-        alert("잘못 입력하였습니다.");
+        alert(`잘못 입력하였습니다.`);
       }
     }
   } 
@@ -27,13 +27,22 @@ const LoginApp = () => {
     setcustomerData([...customerData, data]);
     setInputIdValue(''); //LoginApp ID값 빈셀
     setInputPassValue(''); //LoginAPp PW값 빈셀
-    setJoinShowValue(false); //다시 LoginApp 컴포넌트 Show
+    for(let i = 0; i < customerData.length; i++) {
+      const userTest = customerData[i]
+        if(userTest.inputIdValue === '' && userTest.inputPassValue === '') {
+          setJoinShowValue(true);  //빈셀이어도 JoinApp 컴포넌트 Show
+        } else{
+          setJoinShowValue(false); //LoginApp 컴포넌트 Show
+          alert(`회원가입이 성공적으로 이루어졌습니다. 
+          \n ${userTest.inputIdValue}님 안녕하세요.`)
+        }
+      }
   };
 
   const JoinClick = () => {
     setJoinShowValue(true);
   };
-
+  
   return (
     <div>
       {!JoinShowValue ? ( //JoinShowValue === true
@@ -65,9 +74,12 @@ const LoginApp = () => {
       </div>
       ) : (
       <JoinApp onJoin = {onJoin}/>
-      )}
+      )
+    }
     </div>
-  )
+    )
 }
 
 export default LoginApp
+
+//5월 21일 변경사항 : 회원가입을 누르면 자동으로 로그인 화면을 띄우는 것 방지, 회원가입이 성공적으로 이루어짐을 나타내는 알림 제공

@@ -6,9 +6,9 @@ const JoinApp = (props) => {
 
   const mainJoin = () => {
     if (inputIdValue === '') {
-      alert('설정할 아이디를 입력하세요.');
+      alert(`설정할 아이디를 입력하세요.`);
     } else if (inputPassValue === '') {
-      alert('설정할 비밀번호를 입력하세요.');
+      alert(`설정할 비밀번호를 입력하세요.`);
     }
 
     const data = {
