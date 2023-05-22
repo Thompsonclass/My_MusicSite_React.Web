@@ -10,11 +10,16 @@ function AppSongPlayList() {
     display: "flex",
     flexDirection: "column", // 수직 방향으로 정렬
     width: "20%",
-    height : "100px"
+    height : "100%",
+    background : "cyan",
   };
 
   const playlistStyle = {
     display: "flex",
+    alignItems: "center", // 중심 방향으로 정렬
+    justifyContent: "space-between", // 수평 방향으로 정렬
+    padding : "10px",
+    margin : "10px",
     border: "1px solid black",
   };
 
