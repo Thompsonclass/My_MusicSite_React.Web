@@ -5,7 +5,9 @@ function AppSongPlayList() {
     background: "pink",
     height: "100px",
   };
-
+  const AlldownDivStyle = {
+    flexDirection: "row"
+  }
   const leftDivStyle = {
     display: "flex",
     flexDirection: "column", // 수직 방향으로 정렬
@@ -45,6 +47,9 @@ function AppSongPlayList() {
             <button>즐겨찾기 추가</button>
           </div>
         </div>
+      </div>
+      <div>
+        CD 로직
       </div>
     </div>
   );
