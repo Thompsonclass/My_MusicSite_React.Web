@@ -1,12 +1,12 @@
 import React from 'react';
-import AppCssLeftList from './ComponentFixed/AppCssLeftList';
-import AppCssTopList from './ComponentFixed/AppCssTopList';
+import AppCssLeftList from './Component_MainFixed_Top_Left/AppCssLeftList';
+import AppCssTopList from './Component_MainFixed_Top_Left/AppCssTopList';
 
 function AppSongPlayList() {
   const AlldownDivStyle = {
     flexDirection: "row" //수직
   }; 
-  const SongListBox = {
+  const SongListBox = { // 노래 리스트 CSS
     display: "flex",
     alignItems: "center", // 중심 방향으로 정렬
     justifyContent: "space-between", // 수평 방향으로 정렬
