@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import AppCssLeftList from './Component_MainFixed_Top_Left/AppCssLeftList';
-import AppCssTopList from './Component_MainFixed_Top_Left/AppCssTopList';
-import LoginApp from '../Component_Authentication/LoginApp';
+import React from 'react';
+import AppCssLeftList from './Component_MainFixed/AppCssLeftList';
+import AppCssTopList from './Component_MainFixed/AppCssTopList';
 
 function AppSongPlayList() {
-  const [appSongMainShow, setAppSongMainShow] = useState(false);
 
   const AlldownDivStyle = {
     flexDirection: 'row', //수직
@@ -21,10 +19,6 @@ function AppSongPlayList() {
 
   return (
     <>
-      {!appSongMainShow ? (
-        //로그인 화면에 true값이 반환되면 setAppSongMainShow가 상태값 변경
-        <LoginApp setAppSongMainShow={setAppSongMainShow} /> 
-      ) : (
         <> 
           <AppCssTopList />
           <AppCssLeftList />
@@ -52,7 +46,6 @@ function AppSongPlayList() {
             <div></div>
           </div>
         </>
-      )}
     </>
   );
 }

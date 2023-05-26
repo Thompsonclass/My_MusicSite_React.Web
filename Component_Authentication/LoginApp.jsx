@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import JoinApp from './JoinApp';
 
-const LoginApp = () => {
+const LoginApp = (props) => {
   const [inputIdValue, setInputIdValue] = useState(''); //ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); //PW값 저장
   const [JoinShowValue, setJoinShowValue] = useState(false); //JoinApp component로 이동
@@ -17,7 +17,8 @@ const LoginApp = () => {
       const userTest = customerData[i]
       if (userTest.inputIdValue === inputIdValue && userTest.inputPassValue === inputPassValue) {
         alert(`성공적으로 로그인 되었습니다.`);
-      } else {
+        props.setAppSongMainShow(true);
+      } else if (userTest.inputIdValue === inputIdValue || userTest.inputPassValue === inputPassValue) {
         alert(`잘못 입력하였습니다.`);
       }
     }
@@ -30,7 +31,7 @@ const LoginApp = () => {
     for(let i = 0; i < customerData.length; i++) {
       const userTest = customerData[i]
         if(userTest.inputIdValue === '' && userTest.inputPassValue === '') {
-          setJoinShowValue(true);  //빈셀이어도 JoinApp 컴포넌트 Show
+          setJoinShowValue(true);  //빈셀인데도 회원가입 버튼을 누르면 로그인화면으로 이동 방지
         } else{
           setJoinShowValue(false); //LoginApp 컴포넌트 Show
           alert(`회원가입이 성공적으로 이루어졌습니다. 
@@ -81,5 +82,3 @@ const LoginApp = () => {
 }
 
 export default LoginApp
-
-//5월 21일 변경사항 : 회원가입을 누르면 자동으로 로그인 화면을 띄우는 것 방지, 회원가입이 성공적으로 이루어짐을 나타내는 알림 제공
