@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react';
 import LoginApp from './Component_Authentication/LoginApp';
 import AppSongMainShow from './Component_Main/AppSongMainShow';
@@ -9,9 +8,9 @@ function App() {
   return (
     <div>
       {!appSongMainShow ? (
-        <LoginApp setAppSongMainShow={setAppSongMainShow} />
+        <div><LoginApp setAppSongMainShow={setAppSongMainShow} /></div>
       ) : (
-        <AppSongMainShow />
+        <div><AppSongMainShow /></div>
       )}
     </div>
   );

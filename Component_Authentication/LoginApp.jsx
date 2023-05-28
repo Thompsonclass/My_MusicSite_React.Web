@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useState } from 'react';
 import JoinApp from './JoinApp';
 
@@ -9,9 +10,9 @@ const LoginApp = (props) => {
   
   const mainLogin = () => { //로그인 처리 로직
     if(inputIdValue === '') {
-      alert(`아이디를 입력하세요.`)
+      return alert(`아이디를 입력하세요.`)
     } else if(inputPassValue === '') {
-      alert(`비밀번호를 입력하세요.`)
+      return alert(`비밀번호를 입력하세요.`)
     }
     for(let i = 0; i < customerData.length; i++) {
       const userTest = customerData[i]
@@ -19,25 +20,15 @@ const LoginApp = (props) => {
         alert(`성공적으로 로그인 되었습니다.`);
         props.setAppSongMainShow(true);
       } else if (userTest.inputIdValue === inputIdValue || userTest.inputPassValue === inputPassValue) {
-        alert(`잘못 입력하였습니다.`);
+        return alert(`잘못 입력하였습니다.`);
       }
     }
   } 
-
+  
   const onJoin = (data) => {
-    setcustomerData([...customerData, data]);
-    setInputIdValue(''); //LoginApp ID값 빈셀
-    setInputPassValue(''); //LoginAPp PW값 빈셀
-    for(let i = 0; i < customerData.length; i++) {
-      const userTest = customerData[i]
-        if(userTest.inputIdValue === '' && userTest.inputPassValue === '') {
-          setJoinShowValue(true);  //빈셀인데도 회원가입 버튼을 누르면 로그인화면으로 이동 방지
-        } else{
-          setJoinShowValue(false); //LoginApp 컴포넌트 Show
-          alert(`회원가입이 성공적으로 이루어졌습니다. 
-          \n ${userTest.inputIdValue}님 안녕하세요.`)
-        }
-      }
+    setcustomerData([...customerData, data]); //저장
+    alert(`회원가입이 성공적으로 이루어졌습니다. \n ${data.inputIdValue}님 안녕하세요.`);
+    setJoinShowValue(false); //LoginApp 컴포넌트 Show
   };
 
   const JoinClick = () => {
@@ -47,7 +38,7 @@ const LoginApp = (props) => {
   return (
     <div>
       {!JoinShowValue ? ( //JoinShowValue === true
-        <div>
+        <div className='LoginApp'>
           <div>
             <label>아이디 : </label>
             <input
@@ -70,8 +61,10 @@ const LoginApp = (props) => {
               }}
             />
           </div>
-          <button onClick={mainLogin}>로그인</button>
-          <button onClick={JoinClick}>회원가입</button>
+          <div className='LoginBtn'>
+            <button onClick={mainLogin}>로그인</button>
+            <button onClick={JoinClick}>회원가입</button>
+          </div>
       </div>
       ) : (
       <JoinApp onJoin = {onJoin}/>
