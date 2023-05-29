@@ -15,7 +15,7 @@ const AppSongMainShow = () => {
     <Router>
       <div>
         <div>
-          <Link to="/">메인 화면</Link>
+          <Link to="/">음악 플레이어</Link>
           <Link to="/playlist">노래 목록</Link>
           <Link to="/favorites">즐겨찾기 목록</Link>
         </div>
