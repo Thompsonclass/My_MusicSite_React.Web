@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AppCssLeftList from './Component_MainFixed/AppCssLeftList';
-import AppCssTopList from './Component_MainFixed/AppCssTopList';
 import AppSongPlayList from './AppSongPlayList';
 import AppSongFavoriteList from './AppSongFavoriteList';
 
@@ -11,13 +10,20 @@ const AppSongMainShow = () => {
   });
 
   return (
+    <>
     <Router>
-      <AppCssTopList />
-      <AppCssLeftList />
-      <div>
+      <div className='linkStyleDiv'>
         <div>
-          <Link to="/playlist">노래 목록</Link>
-          <Link to="/favorites">즐겨찾기 목록</Link>
+          <span>
+            <Link to="/playlist" className="linkStyle">
+              노래 목록
+            </Link>
+          </span>
+          <span>
+            <Link to="/favorites" className="linkStyle">
+              즐겨찾기 목록
+            </Link>
+          </span>
         </div>
         <div>
           <Routes>
@@ -27,6 +33,8 @@ const AppSongMainShow = () => {
         </div>
       </div>
     </Router>
+    <AppCssLeftList />
+    </>
   );
 };
 

@@ -1,25 +1,41 @@
 /*height: 100vh;*/
 .LoginApp {
-    display: flex;
-    flex-direction: column; /*아이템 정렬 방향 변경*/
-    align-items: center; /*아이템 정렬 방향 가운데 변경*/
-    padding: 100px;
-  }
-  
-  .LoginApp label {
-    font-weight: bold;
-    margin: 10px; /*label과 input창 거리*/
-  }
+  display: flex;
+  flex-direction: column; /*아이템 정렬 방향 변경*/
+  align-items: center; /*아이템 정렬 방향 가운데 변경*/
+  padding: 100px;
+}
 
-  .LoginApp input {
-    width: 200px;
-    padding: 15px; /*입력창 내부 크기*/
-    margin: 15px; /*입력창 끼리의 거리*/
-  }
-  
-  .LoginBtn button {
-    margin: 10px;  /*버튼 끼리의 거리*/
-    padding: 10px; /*버튼의 크기*/
-    font-size: 20px;
-    background-color: gray;
-  }
+.LoginApp label {
+  font-weight: bold;
+  margin: 10px; /*label과 input창 거리*/
+}
+
+.LoginApp input {
+  width: 200px;
+  padding: 15px; /*입력창 내부 크기*/
+  margin: 15px; /*입력창 끼리의 거리*/
+}
+
+.LoginBtn button {
+  margin: 10px;  /*버튼 끼리의 거리*/
+  padding: 10px; /*버튼의 크기*/
+  font-size: 20px;
+  background-color: gray;
+}
+/*AppSongMainShow                                              */
+.linkStyle {
+  text-decoration: none;
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px;
+}
+
+.linkStyleDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  height: 160px;
+}
