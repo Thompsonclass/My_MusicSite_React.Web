@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ComponentSongAddBtn from '../Component_PlayList_AddBtn/ComponentSongAddBtn';
-import AppCssTopList from '../Component_MainFixed/AppCssTopList';
 
 function ComponentPlayListSongKind() {
   const [SongAddList, setSongAddList] = useState(['']);
@@ -37,7 +36,6 @@ function ComponentPlayListSongKind() {
 
   return (
     <div style={SongListBoxParent}>
-      <AppCssTopList /> 
       <ComponentSongAddBtn />
       {songTitles.map((data, index) => (
         <div key={index} style={{ ...SongListBox, background: SongAddList[index] }}>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {memo} from 'react';
 
-function AppCssLeftList() {
+const AppCssLeftList = memo(() => {
 
   const LeftList = {
     display: 'flex',
@@ -18,6 +18,6 @@ function AppCssLeftList() {
 
     </div>
   )
-}
+});
 
 export default AppCssLeftList;
