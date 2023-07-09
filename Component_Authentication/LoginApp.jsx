@@ -1,8 +1,8 @@
 import '../App.css';
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import JoinApp from './JoinApp';
 
-const LoginApp = (props) => {
+const LoginApp = memo((props) => {
   const [inputIdValue, setInputIdValue] = useState(''); //ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); //PW값 저장
   const [JoinShowValue, setJoinShowValue] = useState(false); //JoinApp component로 이동
@@ -18,7 +18,9 @@ const LoginApp = (props) => {
       const userTest = customerData[i]
       if (userTest.inputIdValue === inputIdValue && userTest.inputPassValue === inputPassValue) {
         alert(`성공적으로 로그인 되었습니다.`);
-        props.setAppSongMainShow(true);
+        console.log("id : " + userTest.inputIdValue)
+        console.log("pass : " + userTest.inputPassValue)
+        props.setAppSongMainShow(true); //메인 홈페이지 Show
       } else if (userTest.inputIdValue === inputIdValue || userTest.inputPassValue === inputPassValue) {
         return alert(`잘못 입력하였습니다.`);
       }
@@ -79,6 +81,7 @@ const LoginApp = (props) => {
     }
     </div>
     )
-}
+  }
+);
 
 export default LoginApp

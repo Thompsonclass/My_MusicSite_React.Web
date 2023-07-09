@@ -6,9 +6,9 @@ function AppSongFavoriteList() {
   }, []);
 
   return (
-    <div>
-
-    </div>
+    <>
+     <h1>다음은 원하는 노래 리스트 컴포넌트입니다.</h1>
+    </>
   );
 }
 

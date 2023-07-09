@@ -1,42 +1,33 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import AppCssLeftList from './Component_MainFixed/AppCssLeftList';
-import AppSongPlayList from './AppSongPlayList';
 import AppSongFavoriteList from './AppSongFavoriteList';
 
 const AppSongMainShow = () => {
   useEffect(() => {
-    document.title = '메인화면';
+    document.title = '홈페이지';
   });
 
   return (
     <>
-    <Router>
-      <div className='linkStyleDiv'>
-        <div>
-          <span>
-            <Link to="/playlist" className="linkStyle">
-              노래 목록
-            </Link>
-          </span>
-          <span>
+      <Router>
+        <div className='linkStyleDiv'>
+          <div className="linkContainer">
             <Link to="/favorites" className="linkStyle">
               즐겨찾기 목록
             </Link>
-          </span>
+          </div>
         </div>
         <div>
-          <Routes>
-            <Route path="/playlist" element={<AppSongPlayList />} />
-            <Route path="/favorites" element={<AppSongFavoriteList />} />
-          </Routes>
+            <Routes>
+              <Route path="/favorites" element={<AppSongFavoriteList />} />
+            </Routes>
         </div>
-      </div>
-    </Router>
-    <AppCssLeftList />
+      </Router>
+      <h1>AppSongPlayList</h1>
+      <h1>AppSongPlayer</h1>
     </>
   );
-};
+}
 
 export default AppSongMainShow;
 
