@@ -30,6 +30,3 @@ const AppSongMainShow = () => {
 }
 
 export default AppSongMainShow;
-
-//화면 간의 이동을 관리하기 위해 React Router를 사용
-//npm install react-router-dom
