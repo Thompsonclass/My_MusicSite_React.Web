@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoginApp from './Component_Authentication/LoginApp';
 import AppSongMainShow from './Component_Main/AppSongMainShow';
 
-function App() {
+const App = () => {
   const [appSongMainShow, setAppSongMainShow] = useState(false);
 
   return (
@@ -14,6 +14,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

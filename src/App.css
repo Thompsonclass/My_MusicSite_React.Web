@@ -23,21 +23,24 @@
     font-size: 20px;
     background-color: gray;
   }
-  
+
 /*AppSongMainShow*/
   .linkStyle {
     text-decoration: none;
-    color: #000;
+    color: black;
     font-size: 30px;
     font-weight: bold;
-    padding: 30px;
   }
-  
+
   .linkStyleDiv {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     background-color: lightgray;
     height: 160px;
+    padding: 10px;
   }
-  
+
+  .linkContainer {
+    margin-left: auto;
+  }
