@@ -17,8 +17,7 @@ function ComponentPlayListSongKind() {
   const SongListBox = { //리스트 크기 css
     display: "flex",
     justifyContent: "space-between", //양쪽 끝 정렬
-    padding: "10px",
-    margin: "10px",
+
     border: "2px solid black",
     flexdirection: "column",
     width: "450px",

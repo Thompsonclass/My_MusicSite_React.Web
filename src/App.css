@@ -25,22 +25,13 @@
   }
 
 /*AppSongMainShow*/
-  .linkStyle {
-    text-decoration: none;
+
+  .Title {
+    font-family: serif;
     color: black;
-    font-size: 30px;
-    font-weight: bold;
   }
 
-  .linkStyleDiv {
+  .SliderList {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    background-color: lightgray;
-    height: 160px;
-    padding: 10px;
-  }
-
-  .linkContainer {
-    margin-left: auto;
+    flex-direction: row;
   }
