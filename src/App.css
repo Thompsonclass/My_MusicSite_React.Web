@@ -29,9 +29,24 @@
   .Title {
     font-family: serif;
     color: black;
+    margin: 15px;
   }
 
   .SliderList {
     display: flex;
     flex-direction: row;
+  }
+
+  .songPlayer {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+  }
+
+  .volumeIcon {
+    padding: 30px;
+  }
+
+  .IconButton {
+    padding: 20px;
   }
