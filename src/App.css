@@ -24,7 +24,40 @@
     background-color: gray;
   }
 
+  /*슬라이드리스트*/
+
+  .SliderList {
+    display: flex;
+    flex-direction: row;
+  }
+
+  /*이미지*/
+
+  #img {
+    width: 30px;
+    height: 40px;
+  }
+
 /*AppSongMainShow*/
+
+  .songPlayer {
+    display: flex;
+    flex-direction: column; /*세로*/
+    margin: 20px;
+    background-color: rgb(226, 235, 243);
+    width: 400px;
+    padding: 10px;
+    border: solid 2px black;
+  }
+
+  .songMainTitle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .songMainTitle img {
+    margin-left: 10px;
+  }
 
   .Title {
     font-family: serif;
@@ -32,21 +65,15 @@
     margin: 15px;
   }
 
-  .SliderList {
-    display: flex;
-    flex-direction: row;
+
+  .songTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
   }
 
-  .songPlayer {
+  .songControl {
     display: flex;
     align-items: center;
-    margin: 30px;
-  }
-
-  .volumeIcon {
-    padding: 30px;
-  }
-
-  .IconButton {
-    padding: 20px;
+    flex-direction: row;
+    gap: 10px;
   }
