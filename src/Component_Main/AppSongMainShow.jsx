@@ -7,19 +7,8 @@ import AudioPlayer from 'react-audio-player';
 import SiderList from './SiderList';
 
 const AppSongMainShow = () => {
-  const [Playing, setPlaying] = useState(false); //재생,일시정지 버튼
   const [volume, setVolume] = useState(50);
   const audioRef = useRef(null);
-
-  const handlePlayPause = () => { //재생,일시정지 버튼
-    setPlaying(!Playing);
-  };
-
-  const handleVolumeChange = (_, newValue) => {
-    setVolume(newValue);
-    audioRef.current.audioEl.volume = newValue / 100;
-  };
-
 
   return (
     <Router>
@@ -31,35 +20,22 @@ const AppSongMainShow = () => {
       <Routes>
         <Route path="/page1" element={<AppSongFavoriteList />} />
       </Routes>
-      
+
       <div>
         <div className="songPlayer">
           <div className='songMainTitle'>
-            <h3 className="songTitle">[ Jazz_Happy ]</h3>
-            <img src="http://localhost:3000/songImages/jazzhappy.jpg" id="img" alt="Jazz Happy" />
+            <h3 className="songTitle">[ catch-it ]</h3>
+            <img src="/songImages/jazzhappy.jpg" id="img" alt="catch-it" />
           </div>
           <div className='songControl'>
-            <IconButton onClick={handlePlayPause}>
-              {Playing ? <Pause /> : <PlayArrow />} 
-            </IconButton>
-            <Slider
-              value={volume}
-              onChange={handleVolumeChange}
-              min={0}
-              max={100}
-              aria-labelledby="volume_slider"
-              className="volume-slider"
-              style={{ width: '150px' }}
-        />
-            <VolumeUp className="volumeIcon" />
-          </div> 
+          </div>
           <AudioPlayer
             ref={audioRef}
-            src="http://localhost:3000/songs/jazz-happy-110855.mp3"
+            src="/songs/catch-it-117676.mp3"
             volume={volume / 100}
             autoPlay={false}
-            controls={false}
-        />
+            controls={true}
+          />
         </div>
       </div>
     </Router>
