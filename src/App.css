@@ -40,6 +40,10 @@
 
 /*AppSongMainShow*/
 
+  .AppSongMainPlayer {
+    display: flex;
+  }
+
   .songPlayer {
     display: flex;
     flex-direction: column; /*세로*/
@@ -47,7 +51,8 @@
     background-color: rgb(226, 235, 243);
     width: 400px;
     padding: 10px;
-    border: solid 2px black;
+    height: 90px;
+    border: solid 2px lightblue;
   }
 
   .songMainTitle {
@@ -76,4 +81,10 @@
     align-items: center;
     flex-direction: row;
     gap: 10px;
+  }
+
+  /*AppSongPlayer*/
+ 
+  .AppSongPlayer {
+    margin: 10px;
   }
