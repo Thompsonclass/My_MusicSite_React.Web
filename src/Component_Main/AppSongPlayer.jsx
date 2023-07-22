@@ -17,9 +17,6 @@ const AppSongPlayer = (props) => {
     position: "absolute",
     top: "50%",
     left: "50%",
-    transform: "translate(-50%, -50%) rotate(0deg)", // 회전 시작 각도
-    animation: "spin 2s linear infinite", // 애니메이션
-    overflow: "hidden",
   };
 
   const imageStyle = {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AppSongFavoriteList from './AppSongFavoriteList';
 import AudioPlayer from 'react-audio-player';
@@ -7,13 +7,8 @@ import SiderList from './SiderList';
 import AppSongPlayer from './AppSongPlayer';
 
 const AppSongMainShow = () => {
-  const [Playing, setPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  const PlayingButton = () => {
-
-  }
-  
   return (
     <Router>
       <div className='SliderList'>
@@ -31,9 +26,6 @@ const AppSongMainShow = () => {
               <h3 className="songTitle">[ catch-it ]</h3>
               <img src="/songImages/jazzhappy.jpg" id="img" alt="catch-it" />
             </div>
-            <div className='songControl'>
-              <button onClick={PlayingButton}>{Playing ? 'Pause' : 'Play'}</button>
-            </div>
             <AudioPlayer
               ref={audioRef}
               src="/songs/catch-it-117676.mp3"
@@ -44,7 +36,7 @@ const AppSongMainShow = () => {
           </div>
         </div>
         <div className='AppSongPlayer'>
-          <AppSongPlayer Playing={Playing} />
+          <AppSongPlayer />
         </div>
       </div>
     </Router>
