@@ -13,11 +13,13 @@ const AppSongMainShow = () => {
   const [audioData, setAudioData] = useState([]);
 
   useEffect(() => {
-    // Express 서버에서 노래 데이터 가져오기
-    axios.get('/api/songs')
+    axios.get('http://localhost:3000/api/songs') // 주소
       .then((response) => {
         setAudioData(response.data);
       })
+      .catch((error) => { //에러시 알림
+        console.error(error);
+      });
   }, []);
 
   return (
@@ -37,7 +39,7 @@ const AppSongMainShow = () => {
               <h3 className="songTitle">[ catch-it ]</h3>
               <img src="/songImages/jazzhappy.jpg" id="img" alt="catch-it" />
             </div>
-            <AudioPlayer
+            <AudioPlayer //오디오 기능
               ref={audioRef}
               src="/songs/catch-it-117676.mp3"
               volume={50 / 100}
@@ -50,7 +52,7 @@ const AppSongMainShow = () => {
           <AppSongPlayer />
         </div>
       </div>
-      <ReactJkMusicPlayer
+      <ReactJkMusicPlayer //라이브러리
         audioLists={audioData}
         mode="full"
         showMiniModeCover={false}

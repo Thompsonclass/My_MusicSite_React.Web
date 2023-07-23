@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors'); // cors 패키지를 불러오기
+
+app.use(cors()); // 모든 라우트에 대해 CORS를 활성화
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -8,10 +11,10 @@ app.get('/api/songs', (_, res) => {
   const songsData = [
     {
       name: 'Catch It',
-      cover: '/public/songImages/jazzhappy.jpg',
-      musicSrc: '/public/songs/catch-it-117676.mp3',
+      cover: '/songImages/jazzhappy.jpg',
+      musicSrc: '/songs/catch-it-117676.mp3',
     },
-    // 다른 노래 데이터들도 추가
+    // 다른 노래 데이터 추가
   ];
 
   res.json(songsData);
