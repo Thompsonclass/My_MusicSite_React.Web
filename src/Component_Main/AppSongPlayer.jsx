@@ -37,7 +37,7 @@ const AppSongPlayer = () => {
       <div style={backgroundStyle}>
         <div style={cdStyle}>
           <img
-            src="/songImages/jazzhappy.jpg"
+            src="/songImages/catch_it.jpg"
             alt="CD"
             style={imageStyle}
           />

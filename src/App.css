@@ -1,3 +1,4 @@
+  /* 로그인 */
   .LoginApp {
     display: flex;
     flex-direction: column; /*아이템 정렬 방향 변경*/
@@ -43,6 +44,8 @@
     display: flex;
   }
 
+  /*AppSOngPlayList*/
+
   .songPlayer {
     display: flex;
     flex-direction: column; /*세로*/
@@ -50,7 +53,7 @@
     width: 400px;
     padding: 10px;
     margin: 10px;
-    height: 90px;
+    height: 100px;
     border: solid 2px lightblue;
   }
 
@@ -73,11 +76,4 @@
   .songTitle {
     font-size: 20px;
     margin-bottom: 10px;
-  }
-
-  .songControl {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 10px;
   }
