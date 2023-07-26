@@ -1,5 +1,5 @@
 import React from 'react';
-import hedsetImage from './hedset.jpg';
+import hedsetImage from './hedsetImg.jpg';
 
 const AppSongPlayer = () => {
   const backgroundStyle = {

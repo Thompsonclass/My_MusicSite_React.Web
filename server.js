@@ -7,21 +7,24 @@ app.use(cors()); // 모든 라우트에 대해 CORS를 활성화
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api/songs', (_, res) => {
+app.get('/api/songs', (_, res) => { //주소
   const songsData = [
     {
-      name: 'Catch It',
-      cover: '/songImages/catch_it.jpg',
+      title: 'Catch It',
+      name_sources:'Music_for_Videos',
+      jpg: '/songImages/catch_it.jpg',
       musicSrc: '/songs/catch-it-117676.mp3',
     },
     {
-      name: 'fun times together',
-      cover: '/songImages/funtimestogether.jpg',
+      tilte: 'fun times together',
+      name_sources:'Musictown',
+      jpg: '/songImages/funtimestogether.jpg',
       musicSrc: '/songs/fun-times-together-112809.mp3',
     },
     {
-      name: 'happy cooking show',
-      cover: '/songImages/happycookingshow.jpg',
+      title: 'happy cooking show',
+      name_sources:'Music_for_Videos',
+      jpg: '/songImages/happycookingshow.jpg',
       musicSrc: '/songs/happy-cooking-show-111370.mp3',
     },
     // 다른 노래 데이터 추가
