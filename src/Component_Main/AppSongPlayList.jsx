@@ -1,11 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AudioPlayer from 'react-audio-player';
 import axios from 'axios'; // axios 추가
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 
 const AppSongPlayList = () => {
-  const audioRef = useRef(null);
   const [audioData, setAudioData] = useState([]);
 
   useEffect(() => {
@@ -18,35 +17,39 @@ const AppSongPlayList = () => {
       });
   }, []);
 
-  console.log(audioData) // 노래 리스트를 제대로 불러왔는지 확인
+  console.log(audioData); // 노래 리스트를 제대로 불러왔는지 확인
+
+  const audioLists = audioData.map((song) => ({
+    name: song.name, // 제목
+    singer: song.singer, // 출처
+    cover: song.cover, // 이미지
+    musicSrc: song.musicSrc, // 노래
+  }));
 
   return (
-    <> 
-      <div>
-        {audioData.map((song) => (
-          <div className="songPlayer">
-            <div className='songMainTitle'>
-              <h3 className="songTitle"> {song.title} / {song.name_sources} </h3>
-              <img src= {song.jpg} id="img" alt = {song.title} />
-            </div>
-            <AudioPlayer // 오디오 기능
-              ref={audioRef}
-              src={song.musicSrc}
-              volume={50 / 100}
-              autoPlay={false}
-              controls={true}
+    <div>
+      {audioLists.map((song) => (
+        <div key={song.name} className="songPlayer">
+          <div className='songMainTitle'>
+            <h3 className="songTitle"> {song.name} / {song.singer} </h3>
+            <img src={song.cover} id="img" alt={song.name} />
+          </div>
+          <AudioPlayer // 오디오 기능
+            src={song.musicSrc}
+            volume={50 / 100}
+            autoPlay={false}
+            controls={true}
           />
         </div>
       ))}
-        <ReactJkMusicPlayer //라이브러리
-          audioLists={audioData}
-          mode="full"
-          showMiniModeCover={false}
-          autoPlay={false}
-        />
-      </div>
-    </>
-  )
+      <ReactJkMusicPlayer //라이브러리
+        audioLists={audioLists} 
+        mode="full"
+        showMiniModeCover={false}
+        autoPlay={false}
+      />
+    </div>
+  );
 }
 
-export default AppSongPlayList
+export default AppSongPlayList;
