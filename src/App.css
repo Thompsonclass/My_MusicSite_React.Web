@@ -26,7 +26,7 @@
 
   /*슬라이드리스트*/
 
-  .SliderList {
+  .AppSongMainTitle {
     display: flex;
     flex-direction: row;
   }

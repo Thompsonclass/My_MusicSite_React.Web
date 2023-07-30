@@ -9,11 +9,11 @@ const AppSongMainShow = () => {
 
   return (
     <Router>
-      <div className='SliderList'>
+      <div className='AppSongMainTitle'>
         <SiderList />
         <h1 className='Title'>Music Play App</h1>
       </div>
-          <hr />
+      <hr />
       <Routes>
         <Route path="/page1" element={<AppSongFavoriteList />} />
       </Routes>
