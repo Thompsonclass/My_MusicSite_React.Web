@@ -27,6 +27,9 @@ const SiderList = () => {
       <Drawer anchor="left" open={Open} onClose={toggleDrawer} className={classes.drawer}>
         <div className={classes.drawer} onClick={toggleDrawer} onKeyDown={toggleDrawer}>
           <List>
+            <ListItem button component={Link} to="/home">
+              <ListItemText primary="Home" /> 
+            </ListItem>
             <ListItem button component={Link} to="/page1">
               <ListItemText primary="Favorites list" /> 
             </ListItem>

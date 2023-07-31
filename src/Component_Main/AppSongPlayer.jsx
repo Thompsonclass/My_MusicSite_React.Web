@@ -1,7 +1,7 @@
 import React from 'react';
 import hedsetImage from './hedsetImg.jpg';
 
-const AppSongPlayer = () => {
+const AppSongPlayer = ({ imageSrc }) => {
   const backgroundStyle = {
     backgroundImage: `url(${hedsetImage})`,
     backgroundSize: 'cover', 
