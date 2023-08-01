@@ -1,39 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AppSongFavoriteList from './AppSongFavoriteList';
-import AppSongPlayList from './AppSongPlayList';
-import SiderList from './SiderList';
-import AppSongPlayer from './AppSongPlayer';
+import AppSongMainShowBgm from './Component_PlayList_MainSong/AppSongMainShowBgm';
+import AppSongPlayListSongKind from './Component_PlayList_SongKind/AppSongPlayListSongKind';
+import SiderList from './Component_SiderList/SiderList';
 
 const AppSongMainShow = () => {
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [audioLists, setAudioLists] = useState([]); // 노래 리스트 상태 추가
 
-  const handleAudioChange = (currentPlayId, audioLists, _) => {
-    const currentIndex = audioLists.findIndex((item) => item.id === currentPlayId);
-    setCurrentSongIndex(currentIndex);
-  };
+  useEffect(() => {
+      document.title = "음악 플레이어"
+    }, []);
 
   return (
-    <Router>
-      <div className='AppSongMainTitle'>
-        <SiderList />
-        <h1 className='Title'>Music Play App</h1>
-      </div>
-      <hr />
-      <Routes>
-        <Route path="/page1" element={<AppSongFavoriteList />} />
-      </Routes>
-      <div className='AppSongMainPlayer'>
-        <AppSongPlayList 
-          onAudioChange={handleAudioChange} // onAudioChange 이벤트 핸들러 전달
-          setAudioLists={setAudioLists} // 노래 리스트 업데이트 함수 전달
-        />
-        <div>
-          <AppSongPlayer  imageSrc={audioLists[currentSongIndex]?.cover}/> 
+      <Router>
+        <div className='AppSongMainTitle'>
+          <SiderList />
+          <h1 className='Title'>Music Play App</h1>
         </div>
-      </div>
-    </Router>
+        <hr />
+        <Routes>
+          <Route path="/page1" element={<AppSongMainShowBgm />} />
+          <Route path="/page2" element={<AppSongPlayListSongKind />} />
+        </Routes>
+      </Router> 
   );
 }
 
