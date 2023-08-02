@@ -33,6 +33,7 @@ function AppSongPlayListSongKind() {
   ];
 
   return (
+    <React.Fragment>
     <div style={SongListBoxParent}>
       {songTitles.map((data, index) => (
         <div key={index} style={{ ...SongListBox, background: SongAddList[index] }}>
@@ -41,6 +42,7 @@ function AppSongPlayListSongKind() {
         </div>
       ))}
     </div>
+    </React.Fragment>
   );
 }
 

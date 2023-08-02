@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LoginApp from './Component_Authentication/LoginApp';
-import AppSongMainShow from './Component_Main/AppSongMainShow';
+import AppSongMainHome from './Component_Main/AppSongMainHome';
 
 const App = () => {
   const [appSongMainShow, setAppSongMainShow] = useState(false);
@@ -10,7 +10,7 @@ const App = () => {
       {!appSongMainShow ? (
         <div><LoginApp setAppSongMainShow={setAppSongMainShow} /></div>
       ) : (
-        <div><AppSongMainShow /></div>
+        <div><AppSongMainHome /></div>
       )}
     </div>
   );

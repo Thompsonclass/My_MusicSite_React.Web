@@ -5,10 +5,9 @@ import AppSongPlayListSongKind from './Component_PlayList_SongKind/AppSongPlayLi
 import SiderList from './Component_SiderList/SiderList';
 
 const AppSongMainShow = () => {
-
   useEffect(() => {
-      document.title = "음악 플레이어"
-    }, []);
+    document.title = "음악 플레이어";
+  }, []);
 
   return (
       <Router>
@@ -21,7 +20,7 @@ const AppSongMainShow = () => {
           <Route path="/page1" element={<AppSongMainShowBgm />} />
           <Route path="/page2" element={<AppSongPlayListSongKind />} />
         </Routes>
-      </Router> 
+      </Router>
   );
 }
 
