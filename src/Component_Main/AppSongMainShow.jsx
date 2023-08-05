@@ -17,8 +17,8 @@ const AppSongMainShow = () => {
         </div>
         <hr />
         <Routes>
-          <Route path="/page1" element={<AppSongMainShowBgm />} />
-          <Route path="/page2" element={<AppSongPlayListSongKind />} />
+          <Route path="/Music_BGM" element={<AppSongMainShowBgm />} />
+          <Route path="/Music_player_main" element={<AppSongPlayListSongKind />} />
         </Routes>
       </Router>
   );

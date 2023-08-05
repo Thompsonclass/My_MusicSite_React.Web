@@ -1,8 +1,11 @@
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import JoinApp from './JoinApp';
 
-const LoginApp = memo((props) => {
+
+const LoginApp = memo(() => {
+  const navigate = useNavigate();
   const [inputIdValue, setInputIdValue] = useState(''); //ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); //PW값 저장
   const [JoinShowValue, setJoinShowValue] = useState(false); //JoinApp component로 이동
@@ -20,7 +23,9 @@ const LoginApp = memo((props) => {
         alert(`성공적으로 로그인 되었습니다.`);
         console.log("id : " + userTest.inputIdValue)
         console.log("pass : " + userTest.inputPassValue)
-        props.setAppSongMainShow(true); //메인 홈페이지 Show
+
+        navigate('/Music_player_main');
+
       } else if (userTest.inputIdValue === inputIdValue || userTest.inputPassValue === inputPassValue) {
         return alert(`잘못 입력하였습니다.`);
       }
@@ -29,7 +34,7 @@ const LoginApp = memo((props) => {
   
 
 
-    const onJoin = (data) => {
+    const onJoin = (data) => { //회원가입 가입 로직
       setcustomerData([...customerData, data]); //저장
       if(data.inputIdValue === inputIdValue || data.inputPassValue === inputPassValue) {
         alert(`잘 못 입력하였습니다.`)

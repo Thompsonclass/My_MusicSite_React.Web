@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import LoginApp from './Component_Authentication/LoginApp';
 import AppSongMainHome from './Component_Main/AppSongMainHome';
 
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={LoginApp} />
-        <Route path="/main" component={AppSongMainHome} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<LoginApp />} />
+        <Route path="/Music_player_main" element={<AppSongMainHome />} />
+      </Routes>
     </Router>
   );
 };
