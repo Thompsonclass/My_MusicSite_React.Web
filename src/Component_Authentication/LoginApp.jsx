@@ -21,15 +21,15 @@ const LoginApp = memo(() => {
       const userTest = customerData[i]
       if (userTest.inputIdValue === inputIdValue && userTest.inputPassValue === inputPassValue) {
         alert(`성공적으로 로그인 되었습니다.`);
-        console.log("id : " + userTest.inputIdValue)
-        console.log("pass : " + userTest.inputPassValue)
-
-        navigate('/Music_player_main');
-
+        console.log("id : " + userTest.inputIdValue);
+        console.log("pass : " + userTest.inputPassValue);
+  
+        navigate('/main'); // 라우팅 처리
+  
       } else if (userTest.inputIdValue === inputIdValue || userTest.inputPassValue === inputPassValue) {
         return alert(`잘못 입력하였습니다.`);
       }
-    }
+    };
   } 
   
 
@@ -89,4 +89,4 @@ const LoginApp = memo(() => {
   }
 );
 
-export default LoginApp
+export default LoginApp;
