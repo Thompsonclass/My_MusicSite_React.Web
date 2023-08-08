@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginApp from './Component_Authentication/LoginApp';
-import AppSongMainShow from './AppSongMainShow';
+import AppSongMainHome from './Component_Main/AppSongMainHome';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginApp />} /> 
-        <Route path="/main/*" element={<AppSongMainShow />} />
+        <Route exact path="/" element={<LoginApp />} /> 
+        <Route path="/main" element={<AppSongMainHome />} />
       </Routes>
     </Router>
   );
