@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AppSongMainShowBgm from './Component_PlayList_MainSong/AppSongMainShowBgm';
 import AppSongPlayListSongKind from './Component_PlayList_SongKind/AppSongPlayListSongKind';
 import SiderList from './Component_SiderList/SiderList';
@@ -17,8 +17,8 @@ const AppSongMainShow = () => {
       </div>
       <hr />
       <Routes>
-        <Route path="Music_BGM" element={<AppSongMainShowBgm />} />
-        <Route path="Music_player_main" element={<AppSongPlayListSongKind />} />
+        <Route path="/main/Music_BGM" element={<AppSongMainShowBgm />} />
+        <Route path="/main/Music_player_main" element={<AppSongPlayListSongKind />} />
       </Routes>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SiderList from '../Component_SiderList/SiderList';
 
 function AppSongPlayListSongKind() {
   const [SongAddList, setSongAddList] = useState(['']);
@@ -33,6 +34,12 @@ function AppSongPlayListSongKind() {
   ];
 
   return (
+    <>
+      <div className='AppSongMainTitle'>
+        <SiderList />
+        <h1 className='Title'>Music Play App</h1>
+      </div>
+      <hr />
     <React.Fragment>
     <div style={SongListBoxParent}>
       {songTitles.map((data, index) => (
@@ -43,6 +50,7 @@ function AppSongPlayListSongKind() {
       ))}
     </div>
     </React.Fragment>
+  </>
   );
 }
 

@@ -27,10 +27,10 @@ const SiderList = () => {
       <Drawer anchor="left" open={Open} onClose={toggleDrawer} className={classes.drawer}>
         <div className={classes.drawer} onClick={toggleDrawer} onKeyDown={toggleDrawer}>
           <List>
-            <ListItem button component={Link} to="/page1">
+            <ListItem button component={Link} to="/main/Music_BGM">
               <ListItemText primary="BGM 노래" /> 
             </ListItem>
-            <ListItem button component={Link} to="/page2">
+            <ListItem button component={Link} to="/main/Music_player_main">
               <ListItemText primary="모든 노래" /> 
             </ListItem>
           </List>

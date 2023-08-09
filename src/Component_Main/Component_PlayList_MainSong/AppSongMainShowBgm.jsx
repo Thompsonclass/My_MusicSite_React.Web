@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AppSongPlayer from './AppSongPlayer';
 import AppSongPlayList from './AppSongPlayList';
+import SiderList from '../Component_SiderList/SiderList';
 
 function AppSongMainShowBgm() {
     const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -12,7 +13,12 @@ function AppSongMainShowBgm() {
     };
 
   return (
-
+  <>
+    <div className='AppSongMainTitle'>
+      <SiderList />
+      <h1 className='Title'>Music Play App</h1>
+    </div>
+    <hr />
       <div className='AppSongMainPlayer'>
       <AppSongPlayList 
         onAudioChange={handleAudioChange} // onAudioChange 이벤트 핸들러 전달
@@ -22,7 +28,7 @@ function AppSongMainShowBgm() {
         <AppSongPlayer  imageSrc={audioLists[currentSongIndex]?.cover}/> 
       </div>
     </div>
-
+  </>
   )
 }
 
