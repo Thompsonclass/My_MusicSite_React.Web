@@ -4,6 +4,7 @@ import axios from 'axios'; // axios 추가
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
+import useGlobalStateContext  from '../../Component_GlobalState/GlobalStateContent';
 
 const SongPlayer = styled.div`
   display: flex;
@@ -33,15 +34,15 @@ const SongImg = styled.img`
 `;
 
 const AppSongPlayList = () => {
-  const [audioData, setAudioData] = useState([]);
+  const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/songs') // 주소
-      .then((response) => {
-        setAudioData(response.data);
+    axios.get('http://localhost:3000/api/songs') // API 엔드포인트 주소
+      .then((response) => { 
+        setAudioData(response.data); // 서버에서 받아온 데이터로 상태 업데이트
       })
       .catch((error) => { //에러시 알림
-        console.error(error);
+        console.error(error); // 에러 메시지를 콘솔에 출력
       });
   }, []);
 

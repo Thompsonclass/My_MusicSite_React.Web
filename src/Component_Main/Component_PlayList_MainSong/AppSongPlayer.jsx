@@ -21,6 +21,7 @@ const CdStyled = styled.div`
   height: 300px;
   border-radius: 50%;
   overflow: hidden;
+  
 `;
 
 const BgmStyled = styled.div`
@@ -48,12 +49,12 @@ const BgmImage = styled.img`
 const AppSongPlayer = ({ imageSrc }) => {
   return (
     <>
-      <BackgroundStyled className="backgroundStyle">
+      <BackgroundStyled >
         <div>
-          <CdStyled className="cdStyle">
+          <CdStyled >
             <CdImage src={binly} alt="CD" />
           </CdStyled>
-          <BgmStyled className="bgmStyle">
+          <BgmStyled>
             <BgmImage src={bgm} alt="BGM" />
           </BgmStyled>
         </div>
