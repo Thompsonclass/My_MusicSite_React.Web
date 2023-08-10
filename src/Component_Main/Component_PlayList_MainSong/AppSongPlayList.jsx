@@ -3,6 +3,34 @@ import AudioPlayer from 'react-audio-player';
 import axios from 'axios'; // axios 추가
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
+import styled from 'styled-components';
+
+const SongPlayer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(226, 235, 243);
+  width: 400px;
+  padding: 10px;
+  margin: 10px;
+  height: 110px;
+  border: solid 2px lightblue;
+`;
+
+const SongMainTitle = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const SongTitle = styled.h3`
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
+
+const SongImg = styled.img`
+  width: 30px;
+  height: 40px;
+  margin-left: 10px;
+`;
 
 const AppSongPlayList = () => {
   const [audioData, setAudioData] = useState([]);
@@ -29,21 +57,21 @@ const AppSongPlayList = () => {
   return (
     <div>
       {audioLists.map((song) => (
-        <div key={song.name} className="songPlayer">
-          <div className='songMainTitle'>
-            <h3 className="songTitle"> {song.name} / {song.singer} </h3>
-            <img src={song.cover} id="img" alt={song.name} />
-          </div>
+        <SongPlayer key={song.name}>
+          <SongMainTitle>
+            <SongTitle> {song.name} / {song.singer} </SongTitle>
+            <SongImg src={song.cover} alt={song.name} />
+          </SongMainTitle>
           <AudioPlayer // 오디오 기능
             src={song.musicSrc}
             volume={50 / 100}
             autoPlay={false}
             controls={true}
           />
-        </div>
+        </SongPlayer>
       ))}
       <ReactJkMusicPlayer //라이브러리
-        audioLists={audioLists} 
+        audioLists={audioLists}
         mode="full"
         showMiniModeCover={false}
         autoPlay={false}

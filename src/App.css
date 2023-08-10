@@ -1,4 +1,5 @@
   /* 로그인 */
+  
   .LoginApp {
     display: flex;
     flex-direction: column; /*아이템 정렬 방향 변경*/
@@ -22,58 +23,4 @@
     padding: 10px; /*버튼의 크기*/
     font-size: 20px;
     background-color: gray;
-  }
-
-  /*슬라이드리스트*/
-
-  .AppSongMainTitle {
-    display: flex;
-    flex-direction: row;
-  }
-
-  /*이미지*/
-
-  #img {
-    width: 30px;
-    height: 40px;
-  }
-
-  /*AppSongMainShow*/
-
-  .AppSongMainPlayer {
-    display: flex;
-  }
-
-  /*AppSOngPlayList*/
-
-  .songPlayer {
-    display: flex;
-    flex-direction: column; /*세로*/
-    background-color: rgb(226, 235, 243);
-    width: 400px;
-    padding: 10px;
-    margin: 10px;
-    height: 110px;
-    border: solid 2px lightblue;
-  }
-
-  .songMainTitle {
-    display: flex;
-    align-items: center;
-  }
-  
-  .songMainTitle img {
-    margin-left: 10px;
-  }
-
-  .Title {
-    font-family: serif;
-    color: black;
-    margin: 15px;
-  }
-
-
-  .songTitle {
-    font-size: 18px;
-    margin-bottom: 10px;
   }

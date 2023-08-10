@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SiderList from '../Component_SiderList/SiderList';
+import AppSongMainTitle from '../../Component_Title/AppSongMainTitle'; // 메인화면 제목
 
 function AppSongPlayListSongKind() {
   const [SongAddList, setSongAddList] = useState(['']);
@@ -35,21 +35,17 @@ function AppSongPlayListSongKind() {
 
   return (
     <>
-      <div className='AppSongMainTitle'>
-        <SiderList />
-        <h1 className='Title'>Music Play App</h1>
+      <AppSongMainTitle />
+      <React.Fragment>
+      <div style={SongListBoxParent}>
+        {songTitles.map((data, index) => (
+          <div key={index} style={{ ...SongListBox, background: SongAddList[index] }}>
+            {data}
+            <button onClick={() => AddSonglist(index)}>추가</button>
+          </div>
+        ))}
       </div>
-      <hr />
-    <React.Fragment>
-    <div style={SongListBoxParent}>
-      {songTitles.map((data, index) => (
-        <div key={index} style={{ ...SongListBox, background: SongAddList[index] }}>
-          {data}
-          <button onClick={() => AddSonglist(index)}>추가</button>
-        </div>
-      ))}
-    </div>
-    </React.Fragment>
+      </React.Fragment>
   </>
   );
 }
