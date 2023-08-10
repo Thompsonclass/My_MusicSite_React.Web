@@ -3,7 +3,6 @@ import AppSongPlayer from './AppSongPlayer';
 import AppSongPlayList from './AppSongPlayList';
 import AppSongMainTitle from '../../Component_Title/AppSongMainTitle'; // 메인화면 제목
 import styled from 'styled-components';
-import useGlobalStateContext from '../../Component_GlobalState/GlobalStateContent';
 
 function AppSongMainShowBgm() {
 
