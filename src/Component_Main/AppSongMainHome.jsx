@@ -11,6 +11,7 @@ const AppSongMainHome = () => {
     <div>
       <AppSongMainShow />
       <h1>메인화면 입니다.</h1>
+      <h1>24시간 지원되는 화면입니다.</h1>
     </div>
   );
 }
