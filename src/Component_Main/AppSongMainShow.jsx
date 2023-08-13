@@ -11,7 +11,7 @@ const AppSongMainShow = () => {
 
   return (
     <>
-      <AppSongMainTitle />
+      <AppSongMainTitle /> {/* 메인화면 제목 컴포넌트 */}
       <Routes>
         <Route path="/main/Music_BGM" element={<AppSongMainShowBgm />} />
         <Route path="/main/Music_player_main" element={<AppSongPlayListSongKind />} />

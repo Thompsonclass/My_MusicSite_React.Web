@@ -7,21 +7,17 @@ import styled from 'styled-components';
 function AppSongMainShowBgm() {
 
   const MainContainer = styled.div`
-    display: flex;
-    flex-direction: row;
+    position: absolute;
+    top: 33%;
+    height: 100vh;
   `;
 
   return (
     <>
       <AppSongMainTitle />
+      <AppSongPlayer />
       <MainContainer>
-        <div>
-          <AppSongPlayList 
-          />
-        </div>
-        <div>
-          <AppSongPlayer />
-        </div>
+          <AppSongPlayList />
       </MainContainer>
     </>
   );

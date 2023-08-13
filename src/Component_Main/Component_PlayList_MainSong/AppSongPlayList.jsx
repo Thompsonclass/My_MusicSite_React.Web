@@ -4,7 +4,6 @@ import axios from 'axios'; // axios 추가
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
-import  useGlobalStateContext  from '../../Component_GlobalState/GlobalStateContent';
 
 const SongPlayer = styled.div`
   display: flex;
