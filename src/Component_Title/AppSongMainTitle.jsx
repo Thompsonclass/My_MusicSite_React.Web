@@ -17,7 +17,7 @@ const Title = styled.h1`
 
 const Solid = styled.hr`
   width: 100%;
-  border-top: 1px solid black;
+  border-top: 2px solid black;
 `;
 
   return (

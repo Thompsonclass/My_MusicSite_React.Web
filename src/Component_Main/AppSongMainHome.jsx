@@ -105,7 +105,7 @@ const AppSongMainHome = () => {
         <p>음악의 환상적인 세계로 여행하며,</p>
         <p>소중한 순간을 더욱 특별하게 만들어줄 음악들을 함께 하세요.</p>
         <Musicimg src={mainhomeimg1} alt="music" />
-        <hr />
+      <hr style={{border :"1px solid black"}}/>
       </animated.div>
       <animated.div style={intro_1Props} id="intro_1">
         <h3 style={{color:'brown'}}>Feel the Symphony of Sound</h3>
@@ -116,8 +116,8 @@ const AppSongMainHome = () => {
         <li>각 음표와 곡이 여러분을 특별한 순간으로 안내해 드릴 것입니다.</li>
         <li>음악의 힘으로 여러분의 순간들을 더욱 특별하게 만들어보세요.</li>
         <Musicimg src={mainhomeimg2} alt="music" />
-        <hr />
       </animated.div>
+      <hr style={{border :"1px solid black"}}/>
       <animated.div style={intro_2Props} id="intro_2">
         <h3 style={{color:'brown'}}>Experience the Utopia of Melody</h3>
         <p>감정의 캔버스 위에 각 음표가 붓질을 하는 소리의 세계로 들어오세요.</p>
