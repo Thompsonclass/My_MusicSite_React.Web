@@ -15,7 +15,7 @@ const MusicMainimg = styled.div`
 
 const MainHomeWrapper = styled.div`
   width: 100%;
-  height: 500vh;
+  height: 450vh;
 `;
 
 const Musicimg = styled.img`
@@ -59,7 +59,7 @@ const AppSongMainHome = () => {
     if (section) {
       const sectionPosition = section.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
-      setShowState(sectionPosition < windowHeight * 0.90);
+      setShowState(sectionPosition < windowHeight * 0.70);
     }
   };
 
@@ -134,9 +134,12 @@ const AppSongMainHome = () => {
       <div style={{ textAlign: 'center', margin: '2rem 0' }}>
         <h2>우리와 함께 음악의 여정을 시작해보세요</h2>
         <p>앱을 다운로드하고 멜로디와 리듬의 세계에 빠져보세요.</p>
-        <button style={{ padding: '10px 20px', fontSize: '18px', fontWeight: 'bold', borderRadius: '5px', background: 'brown', color: 'white', border: 'none', cursor: 'pointer' }}>
+        <a href="http://localhost:3001/main/Music_BGM" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        <button style={{ padding: '10px 20px', fontSize: '18px', fontWeight: 'bold', borderRadius: '5px',
+          background: 'brown', color: 'white', border: 'none', cursor: 'pointer' }}>
           시작하기
         </button>
+        </a>
       </div>
     </MainHomeWrapper>
     </MusicMainimg>
