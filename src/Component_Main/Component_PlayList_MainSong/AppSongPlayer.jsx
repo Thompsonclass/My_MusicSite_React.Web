@@ -37,7 +37,7 @@ const BgmStyled = styled.div`
   left: 8%;
   transform: translate(-50%, -50%);
   width: 200px;
-  height: 190px;
+  height: 180px;
   border-radius: 50%;
 `;
 

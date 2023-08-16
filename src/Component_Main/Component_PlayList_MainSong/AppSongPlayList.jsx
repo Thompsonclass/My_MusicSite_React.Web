@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import AudioPlayer from 'react-audio-player';
 import axios from 'axios'; // axios 추가
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
+import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay'
+import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 
 const SongPlayer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
   background-color: rgb(226, 235, 243);
-  width: 400px;
+  width: 1850px;
   padding: 10px;
   margin: 10px;
-  height: 110px;
+  height: 200px;
   border: solid 2px lightblue;
 `;
 
@@ -32,8 +34,14 @@ const SongImg = styled.img`
   margin-left: 10px;
 `;
 
+const Spectrum = styled.div`
+  width: 900px;
+`;
+
 const AppSongPlayList = () => {
   const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
+  const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
+
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/songs') // API 엔드포인트 주소
@@ -54,20 +62,23 @@ const AppSongPlayList = () => {
     musicSrc: song.musicSrc, // 노래
   }));
 
+  const playSelectedTrack = (index) => {
+    setTrackIndex(index); // 해당 노래 위치, 초기값 0
+    setPlaying(!playing); // playing 초기값 false
+  };
+
   return (
     <div>
-      {audioLists.map((song) => (
+      {audioLists.map((song, index) => (
         <SongPlayer key={song.name}>
           <SongMainTitle>
             <SongTitle> {song.name} / {song.singer} </SongTitle>
             <SongImg src={song.cover} alt={song.name} />
           </SongMainTitle>
-          <AudioPlayer // 오디오 기능
-            src={song.musicSrc}
-            volume={50 / 100}
-            autoPlay={false}
-            controls={true}
-          />
+          <button onClick={() => playSelectedTrack(index)}>Play</button>
+          <Spectrum>
+            <MusicSpectrum />
+          </Spectrum>
         </SongPlayer>
       ))}
       <ReactJkMusicPlayer //라이브러리
