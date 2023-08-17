@@ -76,9 +76,6 @@ const AppSongPlayList = () => {
             <SongImg src={song.cover} alt={song.name} />
           </SongMainTitle>
           <button onClick={() => playSelectedTrack(index)}>Play</button>
-          <Spectrum>
-            <MusicSpectrum />
-          </Spectrum>
         </SongPlayer>
       ))}
       <ReactJkMusicPlayer //라이브러리

@@ -2,6 +2,7 @@ import React from 'react';
 import binly from './binly.jpg';
 import bgm from './bgm.jpg';
 import styled, { keyframes } from 'styled-components';
+import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay'
 
 const BackgroundStyled = styled.div`
   width: 1870px;
@@ -51,6 +52,14 @@ const BgmImage = styled.img`
   height: 100%;
 `;
 
+
+const Spectrum = styled.div`
+  position: absolute;
+  top: 10%;
+  left: 26%;
+  width: 1000px;
+`;
+
 const AppSongPlayer = () => {
   return (
     <>
@@ -62,6 +71,11 @@ const AppSongPlayer = () => {
           <BgmStyled>
             <BgmImage src={bgm} alt="BGM" />
           </BgmStyled>
+        </div>
+        <div>
+          <Spectrum>
+            <MusicSpectrum />
+          </Spectrum>
         </div>
       </BackgroundStyled>
     </>
