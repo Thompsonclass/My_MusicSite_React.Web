@@ -56,7 +56,7 @@ const BgmImage = styled.img`
 const Spectrum = styled.div`
   position: absolute;
   top: 10%;
-  left: 26%;
+  left: 20%;
   width: 1000px;
 `;
 

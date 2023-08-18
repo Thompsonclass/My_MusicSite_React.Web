@@ -3,7 +3,6 @@ import axios from 'axios'; // axios 추가
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
-import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay'
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 
 const SongPlayer = styled.div`
@@ -14,7 +13,7 @@ const SongPlayer = styled.div`
   width: 1850px;
   padding: 10px;
   margin: 10px;
-  height: 200px;
+  height: 100px;
   border: solid 2px lightblue;
 `;
 
@@ -34,9 +33,17 @@ const SongImg = styled.img`
   margin-left: 10px;
 `;
 
-const Spectrum = styled.div`
-  width: 900px;
-`;
+const StyledButton = styled.button`
+  padding: 10px 30px;
+  margin: 20px;
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: lightblue;
+  }
+`
 
 const AppSongPlayList = () => {
   const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
@@ -75,7 +82,7 @@ const AppSongPlayList = () => {
             <SongTitle> {song.name} / {song.singer} </SongTitle>
             <SongImg src={song.cover} alt={song.name} />
           </SongMainTitle>
-          <button onClick={() => playSelectedTrack(index)}>Play</button>
+          <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton>
         </SongPlayer>
       ))}
       <ReactJkMusicPlayer //라이브러리
