@@ -1,14 +1,14 @@
 import React from 'react';
-import binly from './binly.jpg';
-import bgm from './bgm.jpg';
+import binly from '../../songHomeImg/binly.jpg'
+import bgm from  '../../songHomeImg/bgm.jpg'
 import styled, { keyframes } from 'styled-components';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay'
 
 const BackgroundStyled = styled.div`
-  width: 1870px;
-  height: 200px;
+  width: 1830px;
+  height: 195px;
   margin: 10px;
-  border: solid 2px lightblue;
+  border: 2px solid black;
 `;
 
 const spinAnimation = keyframes` 
@@ -22,11 +22,11 @@ const spinAnimation = keyframes`
 
 const CdStyled = styled.div`
   position: absolute;
-  top: 10%;
-  left: 11%;
+  top: 13%;
+  left: 10%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   overflow: hidden;
   animation: ${spinAnimation} 4.5s linear infinite;
@@ -34,11 +34,11 @@ const CdStyled = styled.div`
 
 const BgmStyled = styled.div`
   position: absolute;
-  top: 20%;
-  left: 8%;
+  top: 23%;
+  left: 7%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 180px;
+  width: 223px;
+  height: 196px;
   border-radius: 50%;
 `;
 
@@ -55,7 +55,7 @@ const BgmImage = styled.img`
 
 const Spectrum = styled.div`
   position: absolute;
-  top: 10%;
+  top: 12%;
   left: 20%;
   width: 1000px;
 `;

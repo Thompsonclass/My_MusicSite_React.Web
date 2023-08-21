@@ -1,6 +1,10 @@
   /* 로그인 */
   
   .LoginApp {
+    position: absolute;
+    top: 50%; /* 세로 위치를 화면 중앙으로 이동 */
+    left: 50%; /* 가로 위치를 화면 중앙으로 이동 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 트랜스폼 */
     display: flex;
     flex-direction: column; /*아이템 정렬 방향 변경*/
     align-items: center; /*아이템 정렬 방향 가운데 변경*/
@@ -36,3 +40,6 @@
     font-size: 16px;
   }
 
+  .LoginBtn button:hover {
+    background-color: lightblue;
+  }

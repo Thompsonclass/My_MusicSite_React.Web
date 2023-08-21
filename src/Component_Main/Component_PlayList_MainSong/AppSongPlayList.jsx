@@ -6,34 +6,36 @@ import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 
 const SongPlayer = styled.div`
+  color: white;
   display: flex; 
   flex-direction: row;
   align-items: center;
-  background-color: rgb(226, 235, 243);
-  width: 1850px;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0); // 배경 이미지 투명도 조절
+  width: 1810px;
   padding: 10px;
   margin: 10px;
   height: 100px;
-  border: solid 2px lightblue;
+  border: 2px solid black;
 `;
 
-const SongMainTitle = styled.div`
+const SongMainTitle = styled.div` // 제목
   display: flex;
   align-items: center;
 `;
 
-const SongTitle = styled.h3`
+const SongTitle = styled.h3` // 제목 
   font-size: 18px;
   margin-bottom: 10px;
 `;
 
-const SongImg = styled.img`
+const SongImg = styled.img` // 노래 이미지
   width: 30px;
   height: 40px;
   margin-left: 10px;
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button` // 재생 버튼
   padding: 10px 30px;
   margin: 20px;
   background-color: black;

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSpring, animated, config } from 'react-spring';
 import styled from 'styled-components';
 import AppSongMainTitle from '../Component_Title/AppSongMainTitle'; // 메인화면 제목
-import mainhome from './Component_PlayList_MainSong/mainhome.jpg';
-import mainhomeimg1 from './Component_PlayList_MainSong/mainhomeimg1.jpg';
-import mainhomeimg2 from './Component_PlayList_MainSong/mainhomeimg2.jpg';
-import mainhomeimg3 from './Component_PlayList_MainSong/mainhomeimg3.jpg';
+import mainhome from '../songHomeImg/mainhome.jpg'
+import mainhomeimg1 from '../songHomeImg/mainhomeimg1.jpg'
+import mainhomeimg2 from '../songHomeImg/mainhomeimg2.jpg'
+import mainhomeimg3 from '../songHomeImg/mainhomeimg3.jpg'
 
 // Styled components
 const MusicMainimg = styled.div`

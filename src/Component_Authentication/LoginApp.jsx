@@ -3,6 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import JoinApp from './JoinApp';
 
+import styled from 'styled-components'
+import MainHomeWrapper from '../MainHomeWrapper.gif'
+
+const MainHomeWrapperGif = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-image: url(${MainHomeWrapper});
+  background-size: cover;
+  background-position: center;
+`
 
 const LoginApp = memo(() => {
   const navigate = useNavigate();
@@ -50,7 +60,7 @@ const LoginApp = memo(() => {
   };
   
   return (
-    <div>
+    <MainHomeWrapperGif>
       {!JoinShowValue ? ( //JoinShowValue === true
         <div className='LoginApp'>
           <div>
@@ -84,7 +94,7 @@ const LoginApp = memo(() => {
       <JoinApp onJoin = {onJoin}/>
       )
     }
-    </div>
+    </MainHomeWrapperGif>
     )
   }
 );

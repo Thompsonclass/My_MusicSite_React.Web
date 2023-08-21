@@ -11,8 +11,8 @@ const AppSongMainTitle = styled.div`
 
 const Title = styled.h1`
   font-family: serif;
-  color: black;
-  margin: 15px;
+  color: white;
+  margin: 25px;
 `;
 
 const Solid = styled.hr`

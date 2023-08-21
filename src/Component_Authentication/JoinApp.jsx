@@ -1,6 +1,17 @@
 import '../App.css';
 import React, { useState, memo } from 'react';
 
+import styled from 'styled-components'
+import MainHomeWrapper from '../MainHomeWrapper.gif'
+
+const MainHomeWrapperGif = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-image: url(${MainHomeWrapper});
+  background-size: cover;
+  background-position: center;
+`
+
 const JoinApp = memo((props) => {
   const [inputIdValue, setInputIdValue] = useState(''); // ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); // PW값 저장
@@ -18,6 +29,7 @@ const JoinApp = memo((props) => {
   };
 
   return (
+    <MainHomeWrapperGif>
     <div className='LoginApp'>
       <div>
         <label>아이디 : </label>
@@ -45,6 +57,7 @@ const JoinApp = memo((props) => {
         <button onClick={mainJoin}>회원가입</button>
       </div>
     </div>
+    </MainHomeWrapperGif>
   );
 });
 
