@@ -6,7 +6,7 @@ import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay'
 
 const BackgroundStyled = styled.div`
   width: 1830px;
-  height: 195px;
+  height: 202px;
   margin: 10px;
   border: 2px solid black;
 `;
