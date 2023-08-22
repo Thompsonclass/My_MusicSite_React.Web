@@ -5,6 +5,7 @@ import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
+import LikeExpressBtn from '../../Component_Like/LikeExpressParent';
 
 const SongPlayer = styled.div`
   color: white;
@@ -57,7 +58,7 @@ const AppSongPlayList = () => {
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/songs') // API 엔드포인트 주소
+    axios.get('/api/songs') // API 엔드포인트 주소
       .then((response) => { 
         setAudioData(response.data); // 서버에서 받아온 데이터로 상태 업데이트
       })
@@ -90,6 +91,9 @@ const AppSongPlayList = () => {
             <SongImg src={song.cover} alt={song.name} />
           </SongMainTitle>
           <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton>
+          <div>
+            <LikeExpressBtn/>
+          </div>
           <div>
             <Spectrum>
               <MusicSpectrum song={song}/>
