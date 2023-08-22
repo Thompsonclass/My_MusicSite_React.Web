@@ -4,6 +4,7 @@ import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
+import MusicSpectrumPlay from '../Component_Music_Spectrum/MusicSpectrumPlay'
 
 const SongPlayer = styled.div`
   color: white;
@@ -47,6 +48,10 @@ const StyledButton = styled.button` // 재생 버튼
   }
 `
 
+const Spectrum = styled.div`
+  width: 1000px;
+`;
+
 const AppSongPlayList = () => {
   const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
@@ -85,6 +90,11 @@ const AppSongPlayList = () => {
             <SongImg src={song.cover} alt={song.name} />
           </SongMainTitle>
           <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton>
+          <div>
+            <Spectrum>
+              <MusicSpectrumPlay song={song} index={index} />
+            </Spectrum>
+          </div>
         </SongPlayer>
       ))}
       <ReactJkMusicPlayer //라이브러리

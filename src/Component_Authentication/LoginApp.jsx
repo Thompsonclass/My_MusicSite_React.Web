@@ -63,15 +63,16 @@ const LoginApp = memo(() => {
     <MainHomeWrapperGif>
       {!JoinShowValue ? ( //JoinShowValue === true
         <div className='LoginApp'>
+          <div className='LoginTitle'>
+            <h1>Sing In</h1>
+          </div>
           <div>
             <label>아이디 : </label>
             <input
               type="text"
               value={inputIdValue}
               placeholder='아이디를 입력하세요.'
-              onChange={(e) => {
-                setInputIdValue(e.target.value);
-              }}
+              onChange={(e) => {setInputIdValue(e.target.value);}}
             />
           </div>
           <div>
@@ -80,9 +81,7 @@ const LoginApp = memo(() => {
               type="password"
               value={inputPassValue}
               placeholder='비밀번호를 입력하세요.'
-              onChange={(e) => {
-                setInputPassValue(e.target.value);
-              }}
+              onChange={(e) => {setInputPassValue(e.target.value);}}
             />
           </div>
           <div className='LoginBtn'>

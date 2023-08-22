@@ -10,16 +10,16 @@
     align-items: center; /*아이템 정렬 방향 가운데 변경*/
     justify-content: center; /* 새로운 줄: 수직 중앙 정렬 추가 */
     padding: 100px;
-    border: solid 2px rgb(160, 155, 155);
+    border: none;
     width: 400px;
     height: 400px;
-    border-radius: 5%;
-    background-color: #dbd9d9; /* 배경색 추가 */
-    box-shadow: 0px 4px 6px rgba(117, 117, 117, 0.5); /* 그림자 효과 추가 */
+    border-radius: 20px;
+    background-color: #cdcdcd; /* 배경색 추가 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 */
   }
   
   .LoginApp label {
-    font-weight: bold;
+    font-weight: bold; /*두껍게*/
     margin: 20px; /*label과 input창 거리*/
   }
 
@@ -27,19 +27,25 @@
     width: 200px;
     padding: 15px; /*입력창 내부 크기*/
     margin: 15px; /*입력창 끼리의 거리*/
-    border: 1px solid #ffffff;
-    border-radius: 3px;
+    border: 3px solid #ffffff;
+    border-radius: 5px;
   }
   
   .LoginBtn button {
     background-color: #667a8f;
     color: #fff;
-    padding: 10px 30px;
-    margin: 10px;
-    border-radius: 6px;
+    padding: 10px 30px; /*높이, 세로*/
+    margin: 10px; /*서로 간격*/
+    border-radius: 10px;
+    border: none; /*테두리 지움*/
     font-size: 16px;
   }
 
   .LoginBtn button:hover {
-    background-color: lightblue;
+    background-color: lightblue; /*올렸을 때 변화*/
+  }
+
+  .LoginTitle {
+    padding-bottom: 70px;
+    font-size: 25px;
   }

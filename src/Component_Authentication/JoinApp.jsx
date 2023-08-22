@@ -31,6 +31,9 @@ const JoinApp = memo((props) => {
   return (
     <MainHomeWrapperGif>
     <div className='LoginApp'>
+      <div className='LoginTitle'>
+        <h1>Sing up</h1>
+      </div>
       <div>
         <label>아이디 : </label>
         <input

@@ -4,9 +4,13 @@ import axios from "axios";
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 
 function MusicSpectrumPlay() {
-
   const [audioData, setAudioData] = useState([]); // 모든 노래 데이터를 관리하는 상태
   const { trackIndex, playing } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
+
+  useEffect(() => {
+    setIsPlaying(index === trackIndex && playing);
+  }, [trackIndex, playing, index]);
+
 
   useEffect(() => {
     // 서버에서 노래 데이터를 가져옴
@@ -22,28 +26,24 @@ function MusicSpectrumPlay() {
 
 
   return (
-    <>
-      {audioData.map((song, index) => (
-        <div>
-          {index === trackIndex && (
-            <ReactWaves
-              audioFile={song.musicSrc}
-              className={"react-waves"}
-              options={{
-                backend: "MediaElement",
-                normalize: true,
-                cursorWidth: 0,
-                mediaType: "audio",
-                hideScrollbar: true,
-                responsive: true,
-              }}
-              zoom={1}
-              playing={playing}
-            />
-          )}
-        </div>
-      ))}
-    </>
+    <div>
+      {isPlaying && (
+        <ReactWaves
+          audioFile={song.musicSrc}
+          className={"react-waves"}
+          options={{
+            backend: "MediaElement",
+            normalize: true,
+            cursorWidth: 0,
+            mediaType: "audio",
+            hideScrollbar: true,
+            responsive: true,
+          }}
+          zoom={1}
+          playing={playing}
+        />
+      )}
+    </div>
   );
 }
 
