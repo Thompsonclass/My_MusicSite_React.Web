@@ -22,12 +22,12 @@ const MainContainer = styled.div`
 function AppSongMainShowBgm() {
   return (
     <MainHomeWrapperGif> {/* 메인 배경 화면*/}
-      <AppSongMainTitle /> {/* 음악 메인 제목 */}
+      <AppSongMainTitle /> {/* 메인화면 제목 컴포넌트 */}
       <AppSongPlayer /> {/* 음악 플레이어 모양 */}
       <MainContainer>
         <AppSongPlayList /> {/* 음악 플레이어 리스트*/}
       </MainContainer>
-    </MainHomeWrapperGif>
+    </MainHomeWrapperGif> 
   );
 }
 

@@ -4,7 +4,7 @@ import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
-import MusicSpectrumPlay from '../Component_Music_Spectrum/MusicSpectrumPlay'
+import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 
 const SongPlayer = styled.div`
   color: white;
@@ -56,7 +56,6 @@ const AppSongPlayList = () => {
   const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
 
-
   useEffect(() => {
     axios.get('http://localhost:3000/api/songs') // API 엔드포인트 주소
       .then((response) => { 
@@ -69,16 +68,17 @@ const AppSongPlayList = () => {
 
   console.log(audioData); // 노래 리스트를 제대로 불러왔는지 확인
 
-  const audioLists = audioData.map((song) => ({
+  const audioLists = audioData.map((song, index) => ({
     name: song.name, // 제목
-    singer: song.singer, // 출처
-    cover: song.cover, // 이미지
-    musicSrc: song.musicSrc, // 노래
+    singer: song.singer, // 가수
+    cover: song.cover, // 사진
+    musicSrc: song.musicSrc, // 노래 데이터
+    index: index, // 노래의 index
   }));
 
   const playSelectedTrack = (index) => {
     setTrackIndex(index); // 해당 노래 위치, 초기값 0
-    setPlaying(!playing); // playing 초기값 false
+    setPlaying(!playing); // playing 초기값 false, 재생 상태
   };
 
   return (
@@ -92,12 +92,12 @@ const AppSongPlayList = () => {
           <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton>
           <div>
             <Spectrum>
-              <MusicSpectrumPlay song={song} index={index} />
+              <MusicSpectrum song={song}/>
             </Spectrum>
           </div>
         </SongPlayer>
       ))}
-      <ReactJkMusicPlayer //라이브러리
+      <ReactJkMusicPlayer
         audioLists={audioLists}
         mode="full"
         showMiniModeCover={false}

@@ -63,7 +63,6 @@ const AppSongPlayer = () => {
             <BgmImage src={bgm} alt="BGM" />
           </BgmStyled>
         </div>
-
       </BackgroundStyled>
     </>
   );

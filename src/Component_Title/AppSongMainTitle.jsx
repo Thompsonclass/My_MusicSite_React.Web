@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import SiderList from '../Component_Main/Component_SiderList/SiderList';
 
-function AppSongMainTitle() {
+function AppSongMainTitle() { 
 
 const AppSongMainTitle = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const Solid = styled.hr`
 
   return (
     <>
-        <AppSongMainTitle>
+        <AppSongMainTitle> {/* 메인화면 제목 컴포넌트 */}
             <SiderList />
             <Title>Music Play App</Title>
         </AppSongMainTitle>

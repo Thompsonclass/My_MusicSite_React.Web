@@ -16,6 +16,7 @@ const MainHomeWrapperGif = styled.div`
 
 const LoginApp = memo(() => {
   const navigate = useNavigate();
+  
   const [inputIdValue, setInputIdValue] = useState(''); //ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); //PW값 저장
   const [JoinShowValue, setJoinShowValue] = useState(false); //JoinApp component로 이동
