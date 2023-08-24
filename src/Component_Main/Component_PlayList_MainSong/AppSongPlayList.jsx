@@ -5,13 +5,13 @@ import 'react-jinke-music-player/assets/index.css';
 import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
-import LikeExpressBtn from '../../Component_Like/LikeExpressParent';
+import LikeExpressBtn from '../../Component_LikeButton/LikeExpressParent';
 
 const SongPlayer = styled.div`
-  color: white;
   display: flex; 
   flex-direction: row;
   align-items: center;
+  color: white;
   background-position: center;
   background-color: rgba(0, 0, 0, 0); // 배경 이미지 투명도 조절
   width: 1810px;
@@ -21,12 +21,12 @@ const SongPlayer = styled.div`
   border: 2px solid black;
 `;
 
-const SongMainTitle = styled.div` // 제목
+const SongMainTitle = styled.div` // 노래 제목
   display: flex;
   align-items: center;
 `;
 
-const SongTitle = styled.h3` // 제목 
+const SongTitle = styled.h3` // 가수 이름 
   font-size: 18px;
   margin-bottom: 10px;
 `;
@@ -58,7 +58,7 @@ const AppSongPlayList = () => {
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
 
   useEffect(() => {
-    axios.get('/api/songs') // API 엔드포인트 주소
+    axios.get("http://localhost:3000/api/songs") // API 엔드포인트 주소
       .then((response) => { 
         setAudioData(response.data); // 서버에서 받아온 데이터로 상태 업데이트
       })
@@ -90,13 +90,13 @@ const AppSongPlayList = () => {
             <SongTitle> {song.name} / {song.singer} </SongTitle>
             <SongImg src={song.cover} alt={song.name} />
           </SongMainTitle>
-          <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton>
+          <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton> {/* 재생 버튼 */}
           <div>
-            <LikeExpressBtn/>
+            <LikeExpressBtn/> {/* 좋아요 버튼 */}
           </div>
           <div>
             <Spectrum>
-              <MusicSpectrum song={song}/>
+              <MusicSpectrum song={song}/> {/* EQ 구현 */}
             </Spectrum>
           </div>
         </SongPlayer>

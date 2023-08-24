@@ -11,20 +11,30 @@ const AppSongMainTitle = styled.div`
 
 const Title = styled.h1`
   font-family: serif;
-  color: white;
-  margin: 25px;
+  color: black;
+  margin: 35px;
+  font-size: 35px;
 `;
 
 const Solid = styled.hr`
   width: 100%;
-  border-top: 2px solid black;
+  border: 2px solid white;
 `;
+
+const SiderDiv = styled.div`
+  margin: 30px;
+  width: 30px;
+`
 
   return (
     <>
         <AppSongMainTitle> {/* 메인화면 제목 컴포넌트 */}
-            <SiderList />
-            <Title>Music Play App</Title>
+            <SiderDiv>
+              <SiderList />
+            </SiderDiv>
+            <Title>
+              Music Play App
+            </Title>
         </AppSongMainTitle>
         <Solid />
     </>

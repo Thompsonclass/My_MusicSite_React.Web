@@ -1,13 +1,14 @@
 import React from 'react';
 import binly from '../../songHomeImg/binly.jpg'
-import bgm from  '../../songHomeImg/bgm.jpg'
 import styled, { keyframes } from 'styled-components';
 
 const BackgroundStyled = styled.div`
+  display: flex;
+  align-items: center; {/* justify-content: center;: 자식 요소들을 수평으로 중앙 정렬 */}
   width: 1830px;
-  height: 202px;
+  height: 210px;
   margin: 10px;
-  border: 2px solid black;
+  border: 3px solid black;
 `;
 
 const spinAnimation = keyframes` 
@@ -20,10 +21,6 @@ const spinAnimation = keyframes`
 `;
 
 const CdStyled = styled.div`
-  position: absolute;
-  top: 13%;
-  left: 10%;
-  transform: translate(-50%, -50%);
   width: 190px;
   height: 190px;
   border-radius: 50%;
@@ -31,22 +28,7 @@ const CdStyled = styled.div`
   animation: ${spinAnimation} 4.5s linear infinite;
 `;
 
-const BgmStyled = styled.div`
-  position: absolute;
-  top: 23%;
-  left: 7%;
-  transform: translate(-50%, -50%);
-  width: 223px;
-  height: 196px;
-  border-radius: 50%;
-`;
-
 const CdImage = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-
-const BgmImage = styled.img`
   width: 100%;
   height: 100%;
 `;
@@ -59,9 +41,6 @@ const AppSongPlayer = () => {
           <CdStyled>
             <CdImage src={binly} alt="CD" />
           </CdStyled>
-          <BgmStyled>
-            <BgmImage src={bgm} alt="BGM" />
-          </BgmStyled>
         </div>
       </BackgroundStyled>
     </>

@@ -7,7 +7,7 @@ app.use(cors()); // 모든 라우트에 대해 CORS를 활성화
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/api/songs", (_, res) => { //주소
+app.get("/api/songs", (_, res) => { // 엔드포인트 주소
   const songsData = [
     {
       name: 'Catch It',
@@ -36,4 +36,3 @@ app.get("/api/songs", (_, res) => { //주소
 app.listen(3000, () => {
   console.log('서버 실행 중입니다');
 });
-
