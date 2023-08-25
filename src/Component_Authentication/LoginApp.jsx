@@ -2,7 +2,8 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import JoinApp from './JoinApp';
-import MainHomeWrapperGifImage from '../Component_MainHomeWrapper/MainHomeWrapper.gif' 
+import { StyledMainHomeWrapper } from '../Component_MainHomeWrapper/Read.styled';
+import { LoginAppBackground, LoginButton, LoginTitle, Label, Input } from '../Styled/ReadLogin.styled';
 
 const LoginApp = memo(() => {
   const navigate = useNavigate();
@@ -51,15 +52,15 @@ const LoginApp = memo(() => {
   };
   
   return (
-    <MainHomeWrapperGifImage>
+    <StyledMainHomeWrapper>
       {!JoinShowValue ? ( //JoinShowValue === true
-        <div className='LoginApp'>
-          <div className='LoginTitle'>
+        <LoginAppBackground>
+          <LoginTitle>
             <h1>Sing In</h1>
-          </div>
+          </LoginTitle>
           <div>
-            <label>아이디 : </label>
-            <input
+            <Label>아이디 : </Label>
+            <Input
               type="text"
               value={inputIdValue}
               placeholder='아이디를 입력하세요.'
@@ -67,24 +68,24 @@ const LoginApp = memo(() => {
             />
           </div>
           <div>
-            <label>비밀번호 : </label>
-            <input
+            <Label>비밀번호 : </Label>
+            <Input
               type="password"
               value={inputPassValue}
               placeholder='비밀번호를 입력하세요.'
               onChange={(e) => {setInputPassValue(e.target.value);}}
             />
           </div>
-          <div className='LoginBtn'>
+          <LoginButton>
             <button onClick={mainLogin}>로그인</button>
             <button onClick={JoinClick}>회원가입</button>
-          </div>
-      </div>
+          </LoginButton>
+      </LoginAppBackground>
       ) : (
       <JoinApp onJoin = {onJoin}/>
       )
     }
-    </MainHomeWrapperGifImage>
+    </StyledMainHomeWrapper>
     )
   }
 );

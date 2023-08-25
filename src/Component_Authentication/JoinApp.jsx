@@ -1,6 +1,7 @@
 import '../App.css';
 import React, { useState, memo } from 'react';
-import MainHomeWrapperGifImage from '../Component_MainHomeWrapper/MainHomeWrapper.gif' 
+import { StyledMainHomeWrapper } from '../Component_MainHomeWrapper/Read.styled';
+import { LoginAppBackground, LoginButton, LoginTitle, Label, Input } from '../Styled/ReadLogin.styled';
 
 const JoinApp = memo((props) => {
   const [inputIdValue, setInputIdValue] = useState(''); // ID값 저장
@@ -19,38 +20,38 @@ const JoinApp = memo((props) => {
   };
 
   return (
-    <MainHomeWrapperGifImage>
-    <div className='LoginApp'>
-      <div className='LoginTitle'>
-        <h1>Sing up</h1>
-      </div>
-      <div>
-        <label>아이디 : </label>
-        <input
-          type='text'
-          value={inputIdValue}
-          placeholder='설정할 아이디를 입력하세요.'
-          onChange={(e) => {
-            setInputIdValue(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label>비밀번호 : </label>
-        <input
-          type='password'
-          value={inputPassValue}
-          placeholder='설정할 비밀번호를 입력하세요.'
-          onChange={(e) => {
-            setInputPassValue(e.target.value);
-          }}
-        />
-      </div>
-      <div className='LoginBtn'>
-        <button onClick={mainJoin}>회원가입</button>
-      </div>
-    </div>
-    </MainHomeWrapperGifImage>
+    <StyledMainHomeWrapper>
+      <LoginAppBackground>
+        <LoginTitle>
+          <h1>Sing up</h1>
+        </LoginTitle>
+        <div>
+          <Label>아이디 : </Label>
+          <Input
+            type='text'
+            value={inputIdValue}
+            placeholder='설정할 아이디를 입력하세요.'
+            onChange={(e) => {
+              setInputIdValue(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Label>비밀번호 : </Label>
+          <Input
+            type='password'
+            value={inputPassValue}
+            placeholder='설정할 비밀번호를 입력하세요.'
+            onChange={(e) => {
+              setInputPassValue(e.target.value);
+            }}
+          />
+        </div>
+        <LoginButton>
+          <button onClick={mainJoin}>회원가입</button>
+        </LoginButton>
+      </LoginAppBackground>
+    </StyledMainHomeWrapper>
   );
 });
 
