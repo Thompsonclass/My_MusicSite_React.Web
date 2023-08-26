@@ -4,8 +4,8 @@ import styled, { keyframes } from 'styled-components';
 
 const BackgroundStyled = styled.div`
   display: flex;
-  align-items: center; {/* justify-content: center;: 자식 요소들을 수평으로 중앙 정렬 */}
-  width: 1830px;
+  align-items: center;
+  width: 98%;
   height: 210px;
   margin: 10px;
   border: 3px solid black;
@@ -25,7 +25,7 @@ const CdStyled = styled.div`
   height: 190px;
   border-radius: 50%;
   overflow: hidden;
-  animation: ${spinAnimation} 4.5s linear infinite;
+  animation: ${spinAnimation} 4.5s linear infinite; /* 4.5초 간격으로 무한 반복 */
 `;
 
 const CdImage = styled.img`
@@ -35,7 +35,6 @@ const CdImage = styled.img`
 
 const AppSongPlayer = () => {
   return (
-    <>
       <BackgroundStyled>
         <div>
           <CdStyled>
@@ -43,7 +42,6 @@ const AppSongPlayer = () => {
           </CdStyled>
         </div>
       </BackgroundStyled>
-    </>
   );
 };
 

@@ -1,20 +1,24 @@
 import styled from 'styled-components';
 
 export const LoginAppBackground = styled.div`
-  position: absolute;
+  position: absolute; /* 절대적 위치 선정*/
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  display: flex; 
+  align-items: center; /* 내용물 수평 가운데 배치*/
+  justify-content: center; /* 내용물 세로 가운데 배치*/
+
+  flex-direction: column; /* 세로 배열 */
+
   padding: 100px;
   border: none;
   width: 400px;
   height: 400px;
   border-radius: 20px;
   background-color: #cdcdcd;
+
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 `;
 

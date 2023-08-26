@@ -7,39 +7,38 @@ import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateCo
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 import LikeExpressBtn from '../../Component_LikeButton/LikeExpressParent';
 
+const SongPlayerContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 수직 중앙 정렬 */
+  padding: 10px; /* 간격 추가 */
+`;
+
 const SongPlayer = styled.div`
-  display: flex; 
-  flex-direction: row;
-  align-items: center;
-  color: white;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0); // 배경 이미지 투명도 조절
-  width: 1810px;
-  padding: 10px;
-  margin: 10px;
-  height: 100px;
+  background-color: rgba(0, 0, 0, 0); 
+  width: 98%;
+  height: 115px;
+  display: flex;
+  align-items: center; /* 수평 중앙 정렬 */
+  margin: 10px 0; /* 간격 추가 */
   border: 2px solid black;
 `;
 
-const SongMainTitle = styled.div` // 노래 제목
-  display: flex;
-  align-items: center;
+const SongTitle = styled.h3`
+  font-size: 25px;
+  color: white;
+  margin-left: 10px; /* 왼쪽 간격 추가 */
 `;
 
-const SongTitle = styled.h3` // 가수 이름 
-  font-size: 18px;
-  margin-bottom: 10px;
+const SongImg = styled.img`
+  width: 40px;
+  height: 50px;
+  margin: 15px;
 `;
 
-const SongImg = styled.img` // 노래 이미지
-  width: 30px;
-  height: 40px;
-  margin-left: 10px;
-`;
-
-const StyledButton = styled.button` // 재생 버튼
+const StyledButton = styled.button`
   padding: 10px 30px;
-  margin: 20px;
+  margin: 15px;
   background-color: black;
   border: none;
   color: white;
@@ -47,10 +46,10 @@ const StyledButton = styled.button` // 재생 버튼
   &:hover {
     background-color: lightblue;
   }
-`
+`;
 
 const Spectrum = styled.div`
-  width: 1000px;
+  width: 900px;
 `;
 
 const AppSongPlayList = () => {
@@ -83,32 +82,30 @@ const AppSongPlayList = () => {
   };
 
   return (
-    <div>
+    <SongPlayerContent>
       {audioLists.map((song, index) => (
-        <SongPlayer key={song.name}>
-          <SongMainTitle>
-            <SongTitle> {song.name} / {song.singer} </SongTitle>
+          <SongPlayer key={index}>
+            <SongTitle><p>{song.name} /</p> <p>{song.singer}</p></SongTitle>
             <SongImg src={song.cover} alt={song.name} />
-          </SongMainTitle>
-          <StyledButton onClick={() => {playSelectedTrack(index)}}>Play</StyledButton> {/* 재생 버튼 */}
-          <div>
-            <LikeExpressBtn/> {/* 좋아요 버튼 */}
-          </div>
-          <div>
-            <Spectrum>
-              <MusicSpectrum song={song}/> {/* EQ 구현 */}
-            </Spectrum>
-          </div>
-        </SongPlayer>
-      ))}
+            <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton> {/* 재생 버튼 */}
+            <div>
+              <LikeExpressBtn /> {/* 좋아요 버튼 */}
+            </div>
+            <div>
+              <Spectrum>
+                <MusicSpectrum song={song} /> {/* EQ 구현 */}
+              </Spectrum>
+            </div>
+            </SongPlayer>
+        ))}
       <ReactJkMusicPlayer
         audioLists={audioLists}
         mode="full"
         showMiniModeCover={false}
         autoPlay={false}
       />
-    </div>
+    </SongPlayerContent>
   );
-}
+};
 
 export default AppSongPlayList;
