@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AppSOngBgmContent() {
+function AppSongBgmContent() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function AppSOngBgmContent() {
   )
 }
 
-export default AppSOngBgmContent
+export default AppSongBgmContent;
