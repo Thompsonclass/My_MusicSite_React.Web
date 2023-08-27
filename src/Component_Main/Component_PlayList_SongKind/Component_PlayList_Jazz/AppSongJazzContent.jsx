@@ -1,44 +1,56 @@
-import React, { useState } from 'react';
-import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
 import { StyledMainHomeWrapper } from '../../../Component_MainHomeWrapper/Read.styled';
 
-const SongListBoxParent = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
 
 function AppSongJazzContent() {
-  const [SongAddList, setSongAddList] = useState(['']);
+  const [audioAllData, setAudioAllData] = useState([]); // 모든 노래 리스트
+  const [selectedSongs, setSelectedSongs] = useState([]); // 선택된 노래 리스트
 
-  const AddSonglist = (index) => {
-    const updatedList = [...SongAddList]; // SongAddList 배열의 복사본을 생성합니다.
-    if (updatedList[index] === "red") {
-      updatedList[index] = ""; // 배경색을 초기 상태로 되돌립니다.
-    } else {
-      updatedList[index] = "red"; // 배경색을 빨간색으로 설정합니다.
-    }
-    setSongAddList(updatedList); // 수정된 배열로 상태를 업데이트합니다.
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/songs")
+      .then((response) => { 
+        setAudioAllData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  console.log(audioAllData);
+
+  const audioAllLists = audioAllData.map((song, index) => ({
+    name: song.name,
+    singer: song.singer,
+    cover: song.cover,
+    musicSrc: song.musicSrc,
+    index: index,
+  }));
+
+  const AddSongList = (index) => {
+    const selectedSong = audioAllLists[index];
+    setSelectedSongs((prevSelectedSongs) => [...prevSelectedSongs, selectedSong]);
   };
 
-  const songTitles = [ //노래 데이터
-    "제목1", "제목2", "제목3", "제목4", "제목5", "제목6",
-    "제목7", "제목8", "제목9", "제목10", "제목11", "제목12"
-  ];
-
   return (
-    <StyledMainHomeWrapper> {/* 메인 배경 화면*/}
-      <AppSongMainTitle /> {/* 홈페이지 제목 */}
-      <React.Fragment>
-      <SongListBoxParent>
-        {songTitles.map((data, index) => (
-          <div key={index} style={{background: SongAddList[index] }}>
-            {data}
-            <button onClick={() => AddSonglist(index)}>추가</button>
+    <StyledMainHomeWrapper>
+      <AppSongMainTitle />
+        {audioAllLists.map((data, index) => (
+          <div key={index}>
+            <p>{data.name}</p><p>{data.singer}</p>
+            <button onClick={() => AddSongList(index)}>추가</button>
           </div>
         ))}
-      </SongListBoxParent>
-      </React.Fragment>
+      {/* 선택된 노래 목록 렌더링 */}
+      <div>
+        <h2>선택된 노래 목록</h2>
+        {selectedSongs.map((song, index) => (
+          <div key={index}>
+            <p>{song.name}</p><p>{song.singer}</p>
+          </div>
+        ))}
+      </div>
     </StyledMainHomeWrapper>
   );
 }

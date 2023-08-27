@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const AppSongJazzBackground = styled.button`
   width: 400px;
   height: 400px;
-  background-color: pink;
+  background-color: lightblue;
   border-radius: 12px;
   border: none;
   margin: 30px;
