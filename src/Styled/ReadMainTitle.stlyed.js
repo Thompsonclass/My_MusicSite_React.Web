@@ -21,3 +21,10 @@ export const SiderDiv = styled.div`
   margin: 30px;
   width: 30px;
 `
+
+export const WaveDiv = styled.div`
+  position: absolute;
+  top: -2.5%;
+  left: 0.4%;
+  width: 99.2%;
+`;

@@ -1,6 +1,7 @@
 import React from 'react'
 import SiderList from '../Component_Main/Component_SiderList/SiderList';
-import { AppSongMainTitleBackground, Title, Solid, SiderDiv } from '../Styled/ReadMainTitle.stlyed';
+import { AppSongMainTitleBackground, Title, Solid, SiderDiv, WaveDiv } from '../Styled/ReadMainTitle.stlyed';
+import Wave from 'react-wavify';
 
 function AppSongMainTitle() { 
 
@@ -14,7 +15,19 @@ function AppSongMainTitle() {
               Music Play App
             </Title>
         </AppSongMainTitleBackground>
-        <Solid />
+            <WaveDiv>
+              <Wave 
+                /*fill='#f79902'*/
+                paused={false}
+                options={{
+                  height: 120,
+                  amplitude: 20,
+                  speed: 0.15,
+                  points: 3,
+              }}
+              />
+            </WaveDiv>
+              <Solid />
     </>
   )
 }
