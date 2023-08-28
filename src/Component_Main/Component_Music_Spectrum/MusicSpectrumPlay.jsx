@@ -10,7 +10,6 @@ function MusicSpectrumPlay({ song }) {
       {trackIndex === song.index && playing && (
         <ReactWaves
           audioFile={song.musicSrc}
-          className={'react-waves'}
           options={{
             backend: 'MediaElement',
             normalize: true,

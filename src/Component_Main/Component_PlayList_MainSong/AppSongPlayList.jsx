@@ -78,14 +78,14 @@ const AppSongPlayList = () => {
 
   const playSelectedTrack = (index) => {
     setTrackIndex(index); // 해당 노래 위치, 초기값 0
-    setPlaying(!playing); // playing 초기값 false, 재생 상태
+    setPlaying(!playing); // playing 초기값 true, 재생 상태
   };
 
   return (
     <SongPlayerContent>
       {audioLists.map((song, index) => (
           <SongPlayer key={index}>
-            <SongTitle><p>{song.name} /</p> <p>{song.singer}</p></SongTitle>
+            <SongTitle><p>{song.name} /</p><p>{song.singer}</p></SongTitle>
             <SongImg src={song.cover} alt={song.name} />
             <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton> {/* 재생 버튼 */}
             <div>
