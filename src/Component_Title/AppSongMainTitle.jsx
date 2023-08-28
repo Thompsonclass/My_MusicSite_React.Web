@@ -8,28 +8,27 @@ function AppSongMainTitle() {
   return (
     <>
         <AppSongMainTitleBackground> {/* 메인화면 제목 컴포넌트 */}
-            <SiderDiv>
-              <SiderList />
-            </SiderDiv>
-            <Title>
-              Music Play App
-            </Title>
+          <SiderDiv>
+            <SiderList />
+          </SiderDiv>
+          <Title>
+            Music Play App
+          </Title>
         </AppSongMainTitleBackground>
-            <WaveDiv>
-              <Wave 
-                /*fill='#f79902'*/
-                paused={false}
-                options={{
-                  height: 120,
-                  amplitude: 20,
-                  speed: 0.15,
-                  points: 3,
-              }}
-              />
-            </WaveDiv>
-              <Solid />
+          <WaveDiv>
+            <Wave 
+            /*fill='#f79902'*/
+            paused={false}
+            options={{
+              amplitude: 80,
+              speed: 0.15,
+              points: 3,
+            }}
+            />
+          </WaveDiv>
+          <Solid />
     </>
   )
 }
 
-export default AppSongMainTitle
+export default AppSongMainTitle;

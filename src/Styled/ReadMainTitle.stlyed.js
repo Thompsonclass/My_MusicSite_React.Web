@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 export const AppSongMainTitleBackground = styled.div`
   display: flex;
-  flex-direction: row;
-`;
+  flex-direction: row; /* 가로 설정 */
+  `;
 
 export const Title = styled.h1`
   font-family: serif;
   color: white;
-  margin: 35px;
+  margin: 20px;
   font-size: 35px;
 `;
 
@@ -18,13 +18,10 @@ export const Solid = styled.hr`
 `;
 
 export const SiderDiv = styled.div`
-  margin: 30px;
+  margin: 20px;
   width: 30px;
 `
 
 export const WaveDiv = styled.div`
-  position: absolute;
-  top: -2.5%;
-  left: 0.4%;
-  width: 99.2%;
-`;
+  width: 100%;
+`

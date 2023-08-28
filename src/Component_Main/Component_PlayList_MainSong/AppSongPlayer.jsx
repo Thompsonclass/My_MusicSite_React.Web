@@ -36,7 +36,7 @@ const CdImage = styled.img`
 const AppSongPlayer = () => {
   return (
       <BackgroundStyled>
-        <div>
+        <div>     
           <CdStyled>
             <CdImage src={binly} alt="CD" />
           </CdStyled>

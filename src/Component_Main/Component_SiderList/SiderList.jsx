@@ -16,6 +16,7 @@ const SiderList = () => {
   const classes = styles();
 
   const toggleDrawer = () => { //리스트 OPEN
+    console.log("슬라이드 리스트 클릭");
     setOpen(!Open);
   };
 
