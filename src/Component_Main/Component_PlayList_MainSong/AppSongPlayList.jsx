@@ -9,36 +9,25 @@ import LikeExpressBtn from '../../Component_LikeButton/LikeExpressParent';
 
 const SongPlayerContent = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center; /* 수직 중앙 정렬 */
+  flex-direction: column;/* 세로 정렬*/
   padding: 10px; /* 간격 추가 */
-`;
-
-const SongPlayer = styled.div`
-  background-color: #808080; 
-  width: 98%;
-  height: 115px;
-  display: flex;
-  align-items: center; /* 수평 중앙 정렬 */
-  margin: 10px 0; /* 간격 추가 */
-  border: 2px solid black;
+  margin: 10px;
 `;
 
 const SongTitle = styled.h3`
   font-size: 25px;
   color: white;
-  margin-left: 10px; /* 왼쪽 간격 추가 */
 `;
 
 const SongImg = styled.img`
   width: 40px;
   height: 50px;
-  margin: 15px;
 `;
 
 const StyledButton = styled.button`
   padding: 10px 30px;
-  margin: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
   background-color: black;
   border: none;
   color: white;
@@ -52,6 +41,28 @@ const Spectrum = styled.div`
   width: 900px;
 `;
 
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  height: 40em;
+`;
+
+const TableRow = styled.tr`
+  background-color: transparent; /* 투명한 배경색으로 설정 */
+  border: 2px solid black;
+`;
+
+const TableCell = styled.td`
+  padding: 10px;
+`;
+
+const StyledBtn = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+const LikeBtn = styled.div`
+  margin-left: 30px;
+`
 const AppSongPlayList = () => {
   const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
@@ -81,23 +92,44 @@ const AppSongPlayList = () => {
     setPlaying(!playing); // playing 초기값 true, 재생 상태
   };
 
+  const downSelectedTrack = (musicSrc) => {
+    const link = document.createElement('a');   //  <a> 요소 생성
+    link.href = musicSrc;
+    document.body.appendChild(link); // <a> 요소를 문서의 body에 추가, 하나의 요소를 다른 요소 안에 넣는 역할
+    link.click();
+    document.body.removeChild(link); // 다운로드가 시작되었으므로 <a> 요소를 body에서 제거
+  };
+
   return (
     <SongPlayerContent>
-      {audioLists.map((song, index) => (
-          <SongPlayer key={index}>
-            <SongTitle><p>{song.name} /</p><p>{song.singer}</p></SongTitle>
-            <SongImg src={song.cover} alt={song.name} />
-            <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton> {/* 재생 버튼 */}
-            <div>
-              <LikeExpressBtn /> {/* 좋아요 버튼 */}
-            </div>
-            <div>
-              <Spectrum>
-                <MusicSpectrum song={song} /> {/* EQ 구현 */}
-              </Spectrum>
-            </div>
-            </SongPlayer>
-        ))}
+      <Table>
+        <tbody>
+          {audioLists.map((song, index) => (
+            <TableRow key={index}>
+              <TableCell>
+                <SongTitle><p>{song.name} /</p><p>{song.singer}</p></SongTitle> {/* 제목 */}
+              </TableCell>
+              <TableCell>
+                <SongImg src={song.cover} alt={song.name} />
+              </TableCell>
+              <TableCell>
+                <StyledBtn>
+                  <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton> {/* 재생 버튼*/}
+                  <button onClick={() => { downSelectedTrack(song.musicSrc); }}>⬇</button> {/* 다운 버튼*/}
+                  <LikeBtn>
+                    <LikeExpressBtn /> {/* 좋아요 버튼 */}
+                  </LikeBtn>
+                </StyledBtn>
+              </TableCell>
+              <TableCell>
+                <Spectrum>
+                  <MusicSpectrum song={song} />
+                </Spectrum>
+              </TableCell>
+            </TableRow>
+          ))}
+        </tbody>
+      </Table>
       <ReactJkMusicPlayer
         audioLists={audioLists}
         mode="full"

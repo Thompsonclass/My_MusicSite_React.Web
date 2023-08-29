@@ -1,5 +1,5 @@
 import React from 'react'
-import SiderList from '../Component_Main/Component_SiderList/SiderList';
+import SiderList from '../Component_SiderList/SiderList'
 import { AppSongMainTitleBackground, Title, Solid, SiderDiv, WaveDiv } from '../Styled/ReadMainTitle.stlyed';
 import Wave from 'react-wavify';
 
@@ -15,7 +15,7 @@ function AppSongMainTitle() {
             Music Play App
           </Title>
         </AppSongMainTitleBackground>
-          <WaveDiv style={{ height: '50%' }}>
+          <WaveDiv>
             <Wave 
             /*fill='#f79902'*/
             paused={false}
