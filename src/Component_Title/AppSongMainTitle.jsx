@@ -15,13 +15,13 @@ function AppSongMainTitle() {
             Music Play App
           </Title>
         </AppSongMainTitleBackground>
-          <WaveDiv>
+          <WaveDiv style={{ height: '50%' }}>
             <Wave 
             /*fill='#f79902'*/
             paused={false}
             options={{
-              amplitude: 80,
-              speed: 0.15,
+              amplitude: 60,
+              speed: 0.20,
               points: 3,
             }}
             />

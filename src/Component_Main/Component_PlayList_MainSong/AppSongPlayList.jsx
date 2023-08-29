@@ -15,7 +15,7 @@ const SongPlayerContent = styled.div`
 `;
 
 const SongPlayer = styled.div`
-  background-color: rgba(0, 0, 0, 0); 
+  background-color: #808080; 
   width: 98%;
   height: 115px;
   display: flex;
