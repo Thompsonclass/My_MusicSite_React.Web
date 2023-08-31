@@ -132,7 +132,7 @@ const AppSongMainHome = () => {
       <div style={{ textAlign: 'center', margin: '2rem 0', color: 'white' }}>
         <h2>우리와 함께 음악의 여정을 시작해보세요</h2>
         <p>앱을 다운로드하고 멜로디와 리듬의 세계에 빠져보세요.</p>
-        <a href="/main/Music_BGM" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        <a href="/main/Music_player" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           <button style={{ padding: '10px 20px', fontSize: '18px', fontWeight: 'bold', borderRadius: '5px',
             background: 'brown', color: 'white', border: 'none', cursor: 'pointer' }}>
             시작하기

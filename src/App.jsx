@@ -8,6 +8,7 @@ import AppSongPlayListSongKind from './Component_Main/Component_PlayList_SongKin
 import AppSongBgmContent from './Component_Main/Component_PlayList_SongKind/Componetn_PlayList_Bgm/AppSongBgmContent'
 import AppSongJazzContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Jazz/AppSongJazzContent';
 import AppSongIdolContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Idol/AppSongIdolContent';
+import JoinApp from './Component_Authentication/JoinApp';
 
 const App = () => {
   return (
@@ -15,8 +16,9 @@ const App = () => {
       <Router>
         <Routes>
           <Route exact path="/" element={<LoginApp />} /> {/*로그인 컴포넌트*/}
+          <Route path='/Join' element={<JoinApp />} /> {/* 가입 컴포넌트 */}
           <Route path="/main" element={<AppSongMainHome />} /> {/*홈페이지 컴포넌트*/}
-          <Route path="/main/Music_BGM" element={<AppSongMainShowBgm />} /> {/*개별 음악 컴포넌트*/}
+          <Route path="/main/Music_player" element={<AppSongMainShowBgm />} /> {/*개별 음악 컴포넌트*/}
           <Route path="/main/Music_player_main" element={<AppSongPlayListSongKind/>} /> {/*모든 음악 컴포넌트*/}
           <Route path='/main/Music_player_main/Bgm_List' element={<AppSongBgmContent/>} /> {/* BGM 음악 */} 
           <Route path='/main/Music_player_main/Idol_List' element={<AppSongIdolContent/>} /> {/* Idol 음악 */}
