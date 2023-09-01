@@ -2,8 +2,8 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import axios from 'axios'; // axios 모듈을 임포트합니다
-import { StyledMainHomeWrapper } from '../Component_MainHomeWrapper/Read.styled';
-import { LoginAppBackground, LoginButton, LoginTitle, Label, Input } from '../Styled/ReadLogin.styled';
+import { StyledMainHomeWrapper } from '../Component_MainHomeWrapper/Read.styled'; // 배경화면
+import { LoginAppBackground, LoginButton, LoginTitle, Label, Input, Title } from '../Styled/ReadLogin.styled';
 
 const LoginApp = memo(() => {
   const navigate = useNavigate();
@@ -36,9 +36,10 @@ const LoginApp = memo(() => {
   
   return (
     <StyledMainHomeWrapper>
+      <Title>MusicApp⍥</Title>
       <LoginAppBackground>
         <LoginTitle>
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
         </LoginTitle>
         <div>
           <Label>아이디 : </Label>

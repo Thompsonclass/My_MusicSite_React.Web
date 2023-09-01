@@ -2,7 +2,7 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import { StyledMainHomeWrapper } from '../Component_MainHomeWrapper/Read.styled';
-import { LoginAppBackground, LoginButton, LoginTitle, Label, Input } from '../Styled/ReadLogin.styled';
+import { LoginAppBackground, LoginButton, LoginTitle, Label, Input, Title } from '../Styled/ReadLogin.styled';
 
 const JoinApp = memo(() => {
   const navigate = useNavigate();
@@ -42,6 +42,7 @@ const JoinApp = memo(() => {
 
   return (
     <StyledMainHomeWrapper> {/* 배경화면 */}
+    <Title>MusicApp⍥</Title>
       <LoginAppBackground> {/* Styled-component */}
         <LoginTitle>
           <h1>Sing up</h1>

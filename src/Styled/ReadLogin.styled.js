@@ -53,3 +53,12 @@ export const LoginTitle = styled.div`
   padding-bottom: 70px;
   font-size: 25px;
 `;
+
+export const Title = styled.div`
+  position: absolute; /* 절대적 위치 선정*/
+  top: 1%;
+  left: 89%;
+  font-size: 2em;
+  font-weight: bold;
+  color: green;
+`

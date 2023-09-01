@@ -1,7 +1,7 @@
 import React from 'react'
 import SiderList from '../Component_SiderList/SiderList'
 import { AppSongMainTitleBackground, Title, Solid, SiderDiv, WaveDiv } from '../Styled/ReadMainTitle.stlyed';
-import Wave from 'react-wavify';
+import Wave from 'react-wavify';  
 
 function AppSongMainTitle() { 
 

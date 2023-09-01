@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import MainHomeWrapperGifImage from './MainHomeWrapper.gif'
+import MainHomeWrapperGifImage from './MainHomeWrapper.jpg'
 
 export const StyledMainHomeWrapper = styled.div`
   width: 100%;

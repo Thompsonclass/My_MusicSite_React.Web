@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 
+
 const styles = makeStyles(() => ({ //리스트 CSS
   drawer: {
     width: '300px',
@@ -29,10 +30,10 @@ const SiderList = () => {
         <div className={classes.drawer} onClick={toggleDrawer} onKeyDown={toggleDrawer}>
           <List>
             <ListItem button component={Link} to="/main/Music_player">
-              <ListItemText primary="BGM 노래" /> 
+              <ListItemText primary="뮤직 음악 듣기" /> 
             </ListItem>
             <ListItem button component={Link} to="/main/Music_player_main">
-              <ListItemText primary="모든 노래" /> 
+              <ListItemText primary="뮤직 음악 목록" /> 
             </ListItem>
           </List>
         </div>
