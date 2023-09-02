@@ -9,7 +9,7 @@ function AppSongJazzContent() {
   const [selectedSongs, setSelectedSongs] = useState([]); // 선택된 노래 리스트
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/songs")
+    axios.get("http://localhost:3000/main/Music_player")
       .then((response) => { 
         setAudioAllData(response.data);
       })

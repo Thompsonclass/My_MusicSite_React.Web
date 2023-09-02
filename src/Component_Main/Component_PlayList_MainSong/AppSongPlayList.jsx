@@ -8,16 +8,14 @@ import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateCo
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 import LikeExpressBtn from '../../Component_LikeButton/LikeExpressParent';
 
-const SongPlayerContent = styled.div`
+const SongPlayerContent = styled.div` /* 전체 배경 */
   display: flex;
   flex-direction: column;/* 세로 정렬*/
-  padding: 10px; /* 간격 추가 */
   margin: 10px;
 `;
 
 const SongTitle = styled.h3`
-  font-size: 25px;
-  color: white;
+  font-size: 20px;
 `;
 
 const SongImg = styled.img`
@@ -39,18 +37,20 @@ const StyledButton = styled.button`
 `;
 
 const Spectrum = styled.div`
-  width: 900px;
+  width: 80em;
 `;
 
 const Table = styled.table`
-  width: 100%;
+  width: 115em; /* 플레이어 테두리 가로 길이 */
   border-collapse: collapse;
-  height: 40em;
 `;
 
 const TableRow = styled.tr`
-  background-color: transparent; /* 투명한 배경색으로 설정 */
+  background-color: #f2f2f2; /* 배경색 설정 */
   border: 2px solid black;
+  height: 10em;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* 그림자 효과 추가 */
+  margin-bottom: 10px; /* 하단 여백 추가 */
 `;
 
 const TableCell = styled.td`
