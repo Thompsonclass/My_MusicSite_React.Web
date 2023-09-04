@@ -41,11 +41,15 @@ const userDatabase = []; // 사용자 정보 저장
 app.post("/Join", (req, res) => {
   const userData = req.body;
   userDatabase.push(userData); // 사용자 정보 저장
-  res.json({ message: "사용자가 성공적으로 등록되었습니다" });
+  res.json({ message: "사용자가 성공적으로 등록되었습니다" }); // 클라이언트에게 메세지 전달
 });
 
 app.post("/", (req, res) => { // 로그인 처리를 위한 엔드포인트
   const { inputIdValue, inputPassValue } = req.body;
+
+  if (inputIdValue.length === 0 || inputPassValue.length === 0) {
+    return res.status(400).json({ error: "아이디와 비밀번호를 모두 입력해야 합니다." });
+  }
 
   // userDatabase 배열에서 해당 사용자 정보를 찾아 검증
   const foundUser = userDatabase.find(user => user.inputIdValue === inputIdValue && user.inputPassValue === inputPassValue);

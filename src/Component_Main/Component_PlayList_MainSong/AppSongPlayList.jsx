@@ -10,8 +10,9 @@ import LikeExpressBtn from '../../Component_LikeButton/LikeExpressParent';
 
 const SongPlayerContent = styled.div` /* 전체 배경 */
   display: flex;
-  flex-direction: column;/* 세로 정렬*/
-  margin: 10px;
+  flex-direction: column; /* 세로 정렬*/
+  margin-left: 10px;
+  margin-top: 20px;
 `;
 
 const SongTitle = styled.h3`
@@ -41,7 +42,7 @@ const Spectrum = styled.div`
 `;
 
 const Table = styled.table`
-  width: 115em; /* 플레이어 테두리 가로 길이 */
+  width: 116em; /* 플레이어 테두리 가로 길이 */
   border-collapse: collapse;
 `;
 
@@ -51,6 +52,7 @@ const TableRow = styled.tr`
   height: 10em;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* 그림자 효과 추가 */
   margin-bottom: 10px; /* 하단 여백 추가 */
+  background-color: #999999;
 `;
 
 const TableCell = styled.td`

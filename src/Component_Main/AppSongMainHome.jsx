@@ -69,7 +69,7 @@ const AppSongMainHome = () => {
     width: '100%',
     fontSize: '35px',
     opacity: showIntro ? 1 : 0,
-    transform: showIntro ? 'translateX(0)' : 'translateX(-20%)', // 왼쪽으로 이동
+    transform: showIntro ? 'translateX(0)' : 'translateX(20%)', 
     config: config.slow, // 스크롤 속도를 느리게 설정
     fontWeight: 'bold',
   });
@@ -79,7 +79,7 @@ const AppSongMainHome = () => {
     width: '100%',
     fontSize: '35px',
     opacity: showIntro_1 ? 1 : 0,
-    transform: showIntro_1 ? 'translateX(40%)' : 'translateX(0%)', // 오른쪽에서 나와서 왼쪽으로 이동
+    transform: showIntro_1 ? 'translateX(40%)' : 'translateX(100%)', 
     config: config.slow,
     fontWeight: 'bold',
   });
@@ -89,7 +89,7 @@ const AppSongMainHome = () => {
     width: '100%',
     fontSize: '35px',
     opacity: showIntro_2 ? 1 : 0,
-    transform: showIntro_2 ? 'translateX(0%)' : 'translateX(-20%)', // 오른쪽에서 나와서 왼쪽으로 이동
+    transform: showIntro_2 ? 'translateX(0%)' : 'translateX(100%)',
     config: config.slow,
     fontWeight: 'bold',
   });
@@ -97,7 +97,7 @@ const AppSongMainHome = () => {
   return (
     <MusicMainimg>
     <MainHomeWrapper>
-      <AppSongMainTitle /> {/* 메인화면 제목 컴포넌트 */}
+        <AppSongMainTitle /> {/* 메인화면 제목 컴포넌트 */}
         <MainTitle><h1>Welcome to Our Music Player</h1></MainTitle>
       <animated.div style={introProps} id="intro">
         <h3 style={{color:'brown'}}>Enjoy a journey through the world of melodies and rhythms!</h3>
