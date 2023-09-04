@@ -29,6 +29,9 @@ const SiderList = () => {
       <Drawer anchor="left" open={Open} onClose={toggleDrawer} className={classes.drawer}>
         <div className={classes.drawer} onClick={toggleDrawer} onKeyDown={toggleDrawer}>
           <List>
+            <ListItem button component={Link} to="/main">
+              <ListItemText primary="홈페이지" /> 
+            </ListItem>
             <ListItem button component={Link} to="/main/Music_player">
               <ListItemText primary="뮤직 음악 듣기" /> 
             </ListItem>

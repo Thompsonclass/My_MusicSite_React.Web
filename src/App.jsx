@@ -2,7 +2,7 @@ import React from 'react';
 import { GlobalStateProvider } from './Component_GlobalState/GlobalStateContent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginApp from './Component_Authentication/LoginApp';
-import AppSongMainHome from './Component_Main/AppSongMainHome';
+import AppSongMainHome from './Component_Main/Component_Music_MainHome/AppSongMainHome';
 import AppSongMainShowBgm from './Component_Main/Component_PlayList_MainSong/AppSongMainShowBgm';
 import AppSongPlayListSongKind from './Component_Main/Component_PlayList_SongKind/AppSongPlayListSongKind';
 import AppSongBgmContent from './Component_Main/Component_PlayList_SongKind/Componetn_PlayList_Bgm/AppSongBgmContent'
