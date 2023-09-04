@@ -2,7 +2,7 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import axios from 'axios'; // axios 모듈을 임포트합니다
-import { StyledMainHomeWrapper } from '../Component_MainHomeWrapper/Read.styled'; // 배경화면
+import Authentication from './Authentication';
 import { LoginAppBackground, LoginButton, LoginTitle, Label, Input, Title } from '../Styled/ReadLogin.styled';
 
 const LoginApp = memo(() => {
@@ -35,8 +35,9 @@ const LoginApp = memo(() => {
   };
   
   return (
-    <StyledMainHomeWrapper>
-      <Title>MusicApp⍥</Title>
+    <>
+      <Authentication /> {/* 슬라이드 */}
+      <Title>YMusic⍥</Title>
       <LoginAppBackground>
         <LoginTitle>
           <h1>Log In</h1>
@@ -64,7 +65,7 @@ const LoginApp = memo(() => {
           <LoginButton onClick={(()=>{navigate('/Join');})}>회원가입</LoginButton>
         </div>
       </LoginAppBackground>
-    </StyledMainHomeWrapper>
+    </>
   );
 });
 

@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const LoginAppBackground = styled.div`
-  position: absolute; /* 절대적 위치 선정*/
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 20%;
+  left: 4%;
 
   display: flex; 
   align-items: center; /* 내용물 수평 가운데 배치*/
@@ -55,10 +54,10 @@ export const LoginTitle = styled.div`
 `;
 
 export const Title = styled.div`
-  position: absolute; /* 절대적 위치 선정*/
-  top: 1%;
-  left: 89%;
+  margin-left: 2em;
+  margin-top: 1em;
   font-size: 2em;
   font-weight: bold;
-  color: green;
+  color: black;
+  z-index: 998; /* 다른 요소 위에 나타나도록 설정할 수 있는 설정 */
 `
