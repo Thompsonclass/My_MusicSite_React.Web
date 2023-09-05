@@ -11,6 +11,11 @@ const Musicimg = styled.img`
   border-radius: 3px;
 `;
 
+const Solid = styled.div`
+  width: 100%;
+  border: 2px solid #808080;
+`
+
 function AppSongMainHomeExplanation() {
 
     // intro 섹션의 가시성 상태를 관리하는 상태 변수
@@ -77,6 +82,7 @@ function AppSongMainHomeExplanation() {
 
   return (
     <div>
+        <Solid />
       <animated.div style={introProps} id="intro">
         <h3 style={{color:'brown'}}>Enjoy a journey through the world of melodies and rhythms!</h3>
         <p>우리의 음악 애플리케이션은 여러분을 환영합니다.</p>
@@ -106,7 +112,7 @@ function AppSongMainHomeExplanation() {
         <p>멜로디의 환희를 경험하며 하모니의 박자로 소중한 순간을 만들어보세요.</p>
         <Musicimg src={mainhomeimg3} alt="music" />
       </animated.div>
-      <hr />
+        <Solid />
       <div style={{ textAlign: 'center', margin: '2rem 0', color: 'white' }}>
         <h2>우리와 함께 음악의 여정을 시작해보세요</h2>
         <p>앱을 다운로드하고 멜로디와 리듬의 세계에 빠져보세요.</p>

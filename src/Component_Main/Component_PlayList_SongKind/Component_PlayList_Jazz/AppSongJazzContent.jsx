@@ -4,14 +4,23 @@ import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
 import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import styled from 'styled-components';
 
+import {
+  Button,
+  IconButton,
+  Slider,
+} from '@material-ui/core';
+import { PlayArrow, Pause, VolumeUp, VolumeDown } from '@material-ui/icons';
+
+
+
 const JazzParentContainer = styled.div` 
-  border: 2px solid black;
+  border: 6px solid black;
   margin-left: 2em;
   width: 112em;  display: flex;
   felx-direction: row;
 `
 const Titleh2 = styled.div`
-  border: 2px solid black;
+  border: 6px solid black;
   border-bottom: none;
   width: 10em;
   height: 3em;
@@ -20,6 +29,7 @@ const Titleh2 = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 `
 
 const ListsParentsContainer = styled.div`
@@ -49,13 +59,31 @@ const SongTitleContainer = styled.div`
   margin-left: 1em;
 `;
 const DivSinger = styled.div`
-  color: #a0a0a0;
+  color: white;
   margin-top: 0.5em;
 `;
+
+const AddSongButton = styled.button`
+  background-color: #667a8f;
+  color: #fff;
+  padding: 8px 50px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  &:hover {
+    background-color: lightblue;
+  }
+`
 
 function AppSongJazzContent() {
   const [audioAllData, setAudioAllData] = useState([]); // 모든 노래 리스트
   const [selectedSongs, setSelectedSongs] = useState([]); // 선택된 노래 리스트
+
+  const [isPlaying, setIsPlaying] = useState(false); // Added state for isPlaying
+  const [songLength, setSongLength] = useState(300); // Added state for songLength
+  const [volume, setVolume] = useState(0.5); // Added state for volume
+
 
   useEffect(() => {
     axios.get("http://localhost:3000/main/Music_player")
@@ -84,22 +112,30 @@ function AppSongJazzContent() {
 
   return (
     <MainWrapper>
-          <AppSongMainTitle />
-        <Titleh2>
-          <h2>◆ Jazz 노래</h2>
-        </Titleh2>
+      <AppSongMainTitle />
+      <Titleh2>
+        <h2>◆ Jazz 노래</h2>
+      </Titleh2>
       <JazzParentContainer>
         {audioAllLists.map((data, index) => (
           <ListsParentsContainer key={index}>
             <ListsContainer>
-              <SongImgContainer src={data.cover}></SongImgContainer>
-                <SongTitleContainer>
-                  <div>{data.name}</div>
-                  <DivSinger>{data.singer}</DivSinger> 
-                  {/* 이미지, 노래 제목, 가수 */}
-                </SongTitleContainer>
+              <SongImgContainer src={data.cover} alt={data.name} />
+              <SongTitleContainer>
+                <div>{data.name}</div>
+                <DivSinger>{data.singer}</DivSinger>
+              </SongTitleContainer>
             </ListsContainer>
-            <button onClick={() => AddSongList(index)}>추가</button>
+            <AddSongButtonWithPlay
+              index={index}
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              songLength={songLength}
+              setSongLength={setSongLength}
+              volume={volume}
+              setVolume={setVolume}
+            />
+            <AddSongButton onClick={() => AddSongList(index)}>추가</AddSongButton>
           </ListsParentsContainer>
         ))}
       </JazzParentContainer>

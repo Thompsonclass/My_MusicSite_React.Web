@@ -12,7 +12,7 @@ function AppSongMainTitle() {
             <SiderList />
           </SiderDiv>
           <Title>
-            Music Play App
+            YMusic Player
           </Title>
         </AppSongMainTitleBackground>
           <WaveDiv>

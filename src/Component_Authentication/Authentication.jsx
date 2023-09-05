@@ -16,7 +16,7 @@ const StyledMainHomeWrapper = styled.div`
 // CSS 애니메이션 키프레임 정의
 const slide = keyframes`
   0% {
-    transform: translateX(100%); /* 시작 위치: 오른쪽에서 왼쪽으로 이동 */
+    transform: translateX(100%); /* 시작 위치: 오른쪽에서 왼쪽으로 이동, 자신의 100%넓이 만큼 이동 */
   }
   10% {
     transform: translateX(0); /* 10% 시점: 정지하여 화면에 보임 */

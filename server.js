@@ -30,8 +30,7 @@ app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가
       cover: '/songImages/happycookingshow.jpg',
       musicSrc: '/songs/happy-cooking-show-111370.mp3',
     },
-    // 다른 노래 데이터 추가
-  ];
+];
 
   res.json(songsData);
 });
