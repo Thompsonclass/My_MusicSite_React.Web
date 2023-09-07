@@ -36,7 +36,7 @@ window.onload = function() {
     // `window.scrollTo()` 메서드는 페이지의 스크롤 위치를 지정
     // 이 코드에서는 첫 번째 인수와 두 번째 인수를 모두 0으로 설정하여 페이지를 맨 위 화면으로 이동
     window.scrollTo(0, 0);
-  }, 1000);
+  }, 100);
 };
   
   return (

@@ -10,7 +10,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json()); // JSON 파싱 미들웨어 추가
 
-app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터
+// 좋아요한 노래 데이터 저장용 배열
+const likedSongsData = [];
+
+// 좋아요한 노래 목록 가져오기
+app.get("/likedSongs", (_, res) => {
+  res.json(likedSongsData);
+});
+
+// 좋아요한 노래 추가하기
+app.post("/likedSongs", (req, res) => {
+  const likedSongData = req.body;
+
+  // 이미 좋아요한 노래인지 확인
+  const existingLikedSong = likedSongsData.find(
+    (song) => song.musicSrc === likedSongData.musicSrc
+  );
+
+  if (!existingLikedSong) {
+    // 좋아요한 노래 목록에 추가
+    likedSongsData.push(likedSongData);
+    res.json({ message: "좋아요한 노래가 성공적으로 추가되었습니다." });
+  } else {
+    res.status(400).json({ error: "이미 좋아요한 노래입니다." });
+  }
+});
+
+app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Jazz 데이터
   const songsData = [
     {
       name: 'Catch It',
@@ -30,10 +56,35 @@ app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가
       cover: '/songImages/happycookingshow.jpg',
       musicSrc: '/songs/happy-cooking-show-111370.mp3',
     },
+    {
+      name: 'Old-World-Saga-Hanu-Dixit',
+      singer: 'Hanu Dixit',
+      cover: '/songImages/cup.jpg',
+      musicSrc: '/songs/Old-World-Saga-Hanu-Dixit.mp3',
+    },
+    {
+      name: 'Relaxing',
+      singer: 'Music_For_Videos',
+      cover: '/songImages/relax.jpg',
+      musicSrc: '/songs/relaxing-145038.mp3',
+    },
+    {
+      name: 'Eco Technology',
+      singer: 'Lexin_Music',
+      cover: '/songImages/Ecoechnology.jpg',
+      musicSrc: '/songs/Old-World-Saga-Hanu-Dixit.mp3',
+    },
+    {
+      name: 'Ambient Classical Guitar',
+      singer: 'William_King',
+      cover: '/songImages/Ambient.jpg',
+      musicSrc: '/songs/ambient-classical-guitar-144998.mp3',
+    }
 ];
 
   res.json(songsData);
 });
+
 
 const userDatabase = []; // 사용자 정보 저장
 
@@ -61,5 +112,13 @@ app.post("/", (req, res) => { // 로그인 처리를 위한 엔드포인트
 });
 
 app.listen(3000, () => {
-  console.log(`서버 실행 중입니다. http://localhost:${port}`);
+  console.log(`
+    서버 실행 중입니다.
+    라이브러리 실행 중입니다.
+    Jazz 노래 실행 중입니다.
+    Idol 노래 실행 중입니다.
+    Bgm 노래 실행 중입니다.
+    로그인, 회원가입 로직 실행 중입니다.
+    http://localhost:${port}
+    `);
 });

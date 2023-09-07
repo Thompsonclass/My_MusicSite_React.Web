@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HeartImg from "./heart.png"; 
-import EmptyHeartImg from "./empty-heart.png";
+import EmptyHeartImg from "./empty_heart.png";
 
 const Heart = styled.img`
     width: 35px;

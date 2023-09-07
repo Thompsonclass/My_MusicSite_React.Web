@@ -1,89 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
 import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
-import styled from 'styled-components';
-
-import {
-  Button,
-  IconButton,
-  Slider,
-} from '@material-ui/core';
-import { PlayArrow, Pause, VolumeUp, VolumeDown } from '@material-ui/icons';
-
-
-
-const JazzParentContainer = styled.div` 
-  border: 6px solid black;
-  margin-left: 2em;
-  width: 112em;  display: flex;
-  felx-direction: row;
-`
-const Titleh2 = styled.div`
-  border: 6px solid black;
-  border-bottom: none;
-  width: 10em;
-  height: 3em;
-  margin-top: 3em;
-  margin-left: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-`
-
-const ListsParentsContainer = styled.div`
-  margin: 10px;
-  margin-right: 10em; 
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-`
-
-const ListsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 20em;
-`
-
-const SongImgContainer = styled.img`
-  width: 8em;
-  height: 8em;
-`;
-
-const SongTitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 1em;
-  margin-left: 1em;
-`;
-const DivSinger = styled.div`
-  color: white;
-  margin-top: 0.5em;
-`;
-
-const AddSongButton = styled.button`
-  background-color: #667a8f;
-  color: #fff;
-  padding: 8px 50px;
-  margin: 10px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-  &:hover {
-    background-color: lightblue;
-  }
-`
+import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
+import LikeExpressBtn from '../../../Component_LikeButton/LikeExpressParent'
+import { IconButton, Slider } from '@material-ui/core';
+import { PlayArrow, Pause } from '@material-ui/icons';
+import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, JazzParentContainer, ListsContainer } from '../../../Styled/ReadMainSongJazzContent.styled';
 
 function AppSongJazzContent() {
-  const [audioAllData, setAudioAllData] = useState([]); // 모든 노래 리스트
-  const [selectedSongs, setSelectedSongs] = useState([]); // 선택된 노래 리스트
-
-  const [isPlaying, setIsPlaying] = useState(false); // Added state for isPlaying
-  const [songLength, setSongLength] = useState(300); // Added state for songLength
-  const [volume, setVolume] = useState(0.5); // Added state for volume
-
+  const audioRef = useRef(null);
+  const [audioAllData, setAudioAllData] = useState([]);
+  const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.2);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   useEffect(() => {
     axios.get("http://localhost:3000/main/Music_player")
@@ -95,8 +24,6 @@ function AppSongJazzContent() {
       });
   }, []);
 
-  console.log(audioAllData);
-
   const audioAllLists = audioAllData.map((song, index) => ({
     name: song.name,
     singer: song.singer,
@@ -105,38 +32,102 @@ function AppSongJazzContent() {
     index: index,
   }));
 
-  const AddSongList = (index) => {
-    const selectedSong = audioAllLists[index];
-    setSelectedSongs((prevSelectedSongs) => [...prevSelectedSongs, selectedSong]);
+  // 볼륨을 조절하는 함수
+  const handleVolumeChange = (_, newValue) => {
+    // 볼륨 상태 업데이트
+    setVolume(newValue);
+  
+    // 오디오 요소가 존재하면
+    if (audioRef.current) {
+      // 오디오 요소의 볼륨을 새로운 값으로 설정
+      audioRef.current.volume = newValue;
+    }
+  };
+
+  // 트랙 재생을 처리하는 함수
+  const handlePlayTrack = (index) => {
+    // 만약 오디오 요소가 없다면
+    if (!audioRef.current) {
+      // 새로운 오디오 요소를 생성하고 선택한 트랙의 음악 소스로 설정
+      audioRef.current = new Audio(audioAllLists[index].musicSrc);
+    }
+  
+    // 현재 재생 중인 트랙의 인덱스와 선택한 트랙의 인덱스를 비교
+    if (currentTrackIndex === index) {
+      if (audioRef.current.paused) {
+        // 오디오를 재생하고 재생 상태 업데이트
+        audioRef.current.play();
+        setPlaying(true);
+      } else {
+        // 오디오를 일시 정지하고 재생 상태 업데이트
+        audioRef.current.pause();
+        setPlaying(false);
+      }
+    } else {
+      // 다른 트랙을 선택한 경우
+      // 현재 재생 중인 트랙의 인덱스를 새로 선택한 트랙의 인덱스로 업데이트
+      setCurrentTrackIndex(index);
+      audioRef.current.src = audioAllLists[index].musicSrc;
+      // 오디오를 재생하고 재생 상태 업데이트
+      audioRef.current.play();
+      setPlaying(true);
+    }
+  };  
+  
+
+  const handleLikeClick = (index) => {
+    // 클라이언트에서 서버로 보낼 데이터 정의
+    const likedSongData = audioAllLists[index];
+
+    // 서버로 POST 요청 보내기
+    axios.post("http://localhost:3000/likedSongs", likedSongData)
+      .then((response) => {
+        console.log(response.data.message); // 서버에서의 응답 메시지 출력
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
     <MainWrapper>
       <AppSongMainTitle />
-      <Titleh2>
-        <h2>◆ Jazz 노래</h2>
-      </Titleh2>
       <JazzParentContainer>
         {audioAllLists.map((data, index) => (
-          <ListsParentsContainer key={index}>
-            <ListsContainer>
-              <SongImgContainer src={data.cover} alt={data.name} />
-              <SongTitleContainer>
-                <div>{data.name}</div>
-                <DivSinger>{data.singer}</DivSinger>
-              </SongTitleContainer>
-            </ListsContainer>
-            <AddSongButtonWithPlay
-              index={index}
-              isPlaying={isPlaying}
-              setIsPlaying={setIsPlaying}
-              songLength={songLength}
-              setSongLength={setSongLength}
-              volume={volume}
-              setVolume={setVolume}
+          <ListsContainer key={index}>
+            <SongImgContainer src={data.cover} alt={data.name} />
+            <SongTitleContainer>
+              <div>{data.name}</div>
+              <DivSinger>{data.singer}</DivSinger>
+            </SongTitleContainer>
+            <IconDivContainer>
+              <IconButton
+                onClick={() => handlePlayTrack(index)}
+                style={{
+                  backgroundColor: playing && currentTrackIndex === index ? 'red' : 'black',
+                  borderRadius: '50%',
+                  padding: '5px',
+                  color: 'white',
+                  marginTop: '10px',
+                  width: '40px',
+                  height: '40px',
+                }}
+              >
+                {playing && currentTrackIndex === index ? <Pause /> : <PlayArrow />} {/* 재생 버튼 */}
+              </IconButton>
+              <LikeBtn>
+                <LikeExpressBtn onClick = {handleLikeClick(index)} /> {/* 좋아요 버튼 */}
+              </LikeBtn>
+            </IconDivContainer>
+            <Slider
+              value={volume}
+              onChange={handleVolumeChange}
+              min={0}
+              max={1}
+              step={0.01}
+              style={{ width: '80%' }}
             />
-            <AddSongButton onClick={() => AddSongList(index)}>추가</AddSongButton>
-          </ListsParentsContainer>
+          </ListsContainer>
         ))}
       </JazzParentContainer>
     </MainWrapper>
