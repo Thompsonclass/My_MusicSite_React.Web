@@ -14,7 +14,7 @@ const MusicMainHomeWrapper = styled.div`
 
 const TogetherImg = styled.img`
   width: 100%;
-  height: 35em;
+  height: 40em;
 `
 
 const MainTitle = styled.div`
