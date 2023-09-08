@@ -42,10 +42,15 @@ export const DivSinger = styled.div`
   margin-top: 0.5em;
 `;
 
-export const LikeBtn = styled.div`
-  font-size: 10px;
-  margin-top: 10px;
-  margin-left: 10px; 
+export const LikeBtn = styled.button`
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-left: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const IconDivContainer = styled.div`

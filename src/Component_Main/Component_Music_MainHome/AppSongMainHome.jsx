@@ -9,7 +9,7 @@ import mainHome_together from '../../songHomeImg/MainHome_together.jpg'
 const MusicMainHomeWrapper = styled.div`
   background-image: url(${mainhome});
   background-size: cover;
-  height: 480vh;
+  height: 500vh;
 `;
 
 const TogetherImg = styled.img`

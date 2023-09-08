@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
-import LikeExpressBtn from '../../../Component_LikeButton/LikeExpressParent'
+//import LikeExpressBtn from '../../../Component_LikeButton/LikeExpressParent'
 import { IconButton, Slider } from '@material-ui/core';
 import { PlayArrow, Pause } from '@material-ui/icons';
 import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, JazzParentContainer, ListsContainer } from '../../../Styled/ReadMainSongJazzContent.styled';
@@ -78,7 +78,7 @@ function AppSongJazzContent() {
   const handleLikeClick = (index) => {
     // 클라이언트에서 서버로 보낼 데이터 정의
     const likedSongData = audioAllLists[index];
-
+  
     // 서버로 POST 요청 보내기
     axios.post("http://localhost:3000/likedSongs", likedSongData)
       .then((response) => {
@@ -115,9 +115,7 @@ function AppSongJazzContent() {
               >
                 {playing && currentTrackIndex === index ? <Pause /> : <PlayArrow />} {/* 재생 버튼 */}
               </IconButton>
-              <LikeBtn>
-                <LikeExpressBtn onClick = {handleLikeClick(index)} /> {/* 좋아요 버튼 */}
-              </LikeBtn>
+              <LikeBtn onClick={() => handleLikeClick(index)}> 좋아요 </LikeBtn> {/* 좋아요 버튼 */}
             </IconDivContainer>
             <Slider
               value={volume}
