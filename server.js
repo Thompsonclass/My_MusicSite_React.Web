@@ -18,7 +18,7 @@ app.get("/likedSongs", (_, res) => {
   res.json(likedSongsData);
 });
 
-// 좋아요한 노래 추가하기
+// 좋아요한 노래 추가하기 
 app.post("/likedSongs", (req, res) => {
   const likedSongData = req.body;
 
