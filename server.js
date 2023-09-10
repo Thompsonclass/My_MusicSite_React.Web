@@ -24,7 +24,7 @@ app.post("/likedSongs", (req, res) => {
 
   // 이미 좋아요한 노래인지 확인
   const existingLikedSong = likedSongsData.find(
-    (song) => song.musicSrc === likedSongData.musicSrc
+    (songData) => songData.index === likedSongData.index
   );
 
   if (!existingLikedSong) {

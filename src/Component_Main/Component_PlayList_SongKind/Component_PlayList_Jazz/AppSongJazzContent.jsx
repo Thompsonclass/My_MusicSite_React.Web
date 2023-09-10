@@ -115,7 +115,7 @@ function AppSongJazzContent() {
               >
                 {playing && currentTrackIndex === index ? <Pause /> : <PlayArrow />} {/* 재생 버튼 */}
               </IconButton>
-              <LikeBtn onClick={() => handleLikeClick(index)}> 좋아요 </LikeBtn> {/* 좋아요 버튼 */}
+              <LikeBtn onClick={() => handleLikeClick(index)}> 좋아요 </LikeBtn> {/* 좋아요 버튼, 노래 위치 정보 */}
             </IconDivContainer>
             <Slider
               value={volume}

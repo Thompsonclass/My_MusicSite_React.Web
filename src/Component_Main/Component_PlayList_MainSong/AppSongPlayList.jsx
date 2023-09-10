@@ -64,27 +64,27 @@ const StyledBtn = styled.div`
 `;
 
 const AppSongPlayList = () => {
-  const [audioData, setAudioData] = useState([]); // 모든 노래 리스트
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
+  const [likedSongs, setLikedSongs] = useState([]); // 좋아요한 노래 정보를 저장할 상태
 
+  const fetchLikedSongsData = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/likedSongs");
+      return response.data;
+    } catch (error) {
+      console.error("오류가 발생했습니다.", error);
+    }
+  };
+
+  // 좋아요한 노래 정보를 가져와 likedSongs 상태에 설정
   useEffect(() => {
-    axios.get("http://localhost:3000/main/Music_player") // API 엔드포인트 주소
-      .then((response) => { 
-        setAudioData(response.data); // 서버에서 받아온 데이터로 상태 업데이트
-      })
-      .catch((error) => { // 에러시 알림
-        console.error(error); // 에러 메시지를 콘솔에 출력
-      });
-  }, []);
+    const fetchLikedSongs = async () => {
+      const likedSongsData = await fetchLikedSongsData();
+      setLikedSongs(likedSongsData);
+    };
 
-  // audioData를 사용하여 audioLists를 만듭니다.
-  const audioLists = audioData.map((song, index) => ({
-    name: song.name, // 제목
-    singer: song.singer, // 가수
-    cover: song.cover, // 사진
-    musicSrc: song.musicSrc, // 노래 데이터
-    index: index, // 노래의 index
-  }));
+    fetchLikedSongs();
+  }, []);
 
   // 선택한 트랙을 재생합니다.
   const playSelectedTrack = (index) => {
@@ -92,7 +92,7 @@ const AppSongPlayList = () => {
     setTrackIndex(index); // 해당 노래 위치, 초기값 0
   };
 
-  // 트랙을 다운로드합니다.
+ // 트랙을 다운로드합니다.
   const downSelectedTrack = (musicSrc) => {
     const link = document.createElement('a'); // <a> 요소 생성
     link.href = musicSrc;
@@ -102,14 +102,15 @@ const AppSongPlayList = () => {
   };
 
   const IconStyle = {
-    fontSize: '32px', // 아이콘 크기 설정
+    fontSize: '32px',
   };
+
 
   return (
     <SongPlayerContent>
       <Table>
         <tbody>
-          {audioData.map((song, index) => (
+          {likedSongs.map((song, index) => (
             <TableRow key={index}>
               <TableCell>
                 <SongTitle>
@@ -122,9 +123,9 @@ const AppSongPlayList = () => {
               </TableCell>
               <TableCell>
                 <StyledBtn>
-                  <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton>
+                  <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton> {/* 재생 버튼 */}
                   <div>
-                    <GetAppIcon style={IconStyle} onClick={() => downSelectedTrack(song.musicSrc)} />
+                    <GetAppIcon style={IconStyle} onClick={() => downSelectedTrack(song.musicSrc)} /> {/* 다운 버튼 */}
                   </div>
                 </StyledBtn>
               </TableCell>
@@ -138,7 +139,7 @@ const AppSongPlayList = () => {
         </tbody>
       </Table>
       <ReactJkMusicPlayer
-        audioLists={audioLists}
+        audioLists={likedSongs} // likedSongs를 사용하여 노래 목록을 표시
         mode="full"
         showMiniModeCover={false}
         autoPlay={false}
