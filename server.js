@@ -43,42 +43,49 @@ app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가
       singer:'Music_for_Videos',
       cover: '/songImages/catch_it.jpg',
       musicSrc: '/songs/catch-it-117676.mp3',
+      index: "1"
     },
     {
       name: 'fun times together',
       singer:'Musictown',
       cover: '/songImages/funtimestogether.jpg',
       musicSrc: '/songs/fun-times-together-112809.mp3',
+      index: "2"
     },
     {
       name: 'happy cooking show',
       singer:'Music_for_Videos',
       cover: '/songImages/happycookingshow.jpg',
       musicSrc: '/songs/happy-cooking-show-111370.mp3',
+      index: "3"
     },
     {
       name: 'Old-World-Saga-Hanu-Dixit',
       singer: 'Hanu Dixit',
       cover: '/songImages/cup.jpg',
       musicSrc: '/songs/Old-World-Saga-Hanu-Dixit.mp3',
+      index: "4"
     },
     {
       name: 'Relaxing',
       singer: 'Music_For_Videos',
       cover: '/songImages/relax.jpg',
       musicSrc: '/songs/relaxing-145038.mp3',
+      index: "5"
     },
     {
       name: 'Eco Technology',
       singer: 'Lexin_Music',
       cover: '/songImages/Ecoechnology.jpg',
       musicSrc: '/songs/Old-World-Saga-Hanu-Dixit.mp3',
+      index: "6"
     },
     {
       name: 'Ambient Classical Guitar',
       singer: 'William_King',
       cover: '/songImages/Ambient.jpg',
       musicSrc: '/songs/ambient-classical-guitar-144998.mp3',
+      index: "7"
     }
 ];
 

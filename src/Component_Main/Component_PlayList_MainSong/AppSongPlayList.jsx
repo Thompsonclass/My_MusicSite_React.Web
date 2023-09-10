@@ -67,7 +67,7 @@ const AppSongPlayList = () => {
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
   const [likedSongs, setLikedSongs] = useState([]); // 좋아요한 노래 정보를 저장할 상태
 
-  const fetchLikedSongsData = async () => {
+  const fetchLikedSongsData = async () => { //서버에서 클라이언트로 노래 위치 정보 전달
     try {
       const response = await axios.get("http://localhost:3000/likedSongs");
       return response.data;
@@ -79,8 +79,8 @@ const AppSongPlayList = () => {
   // 좋아요한 노래 정보를 가져와 likedSongs 상태에 설정
   useEffect(() => {
     const fetchLikedSongs = async () => {
-      const likedSongsData = await fetchLikedSongsData();
-      setLikedSongs(likedSongsData);
+      const likedSongsData = await fetchLikedSongsData(); // 설정
+      setLikedSongs(likedSongsData); // 상태 업데이트
     };
 
     fetchLikedSongs();
@@ -104,7 +104,6 @@ const AppSongPlayList = () => {
   const IconStyle = {
     fontSize: '32px',
   };
-
 
   return (
     <SongPlayerContent>
