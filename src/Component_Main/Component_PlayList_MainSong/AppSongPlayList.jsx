@@ -41,7 +41,7 @@ const Spectrum = styled.div`
 
 const Table = styled.table`
   width: 115em;
-  border-collapse: collapse;
+  border-collapse: collapse; /* 테이블 테두리룰 합칩니다.*/
 `;
 
 const TableRow = styled.tr`
