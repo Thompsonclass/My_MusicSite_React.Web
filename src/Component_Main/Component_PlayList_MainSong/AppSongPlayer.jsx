@@ -5,7 +5,6 @@ import styled, { keyframes } from 'styled-components';
 const BackgroundStyled = styled.div`
   display: flex;
   align-items: center;
-  width: 115em; /* 플레이어 테두리 가로 길이 */
   height: 220px;
   margin: 10px;
   border: 2px solid black;

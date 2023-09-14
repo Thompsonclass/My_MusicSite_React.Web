@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
 import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled';
+import { IconButton, Slider } from '@material-ui/core';
+import { PlayArrow, Pause } from '@material-ui/icons';
+import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, JazzParentContainer, ListsContainer } from '../../../Styled/ReadMainSongJazzContent.styled';
 
 function AppSongBgmContent() {
   const audioRef = useRef(null);
