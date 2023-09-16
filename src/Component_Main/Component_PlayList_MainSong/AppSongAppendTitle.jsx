@@ -7,7 +7,7 @@ const TitleWrapper = styled.div`
   border: 2px solid black; /* 태두리를 진한 회색으로 설정 */
   padding: 20px;
   text-align: center;
-  margin: 10px;
+  margin-left: 10px;
   height: 23em;
 `;
 
@@ -24,6 +24,11 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 16px;
   margin-top: 10px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+      background-color: #555;
+  }
 `;
 
 function AppSongAppendTitle() {

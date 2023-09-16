@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
-//import LikeExpressBtn from '../../../Component_LikeButton/LikeExpressParent'
 import { IconButton, Slider } from '@material-ui/core';
 import { PlayArrow, Pause } from '@material-ui/icons';
 import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, JazzParentContainer, ListsContainer } from '../../../Styled/ReadMainSongJazzContent.styled';
@@ -15,7 +14,7 @@ function AppSongJazzContent() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/main/Music_player")
+    axios.get("http://localhost:3000/main/Music_player_Jazz")
       .then((response) => { 
         setAudioAllData(response.data);
       })

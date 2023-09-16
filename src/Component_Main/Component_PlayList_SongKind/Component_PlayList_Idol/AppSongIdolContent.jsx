@@ -14,7 +14,7 @@ function AppSongIdolContent() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/main/Music_player")
+    axios.get("http://localhost:3000/main/Music_player_Idol")
       .then((response) => { 
         setAudioAllData(response.data);
       })

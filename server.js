@@ -36,7 +36,7 @@ app.post("/likedSongs", (req, res) => {
   }
 });
 
-app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Jazz 데이터
+app.get("/main/Music_player_Jazz", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Jazz 데이터
   const songsData = [
     {
       name: 'Catch It',
@@ -92,6 +92,35 @@ app.get("/main/Music_player", (_, res) => { // 엔드포인트 주소, 서버가
   res.json(songsData);
 });
 
+app.get("/main/Music_player_Idol", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Idol 데이터
+  const songsData = [
+    {
+      name: '',
+      singer:'',
+      cover: '',
+      musicSrc: '',
+      index: ''
+    },
+
+];
+
+  res.json(songsData);
+});
+
+app.get("/main/Music_player_Bgm", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Bgm 데이터
+  const songsData = [
+    {
+      name: '',
+      singer:'',
+      cover: '',
+      musicSrc: '',
+      index: ''
+    },
+
+];
+
+  res.json(songsData);
+});
 
 const userDatabase = []; // 사용자 정보 저장
 

@@ -9,7 +9,6 @@ const BackgroundStyled = styled.div`
   margin: 10px;
   border: 2px solid black;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* 그림자 효과 추가 */
-  margin-bottom: 10px; /* 하단 여백 추가 */
 `;
 
 const spinAnimation = keyframes` 
