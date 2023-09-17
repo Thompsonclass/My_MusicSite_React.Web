@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
-import { IconButton, Slider } from '@material-ui/core';
-import { PlayArrow, Pause } from '@material-ui/icons';
+import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, ParentContainer, ListsContainer } 
 from '../../../Styled/ReadMainSongContent.styled';
+import { IconButton, Slider } from '@material-ui/core';
+import { PlayArrow, Pause } from '@material-ui/icons';
 
-function AppSongJazzContent() {
+function AppSongCalmeContent() {
   const audioRef = useRef(null);
   const [audioAllData, setAudioAllData] = useState([]);
   const [playing, setPlaying] = useState(false);
@@ -15,7 +15,7 @@ function AppSongJazzContent() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/main/Music_player_Jazz")
+    axios.get("http://localhost:3000/main/Music_player_Calm")
       .then((response) => { 
         setAudioAllData(response.data);
       })
@@ -132,4 +132,4 @@ function AppSongJazzContent() {
   );
 }
 
-export default AppSongJazzContent;
+export default AppSongCalmeContent

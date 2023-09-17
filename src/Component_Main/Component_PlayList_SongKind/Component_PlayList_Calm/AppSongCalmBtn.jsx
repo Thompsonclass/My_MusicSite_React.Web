@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const AppSongIdolBackground = styled.button`
+const AppSongCalmBackground = styled.button`
   width: 400px;
   height: 400px;
   background-color: lightblue;
@@ -45,18 +45,18 @@ const AppSongIdolBackground = styled.button`
 }
 `;
 
-function AppSongClassicBtn() {
+function AppSongCalm() {
   const navigate = useNavigate();
   
-  const IdolInBtn = () => {
-    navigate('/main/Music_player_main/Classic_List');
+  const CalmInBtn = () => {
+    navigate('/main/Music_player_main/Calm_List');
   }
 
   return (
-    <AppSongIdolBackground onClick={IdolInBtn}>
-        Classic
-    </AppSongIdolBackground>
+    <AppSongCalmBackground onClick={CalmInBtn}>
+        C a l m
+    </AppSongCalmBackground>
   );
 }
 
-export default AppSongClassicBtn;
+export default AppSongCalm;

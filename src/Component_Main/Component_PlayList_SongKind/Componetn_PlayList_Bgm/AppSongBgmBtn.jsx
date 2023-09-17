@@ -49,7 +49,7 @@ function AppSongBgm() {
   const navigate = useNavigate();
 
   const AppSongBgm = () => { /* 재즈 노래 버튼 */
-    navigate('/main/Music_player_main/Idol_List')
+    navigate('/main/Music_player_main/Bgm_List')
   }
 
   return (

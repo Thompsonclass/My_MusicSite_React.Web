@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const AppSongIdolBackground = styled.button`
+const AppSongRomanticBackground = styled.button`
   width: 400px;
   height: 400px;
   background-color: lightblue;
@@ -45,18 +45,18 @@ const AppSongIdolBackground = styled.button`
 }
 `;
 
-function AppSongClassicBtn() {
+function AppSongRomanticBtn() {
   const navigate = useNavigate();
   
-  const IdolInBtn = () => {
-    navigate('/main/Music_player_main/Classic_List');
+  const RomanticInBtn = () => {
+    navigate('/main/Music_player_main/Romantic_List');
   }
 
   return (
-    <AppSongIdolBackground onClick={IdolInBtn}>
-        Classic
-    </AppSongIdolBackground>
+    <AppSongRomanticBackground onClick={RomanticInBtn}>
+        Romantic
+    </AppSongRomanticBackground>
   );
 }
 
-export default AppSongClassicBtn;
+export default AppSongRomanticBtn;

@@ -4,10 +4,10 @@ import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
 import { IconButton, Slider } from '@material-ui/core';
 import { PlayArrow, Pause } from '@material-ui/icons';
-import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, ParentContainer, ListsContainer } 
+import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, ParentContainer, ListsContainer }
 from '../../../Styled/ReadMainSongContent.styled';
 
-function AppSongJazzContent() {
+function AppSongRomanticContent() {
   const audioRef = useRef(null);
   const [audioAllData, setAudioAllData] = useState([]);
   const [playing, setPlaying] = useState(false);
@@ -15,7 +15,7 @@ function AppSongJazzContent() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/main/Music_player_Jazz")
+    axios.get("http://localhost:3000/main/Music_player_Romantic")
       .then((response) => { 
         setAudioAllData(response.data);
       })
@@ -132,4 +132,4 @@ function AppSongJazzContent() {
   );
 }
 
-export default AppSongJazzContent;
+export default AppSongRomanticContent;

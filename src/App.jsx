@@ -7,7 +7,10 @@ import AppSongMainShowBgm from './Component_Main/Component_PlayList_MainSong/App
 import AppSongPlayListSongKind from './Component_Main/Component_PlayList_SongKind/AppSongPlayListSongKind';
 import AppSongBgmContent from './Component_Main/Component_PlayList_SongKind/Componetn_PlayList_Bgm/AppSongBgmContent'
 import AppSongJazzContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Jazz/AppSongJazzContent';
-import AppSongIdolContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Idol/AppSongIdolContent';
+import AppSongCalmContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Calm/AppSongCalmContent';
+import AppSongClassicContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_classic/AppSongClassicContent';
+import AppSongCoolContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Cool/AppSongCoolContent';
+import AppSongRomanticContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Romantic/AppSongRomanticContent';
 import JoinApp from './Component_Authentication/JoinApp';
 
 const App = () => {
@@ -21,8 +24,11 @@ const App = () => {
           <Route path="/main/Music_player" element={<AppSongMainShowBgm />} /> {/*개별 음악 컴포넌트*/}
           <Route path="/main/Music_player_main" element={<AppSongPlayListSongKind/>} /> {/*모든 음악 컴포넌트*/}
           <Route path='/main/Music_player_main/Bgm_List' element={<AppSongBgmContent/>} /> {/* BGM 음악 */} 
-          <Route path='/main/Music_player_main/Idol_List' element={<AppSongIdolContent/>} /> {/* Idol 음악 */}
+          <Route path='/main/Music_player_main/Calm_List' element={<AppSongCalmContent/>} /> {/* Calm 음악 */}
           <Route path='/main/Music_player_main/Jazz_List' element={<AppSongJazzContent/>} /> {/* Jazz 음악 */}
+          <Route path='/main/Music_player_main/Classic_List' element={<AppSongClassicContent/>} /> {/* Classic 음악 */}
+          <Route path='/main/Music_player_main/Cool_List' element={<AppSongCoolContent/>} /> {/* Cool 음악 */}
+          <Route path='/main/Music_player_main/Romantic_List' element={<AppSongRomanticContent/>} /> {/* Romantic 음악 */}
         </Routes>
       </Router>
     </GlobalStateProvider>

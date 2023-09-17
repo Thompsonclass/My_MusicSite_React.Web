@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
 import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
-import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled';
 import { IconButton, Slider } from '@material-ui/core';
 import { PlayArrow, Pause } from '@material-ui/icons';
-import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, JazzParentContainer, ListsContainer } from '../../../Styled/ReadMainSongJazzContent.styled';
+import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, ParentContainer, ListsContainer } 
+from '../../../Styled/ReadMainSongContent.styled';
 
 function AppSongBgmContent() {
   const audioRef = useRef(null);
@@ -91,7 +92,7 @@ function AppSongBgmContent() {
   return (
     <MainWrapper>
       <AppSongMainTitle />
-      <JazzParentContainer>
+      <ParentContainer>
         {audioAllLists.map((data, index) => (
           <ListsContainer key={index}>
             <SongImgContainer src={data.cover} alt={data.name} />
@@ -126,7 +127,7 @@ function AppSongBgmContent() {
             />
           </ListsContainer>
         ))}
-      </JazzParentContainer>
+      </ParentContainer>
     </MainWrapper>
   );
 }

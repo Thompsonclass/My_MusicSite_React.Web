@@ -45,18 +45,18 @@ const AppSongIdolBackground = styled.button`
 }
 `;
 
-function AppSongClassicBtn() {
+function AppSongCoolBtn() {
   const navigate = useNavigate();
   
   const IdolInBtn = () => {
-    navigate('/main/Music_player_main/Classic_List');
+    navigate('/main/Music_player_main/Cool_List');
   }
 
   return (
     <AppSongIdolBackground onClick={IdolInBtn}>
-        Classic
+        C o o l
     </AppSongIdolBackground>
   );
 }
 
-export default AppSongClassicBtn;
+export default AppSongCoolBtn;
