@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios'; // Axios를 사용하여 HTTP 요청을 보냅니다.
 
 const DeleteWallpaper = styled.div`
     display: flex;
@@ -28,12 +29,19 @@ const ButtonAllDelete = styled.button`
 `;
 
 function AppSongPlayerDelete() {
-  const [list, setList] = useState([]); // 리스트 상태를 초기화
+  const [list, setList] = useState([]);
 
   const handleButtonAllDeleteClick = () => {
-    // 버튼을 클릭하면 리스트를 빈 리스트로 초기화
-    setList([]);
+    // 서버로 HTTP DELETE 요청을 보내어 노래 목록 삭제
+    axios.delete('/likedSongsDelete')
+      .then((response) => {
+        console.log(response.data.message);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
+
 
   return (
     <DeleteWallpaper>

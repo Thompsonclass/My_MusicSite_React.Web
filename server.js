@@ -36,6 +36,12 @@ app.post("/likedSongs", (req, res) => {
   }
 });
 
+// 노래 목록 삭제
+app.delete("/likedSongsDelete", (_, res) => {
+  likedSongsData.length = 0; // 노래 목록을 비웁니다.
+  res.json({ message: "노래 목록이 성공적으로 삭제되었습니다." });
+});
+
 app.get("/main/Music_player_Jazz", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Jazz 데이터
   const songsData = [
     {
@@ -91,7 +97,7 @@ app.get("/main/Music_player_Jazz", (_, res) => { // 엔드포인트 주소, 서�
 
   res.json(songsData);
 });
-
+ 
 app.get("/main/Music_player_Calm", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Calm 데이터
   const songsData = [
     {
