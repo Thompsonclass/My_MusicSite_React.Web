@@ -101,11 +101,32 @@ app.get("/main/Music_player_Jazz", (_, res) => { // 엔드포인트 주소, 서�
 app.get("/main/Music_player_Calm", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Calm 데이터
   const songsData = [
     {
-      name: '',
-      singer:'',
-      cover: '',
-      musicSrc: '',
-      index: ''
+      name: 'Reflected Light',
+      singer:'SergePavkinMusic',
+      cover: '/songImages/ReflectedLight.jpg',
+      musicSrc: '/songs/reflected-light-147979.mp3',
+      index: '1'
+    },
+    {
+      name: 'Waterfall',
+      singer:'RomanSenykMusic',
+      cover: '/songImages/Waterfall.jpg',
+      musicSrc: '/songs/waterfall-140894.mp3',
+      index: '2'
+    },
+    {
+      name: 'The Cradle of Your Soul',
+      singer:'lemonmusicstudio',
+      cover: '/songImages/TheCradleofYourSoul.jpg',
+      musicSrc: '/songs/the-cradle-of-your-soul-15700.mp3',
+      index: '3'
+    },
+    {
+      name: 'Modern Chillout',
+      singer:'penguinmusic',
+      cover: '/songImages/penguinmusic.jpg',
+      musicSrc: '/songs/penguinmusic-modern-chillout-future-calm-12641.mp3',
+      index: '4'
     },
 
 ];
@@ -116,11 +137,39 @@ app.get("/main/Music_player_Calm", (_, res) => { // 엔드포인트 주소, 서�
 app.get("/main/Music_player_Bgm", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Bgm 데이터
   const songsData = [
     {
-      name: '',
-      singer:'',
-      cover: '',
+      name: 'Electronic Rock (King Around Here)',
+      singer:'AlexGrohl',
+      cover: '/songImages/electronic.jpg',
       musicSrc: '',
-      index: ''
+      index: '1'
+    },
+    {
+      name: 'Trailer Sport Stylish',
+      singer:'Anton_Vlasov',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '',
+      index: '2'
+    },
+    {
+      name: 'Abstract Future Bass',
+      singer:'QubeSounds',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '',
+      index: '3'
+    },
+    {
+      name: 'The Podcast Intro',
+      singer:'Music_Unlimited',
+      cover: '/songImages/podcast.jpg',
+      musicSrc: '',
+      index: '4'
+    },
+    {
+      name: 'Best Time',
+      singer:'FASSounds',
+      cover: '/songImages/bestTime.jpg',
+      musicSrc: '',
+      index: '5'
     },
 
 ];
@@ -131,13 +180,33 @@ app.get("/main/Music_player_Bgm", (_, res) => { // 엔드포인트 주소, 서�
 app.get("/main/Music_player_Classic", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Classic 데이터
   const songsData = [
     {
-      name: '',
-      singer:'',
-      cover: '',
-      musicSrc: '',
-      index: ''
+      name: 'Sad Piano',
+      singer:'Lesfm',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/sad-piano-background-music-for-videos-7573.mp3',
+      index: '1'
     },
-
+    {
+      name: 'Shooting stars',
+      singer:'PianoAmor',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/shooting-stars-142600.mp3',
+      index: '2'
+    },
+    {
+      name: 'Canción Triste',
+      singer:'enrique27naveda',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/cancion-triste-1502.mp3',
+      index: '3'
+    },
+    {
+      name: 'Blessed (Main)',
+      singer:'Daddy_s_Music',
+      cover: '/songImages/blessed.jpg',
+      musicSrc: '/songs/blessed-main-120698.mp3',
+      index: '4'
+    },
 ];
 
   res.json(songsData);
@@ -146,11 +215,32 @@ app.get("/main/Music_player_Classic", (_, res) => { // 엔드포인트 주소, �
 app.get("/main/Music_player_Cool", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Cool 데이터
   const songsData = [
     {
-      name: '',
-      singer:'',
-      cover: '',
-      musicSrc: '',
-      index: ''
+      name: 'Lofi Study',
+      singer:'FASSounds',
+      cover: '/songImages/Lofi.jpg',
+      musicSrc: '/songs/lofi-study-112191.mp3',
+      index: '1'
+    },
+    {
+      name: 'Drop It',
+      singer:'Coma-Media',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/drop-it-124014.mp3',
+      index: '2'
+    },
+    {
+      name: 'Embrace',
+      singer:'ItsWatR',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/embrace-12278.mp3',
+      index: '3'
+    },
+    {
+      name: 'WatR - Double Overhead',
+      singer:'ItsWatR',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/watr-double-overhead-11517.mp3',
+      index: '4'
     },
 
 ];
@@ -161,11 +251,32 @@ app.get("/main/Music_player_Cool", (_, res) => { // 엔드포인트 주소, 서�
 app.get("/main/Music_player_Romantic", (_, res) => { // 엔드포인트 주소, 서버가 클라이어튼에게 전달할 데이터, Romantic 데이터
   const songsData = [
     {
-      name: '',
-      singer:'',
-      cover: '',
-      musicSrc: '',
-      index: ''
+      name: 'Leva - Eternity',
+      singer:'lemonmusicstudio',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/leva-eternity-149473.mp3',
+      index: '1'
+    },
+    {
+      name: 'Piano Moment',
+      singer:'Daddy_s_Music',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/piano-moment-9835.mp3',
+      index: '2'
+    },
+    {
+      name: 'Futuristic Beat',
+      singer:'RoyaltyFreeMusic',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/futuristic-beat-146661.mp3',
+      index: '3'
+    },
+    {
+      name: 'Good Night',
+      singer:'FASSounds',
+      cover: '/songImages/singAlt.jpg',
+      musicSrc: '/songs/good-night-160166.mp3',
+      index: '4'
     },
 
 ];
