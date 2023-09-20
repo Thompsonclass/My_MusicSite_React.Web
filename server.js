@@ -140,35 +140,35 @@ app.get("/main/Music_player_Bgm", (_, res) => { // 엔드포인트 주소, 서�
       name: 'Electronic Rock (King Around Here)',
       singer:'AlexGrohl',
       cover: '/songImages/electronic.jpg',
-      musicSrc: '',
+      musicSrc: '/songs/electronic-rock-king-around-here-15045.mp3',
       index: '1'
     },
     {
       name: 'Trailer Sport Stylish',
       singer:'Anton_Vlasov',
       cover: '/songImages/singAlt.jpg',
-      musicSrc: '',
+      musicSrc: '/songs/trailer-sport-stylish-16073.mp3',
       index: '2'
     },
     {
       name: 'Abstract Future Bass',
       singer:'QubeSounds',
       cover: '/songImages/singAlt.jpg',
-      musicSrc: '',
+      musicSrc: '/songs/abstract-future-bass-162604.mp3',
       index: '3'
     },
     {
       name: 'The Podcast Intro',
       singer:'Music_Unlimited',
       cover: '/songImages/podcast.jpg',
-      musicSrc: '',
+      musicSrc: '/songs/the-podcast-intro-111863.mp3',
       index: '4'
     },
     {
       name: 'Best Time',
       singer:'FASSounds',
       cover: '/songImages/bestTime.jpg',
-      musicSrc: '',
+      musicSrc: '/songs/good-night-160166.mp3',
       index: '5'
     },
 

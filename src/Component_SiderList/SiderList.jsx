@@ -41,9 +41,6 @@ const SiderList = () => {
             <ListItem button component={Link} to="">
               <ListItemText primary="24시간 자유 음악" /> 
             </ListItem>
-            <ListItem button component={Link} to="">
-              <ListItemText primary="컬렉션" /> 
-            </ListItem>
           </List>
         </div>
       </Drawer>

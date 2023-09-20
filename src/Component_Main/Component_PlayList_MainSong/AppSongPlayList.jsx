@@ -122,7 +122,7 @@ const AppSongPlayList = () => {
               </TableCell>
               <TableCell>
                 <StyledBtn>
-                  <StyledButton onClick={() => playSelectedTrack(index)}>Play</StyledButton> {/* 재생 버튼 */}
+                  <StyledButton onClick={() => playSelectedTrack(song.index)}>Play</StyledButton> {/* 재생 버튼 */}
                   <div>
                     <GetAppIcon style={IconStyle} onClick={() => downSelectedTrack(song.musicSrc)} /> {/* 다운 버튼 */}
                   </div>
@@ -138,6 +138,7 @@ const AppSongPlayList = () => {
         </tbody>
       </Table>
       <ReactJkMusicPlayer
+         key={likedSongs.length} // likedSongs 배열의 길이를 key로 사용
         audioLists={likedSongs} // likedSongs를 사용하여 노래 목록을 표시
         mode="full"
         showMiniModeCover={false}

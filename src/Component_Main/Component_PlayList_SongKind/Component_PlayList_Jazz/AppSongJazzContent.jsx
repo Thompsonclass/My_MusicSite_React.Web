@@ -24,6 +24,16 @@ function AppSongJazzContent() {
       });
   }, []);
 
+  useEffect(() => {
+    // 컴포넌트가 언마운트될 때 오디오를 일시 정지합니다.
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        setPlaying(false);
+      }
+    };
+  }, []);
+
   const audioAllLists = audioAllData.map((song, index) => ({
     name: song.name,
     singer: song.singer,
