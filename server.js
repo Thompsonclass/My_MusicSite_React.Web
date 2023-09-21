@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()); // JSON 파싱 미들웨어 추가
 
 // 좋아요한 노래 데이터 저장용 배열
-const likedSongsData = [];
+let likedSongsData = [];
 
 // 좋아요한 노래 목록 가져오기
 app.get("/likedSongs", (_, res) => {
@@ -37,7 +37,7 @@ app.post("/likedSongs", (req, res) => {
 });
 
 // 노래 목록 삭제
-app.delete("/likedSongsDelete", (_, res) => {
+app.post("/likedSongsDelete", (_, res) => {
   likedSongsData.length = 0; // 노래 목록을 비웁니다.
   res.json({ message: "노래 목록이 성공적으로 삭제되었습니다." });
 });

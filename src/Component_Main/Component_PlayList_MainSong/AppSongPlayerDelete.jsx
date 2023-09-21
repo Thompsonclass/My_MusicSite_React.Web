@@ -33,16 +33,15 @@ function AppSongPlayerDelete() {
 
   const handleButtonAllDeleteClick = () => {
     // 서버로 HTTP DELETE 요청을 보내어 노래 목록 삭제
-    axios.delete('/likedSongsDelete')
+    axios.post('/likedSongsDelete')
       .then((response) => {
-        console.log(response.data.message);
+        alert(response.data.message);
       })
       .catch((error) => {
         console.error(error);
       });
   };
-
-
+  
   return (
     <DeleteWallpaper>
       <ButtonAllDelete onClick={handleButtonAllDeleteClick}>전체 삭제</ButtonAllDelete>

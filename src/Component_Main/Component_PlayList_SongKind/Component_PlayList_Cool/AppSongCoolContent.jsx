@@ -82,7 +82,7 @@ function AppSongCoolContent() {
     // 서버로 POST 요청 보내기
     axios.post("http://localhost:3000/likedSongs", likedSongData)
       .then((response) => {
-        console.log(response.data.message); // 서버에서의 응답 메시지 출력
+        alert(response.data.message); // 서버에서의 응답 메시지 출력
       })
       .catch((error) => {
         console.error(error);
