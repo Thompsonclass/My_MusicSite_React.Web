@@ -11,7 +11,7 @@ const LoginApp = memo(() => {
   const [inputIdValue, setInputIdValue] = useState(''); // ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); // PW값 저장
   
-  const mainLogin = async () => {
+  const mainLogin = async () => { // 로그인 버튼
     if (inputIdValue.length === 0 || inputPassValue.length === 0) {
       alert('설정할 아이디와 비밀번호를 입력하세요.');
     }

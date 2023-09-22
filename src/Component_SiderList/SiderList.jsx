@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { Drawer, List, ListItem, ListItemText, IconButton } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { styles } from '../Styled/ReadSiderList.styled'; 
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
-
-
-const styles = makeStyles(() => ({ //리스트 CSS
-  drawer: {
-    width: '300px',
-    backgroundColor: 'lightgray'
-  },
-}));
 
 const SiderList = () => {
   const [Open, setOpen] = useState(false); //리스트 OPEN

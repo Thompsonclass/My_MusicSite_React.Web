@@ -13,6 +13,7 @@ const JoinApp = memo(() => {
   const mainJoin = async () => { // 비동기 함수 생성, 작업 순서와 상관없이 처리하고 작업이 완료시에 콜백이나 promise, async/await로 처리
     if (inputIdValue.length === 0 || inputPassValue.length === 0) {
       alert('설정할 아이디와 비밀번호를 입력하세요.');
+      return;
     }
     const data = { 
       inputIdValue, // ID 저장
@@ -20,7 +21,7 @@ const JoinApp = memo(() => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/Join", {
+      const response = await fetch("http://localhost:3000/Join", { 
         method: "POST",
         headers: {
         "Content-Type": "application/json",

@@ -7,13 +7,7 @@ import AppSongCalm from './Component_PlayList_Calm/AppSongCalmBtn';
 import AppSongClassicBtn from './Component_PlayList_classic/AppSongClassicBtn';
 import AppSongCoolBtn from './Component_PlayList_Cool/AppSongCoolBtn';
 import AppSongRomanticBtn from './Component_PlayList_Romantic/AppSongRomanticBtn';
-import styled from 'styled-components'
-
-const StyledSideHomeWrapper = styled.div`
-  display: flex;
-  flex-direction: row; /* 가로 배치*/
-  justify-content: center;  /* 가운데 배치 */
-`
+import { StyledSideHomeWrapper } from '../../Styled/ReadSongPlayListSongKind.styled';
 
 function AppSongPlayListSongKind() {
   return (

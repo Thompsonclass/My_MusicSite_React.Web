@@ -54,10 +54,12 @@ export const LoginTitle = styled.div`
 `;
 
 export const Title = styled.div`
+  position: absolute;
+  top: 1%;
+  left: 1%;
   margin-left: 2em;
   margin-top: 1em;
   font-size: 2em;
   font-weight: bold;
   color: black;
-  z-index: 998; /* 다른 요소 위에 나타나도록 설정할 수 있는 설정 */
 `
