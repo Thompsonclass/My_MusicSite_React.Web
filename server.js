@@ -303,9 +303,9 @@ app.post("/", (req, res) => { // 로그인 처리를 위한 엔드포인트
   const foundUser = userDatabase.find(user => user.inputIdValue === inputIdValue && user.inputPassValue === inputPassValue);
 
   if (foundUser) {
-    res.json({ message: "로그인 성공", user: foundUser });
+    res.json({ message: "로그인 성공"});
   } else {
-    res.status(401).json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
+    return res.status(400).json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
   }
 });
 

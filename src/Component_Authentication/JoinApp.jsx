@@ -2,6 +2,7 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, memo } from 'react';
 import Authentication from './Authentication';
+import axios from 'axios'; // axios 모듈을 임포트합니다
 import { LoginAppBackground, LoginButton, LoginTitle, Label, Input, Title } from '../Styled/ReadLogin.styled';
 
 const JoinApp = memo(() => {
@@ -15,26 +16,18 @@ const JoinApp = memo(() => {
       alert('설정할 아이디와 비밀번호를 입력하세요.');
       return;
     }
-    const data = { 
-      inputIdValue, // ID 저장
-      inputPassValue, // PW 저장
-    };
-
     try {
-      const response = await fetch("http://localhost:3000/Join", { 
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+      const response = await axios.post("http://localhost:3000/Join", { // 서버로 POST 요청 보내기
+        inputIdValue,
+        inputPassValue,
     });
   
-      if (response.ok) {
-        const responseData = await response.json();
-        alert(responseData.message);
-        navigate('/');
-      } else {
-        alert("등록에 실패했습니다");
+    if (response.status === 200) { // status 코드를 확인, HTTP 상태 코드 중 200은 "OK"를 의미
+      const responseData = response.data; // response.data에서 데이터를 가져옴
+      alert(responseData.message);
+      navigate('/');
+    } else {
+      alert("등록에 실패했습니다");
       }
     } catch (error) {
       console.error("사용자 등록 오류:", error);

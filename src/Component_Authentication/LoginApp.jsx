@@ -22,8 +22,9 @@ const LoginApp = memo(() => {
         inputPassValue,
       });
   
-      if (response.data.message === '로그인 성공') {
-        alert('성공적으로 로그인되었습니다.');
+      if (response.ok) { // 정상적인 서버 구현시
+        const responseData = await response.json();
+        alert(responseData.message);
         navigate('/main');
       } else {
         alert('아이디 또는 비밀번호가 잘못되었습니다.');
