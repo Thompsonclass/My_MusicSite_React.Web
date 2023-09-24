@@ -284,9 +284,9 @@ app.get("/main/Music_player_Romantic", (_, res) => { // 엔드포인트 주소, 
   res.json(songsData);
 });
 
-const userDatabase = []; // 사용자 정보 저장
+const userDatabase = []; // 사용자 정보 저장, [{a,b},{a,b}]
 
-app.post("/Join", (req, res) => {
+app.post("/Join", (req, res) => { // 회원가입 처리를 위한 에드포인트
   const userData = req.body;
   userDatabase.push(userData); // 사용자 정보 저장
   res.json({ message: "사용자가 성공적으로 등록되었습니다" }); // 클라이언트에게 메세지 전달
