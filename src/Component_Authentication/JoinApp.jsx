@@ -10,29 +10,30 @@ const JoinApp = memo(() => {
   const [inputIdValue, setInputIdValue] = useState(''); // ID값 저장
   const [inputPassValue, setInputPassValue] = useState(''); // PW값 저장
 
-  // 회원가입 처리 함수
-  const mainJoin = async () => { // 비동기 함수 생성, 작업 순서와 상관없이 처리하고 작업이 완료시에 콜백이나 promise, async/await로 처리
-    if (inputIdValue.length === 0 || inputPassValue.length === 0) {
-      alert('설정할 아이디와 비밀번호를 입력하세요.');
-      return;
-    }
-    try {
-      const response = await axios.post("http://localhost:3000/Join", { // 서버로 POST 요청 보내기
-        inputIdValue,
-        inputPassValue,
+// 회원가입 처리 함수
+const mainJoin = async () => {
+  if (inputIdValue.length === 0 || inputPassValue.length === 0) {
+    alert('설정할 아이디와 비밀번호를 입력하세요.');
+    return;
+  }
+
+  try {
+    const response = await axios.post('http://localhost:3000/Join', {
+      inputIdValue,
+      inputPassValue,
     });
-  
-    if (response.status === 200) { // status 코드를 확인, HTTP 상태 코드 중 200은 "OK"를 의미
-      const responseData = response.data; // response.data에서 데이터를 가져옴
+
+    if (response.status === 200) {
+      const responseData = response.data;
       alert(responseData.message);
       navigate('/');
     } else {
-      alert("등록에 실패했습니다");
-      }
-    } catch (error) {
-      console.error("사용자 등록 오류:", error);
+      alert('등록에 실패했습니다');
     }
-  };
+  } catch (error) {
+    console.error("사용자 등록 오류:", error);
+  }
+};
 
   return (
     <>

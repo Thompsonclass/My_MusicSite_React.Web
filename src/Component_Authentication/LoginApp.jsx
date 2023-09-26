@@ -17,21 +17,20 @@ const LoginApp = memo(() => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/', { // 서버로 POST 요청 보내기
+      const response = await axios.post('http://localhost:3000/', {
         inputIdValue,
         inputPassValue,
       });
-  
-      if (response.ok) { // 정상적인 서버 구현시
-        const responseData = await response.json();
-        alert(responseData.message);
+
+      if (response.data.message === "로그인 성공") {
+        alert("로그인 성공");
         navigate('/main');
       } else {
         alert('아이디 또는 비밀번호가 잘못되었습니다.');
       }
     } catch (error) {
-      console.error('로그인 실패:', error);
-      // 실패 시에 대한 처리
+        console.error('로그인 실패:', error);
+        // 실패 시에 대한 처리
     }
   };
   

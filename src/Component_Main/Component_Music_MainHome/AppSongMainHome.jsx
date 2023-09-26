@@ -5,7 +5,7 @@ import AppSongMainHomeExplanation from './AppSongMainHomeExplanation';
 import mainhome from '../../songHomeImg/mainhome.jpg'
 import mainHome_together from '../../songHomeImg/MainHome_together.jpg'
 
-// Styled components
+// Styled components 
 const MusicMainHomeWrapper = styled.div`
   background-image: url(${mainhome});
   background-size: cover;

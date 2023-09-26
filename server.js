@@ -284,23 +284,26 @@ app.get("/main/Music_player_Romantic", (_, res) => { // 엔드포인트 주소, 
   res.json(songsData);
 });
 
-const userDatabase = []; // 사용자 정보 저장, [{a,b},{a,b}]
+const userDatabase = {
+  users: [], // 여러 사용자 정보를 저장하기 위한 배열
+};
 
-app.post("/Join", (req, res) => { // 회원가입 처리를 위한 에드포인트
-  const userData = req.body;
-  userDatabase.push(userData); // 사용자 정보 저장
-  res.json({ message: "사용자가 성공적으로 등록되었습니다" }); // 클라이언트에게 메세지 전달
+app.post("/Join", (req, res) => {
+  const { inputIdValue, inputPassValue } = req.body;
+  // 사용자 데이터를 userDatabase에 추가 (객체로 저장)
+  userDatabase.users.push({ inputIdValue, inputPassValue });
+  res.status(200).json({ message: "사용자가 성공적으로 등록되었습니다" });
 });
 
-app.post("/", (req, res) => { // 로그인 처리를 위한 엔드포인트
+app.post("/", (req, res) => {
   const { inputIdValue, inputPassValue } = req.body;
 
   if (inputIdValue.length === 0 || inputPassValue.length === 0) {
-    return res.status(400).json({ error: "아이디와 비밀번호를 모두 입력해야 합니다." });
+    return res.status(400).json({ message: "아이디와 비밀번호를 모두 입력해야 합니다." });
   }
 
-  // userDatabase 배열에서 해당 사용자 정보를 찾아 검증
-  const foundUser = userDatabase.find(user => user.inputIdValue === inputIdValue && user.inputPassValue === inputPassValue);
+  // userDatabase 객체의 users 속성에서 사용자 정보를 검색
+  const foundUser = userDatabase.users.find(user => user.inputIdValue === inputIdValue && user.inputPassValue === inputPassValue);
 
   if (foundUser) {
     res.json({ message: "로그인 성공"});
