@@ -5,7 +5,7 @@ import AppSongMainTitle from '../../Component_Title/AppSongMainTitle'; // 메인
 import { MainWrapper } from '../../Styled/ReadMainWrapper.styled';
 import AppSongAppendTitle from './AppSongAppendTitle';
 import AppSongPlayerDelete from './AppSongPlayerDelete';
-
+ 
 function AppSongMainShowBgm() {
   return (
     <MainWrapper>
