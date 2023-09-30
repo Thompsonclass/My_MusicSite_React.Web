@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 export const AppSongBackgroundBtn = styled.button`
-  width: 350px;
-  height: 350px;
-  background-color: lightblue;
+  width: 325px;
+  height: 300px;
+  background-color: lightgray;
   border-radius: 12px;
   border: none;
-  margin: 30px;
-  font-size: 50px;
+  margin: 20px; 
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
 
   transition: all 0.2s ease-in-out; /* 전체 속성에 부드러운 변화 적용 */
 

@@ -26,7 +26,6 @@ const MainTitle = styled.div`
   top: 23%;
   left: 22%;
   transform: translate(-50%, -50%);
-  color: white; /* 글자 색상을 흰색으로 설정 */
 `;
 
 const AppSongMainHome = () => {
@@ -44,7 +43,7 @@ const AppSongMainHome = () => {
       <AppSongMainTitle /> {/* 메인화면 제목 컴포넌트 */}
        <MainTitle> 
           <h1>
-            Free music <mark>24 hours.</mark>
+            Free music 24 hours.
           </h1>
         </MainTitle>
         <MainHomeImg1 src={mainHome_1} alt='MainHome_together' />

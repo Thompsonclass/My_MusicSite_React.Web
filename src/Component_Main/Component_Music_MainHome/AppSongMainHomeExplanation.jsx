@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import mainhomeimg1 from '../../songHomeImg/mainhomeimg1.jpg'
 import mainhomeimg2 from '../../songHomeImg/mainhomeimg2.jpg'
 import mainhomeimg3 from '../../songHomeImg/mainhomeimg3.jpg'
-import { useSpring, animated, config } from 'react-spring';
+import { useSpring, animated, config } from 'react-spring'; // 슬라이드 구현
 import styled from 'styled-components';
 
 const Musicimg = styled.img`
@@ -26,7 +26,7 @@ function AppSongMainHomeExplanation() {
     useEffect(() => { 
       // 스크롤 이벤트 핸들러 함수
       const handleScroll = () => {
-        handleSectionScroll('intro', setShowIntro);
+        handleSectionScroll('intro', setShowIntro); // 위치값에 따라 부드럽게 적용
         handleSectionScroll('intro_1', setShowIntro_1);
         handleSectionScroll('intro_2', setShowIntro_2);
       };
@@ -39,15 +39,16 @@ function AppSongMainHomeExplanation() {
         window.removeEventListener('scroll', handleScroll);
       };
     }, []);
-  
+
+    //스크롤 이벤트를 사용하여 섹션의 위치를 확인하고, 해당 섹션이 화면에 표시되는지 여부를 계산
       const handleSectionScroll = (sectionId, setShowState) => {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const sectionPosition = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        setShowState(sectionPosition < windowHeight * 0.70);
-      }
-    };
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionPosition = section.getBoundingClientRect().top; // 섹션의 현재 위치 정보
+          const windowHeight = window.innerHeight; // 브라우저 창의 높이
+          setShowState(sectionPosition < windowHeight * 0.70); // 화면에 표시되는 비율을 계산
+        }
+      };
   
     // react-spring의 useSpring 훅을 사용하여 intro 섹션의 애니메이션 스타일 정의
     const introProps = useSpring({
@@ -128,3 +129,10 @@ function AppSongMainHomeExplanation() {
 }
 
 export default AppSongMainHomeExplanation
+
+
+//useSpring 함수를 사용하여 애니메이션 스타일을 정의합니다.
+//showIntro, showIntro_1, showIntro_2와 같은 상태 변수를 사용하여 애니메이션의 가시성을 관리합니다.
+//스크롤 이벤트를 사용하여 섹션의 위치를 확인하고, 해당 섹션이 화면에 표시되는지 여부를 계산합니다.
+//애니메이션 스타일은 showIntro, showIntro_1, showIntro_2의 값에 따라 조절되며, 스크롤 위치에 따라 부드럽게 나타나거나 사라집니다.
+//animated.div 컴포넌트를 사용하여 애니메이션을 적용한 요소를 렌더링하고, style 속성을 사용하여 애니메이션 스타일을 적용합니다.
