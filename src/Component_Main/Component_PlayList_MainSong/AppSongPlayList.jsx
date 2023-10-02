@@ -6,62 +6,7 @@ import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 import GetAppIcon from '@material-ui/icons/GetApp';
-
-const SongPlayerContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  margin-top: 20px;
-`;
-
-const SongTitle = styled.h3`
-  font-size: 20px;
-`;
-
-const SongImg = styled.img`
-  width: 40px;
-  height: 50px;
-`;
-
-const StyledButton = styled.button`
-  padding: 10px 30px;
-  margin: 0 20px;
-  background-color: black;
-  border: none;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    background-color: lightblue;
-  }
-`;
-
-const Spectrum = styled.div`
-  width: 80em;
-`;
-
-const Table = styled.table`
-  width: 115em;
-  border-collapse: collapse; /* 테이블 테두리룰 합칩니다.*/
-`;
-
-const TableRow = styled.tr`
-  background-color: #f2f2f2;
-  border: 2px solid black;
-  height: 10em;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-  margin-bottom: 10px;
-  background-color: #999999;
-`;
-
-const TableCell = styled.td`
-  padding: 10px;
-`;
-
-const StyledBtn = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
+import { SongPlayerContent, SongTitle, SongImg, StyledButton, Spectrum, Table, TableRow, TableCell, StyledBtn } from '../../Styled/'
 
 const AppSongPlayList = () => {
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
