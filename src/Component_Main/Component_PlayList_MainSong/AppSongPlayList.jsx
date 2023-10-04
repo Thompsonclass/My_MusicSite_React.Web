@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
-import styled from 'styled-components';
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import { SongPlayerContent, SongTitle, SongImg, StyledButton, Spectrum, Table, TableRow, TableCell, StyledBtn } from '../../Styled/'
+import { SongPlayerContent, SongTitle, SongImg, StyledButton, Spectrum, Table, TableRow, TableCell, StyledBtn } from '../../Styled/ReadAppSongPlayList.styled'
 
 const AppSongPlayList = () => {
   const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기

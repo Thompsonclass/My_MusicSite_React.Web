@@ -3,13 +3,15 @@ import AppSongMainTitle from '../../Component_Title/AppSongMainTitle';
 import AppSongMainHomeExplanation from './AppSongMainHomeExplanation';
 import mainhome_1 from '../../songHomeImg/mainhome1.jpg';
 import mainhome from '../../songHomeImg/mainhome.jpg';
-import { MusicMainHomeWrapper, MainTitle } from '../../Styled/ReadAppSongMainHome.styled'
+import styled from 'styled-components';
+import { MainTitle, MainHomeImg1 } from "../../Styled/ReadAppSongMainHome.styled"
 
 const MusicMainHomeWrapper = styled.div`
   background-image: url(${mainhome});
   background-size: cover;
   height: 500vh;
 `;
+
 const AppSongMainHome = () => {
   // 페이지가 로드될 때 `setTimeout()` 함수를 호출합니다.
   window.onload = function () {
