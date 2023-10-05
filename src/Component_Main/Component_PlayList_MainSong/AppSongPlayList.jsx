@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
+import AppSongPlayerDelete from './AppSongPlayerDelete'; // 중괄호 제거
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import { SongPlayerContent, SongTitle, SongImg, StyledButton, Spectrum, Table, TableRow, TableCell, StyledBtn } from '../../Styled/ReadAppSongPlayList.styled'
+import { SongPlayerContent, SongTitle, SongImg, StyledButton, Spectrum, Table, TableRow, TableCell, StyledBtn } from '../../Styled/ReadAppSongPlayList.styled';
 
 const AppSongPlayList = () => {
-  const { setTrackIndex, playing, setPlaying } = useGlobalStateContext(); // GlobalStateProvider로부터 trackIndex 가져오기
-  const [likedSongs, setLikedSongs] = useState([]); // 좋아요한 노래 정보를 저장할 상태
+  const { setTrackIndex, playing, setPlaying } = useGlobalStateContext();
+  const [likedSongs, setLikedSongs] = useState([]);
 
-  const fetchLikedSongsData = async () => { //서버에서 클라이언트로 노래 위치 정보 전달
+  const fetchLikedSongsData = async () => {
     try {
       const response = await axios.get("http://localhost:3000/likedSongs");
       return response.data;
@@ -20,29 +21,30 @@ const AppSongPlayList = () => {
     }
   };
 
-  // 좋아요한 노래 정보를 가져와 likedSongs 상태에 설정
   useEffect(() => {
     const fetchLikedSongs = async () => {
-      const likedSongsData = await fetchLikedSongsData(); // 설정
-      setLikedSongs(likedSongsData); // 상태 업데이트
+      const likedSongsData = await fetchLikedSongsData();
+      setLikedSongs(likedSongsData);
     };
 
     fetchLikedSongs();
   }, []);
 
-  // 선택한 트랙을 재생합니다.
   const playSelectedTrack = (index) => {
-    setPlaying(!playing); // playing 초기값 true, 재생 상태
-    setTrackIndex(index); // 해당 노래 위치, 초기값 0
+    setPlaying(!playing);
+    setTrackIndex(index);
   };
 
- // 트랙을 다운로드합니다.
   const downSelectedTrack = (musicSrc) => {
-    const link = document.createElement('a'); // <a> 요소 생성
+    const link = document.createElement('a');
     link.href = musicSrc;
-    document.body.appendChild(link); // <a> 요소를 문서의 body에 추가
-    link.click(); // 다운로드 시작
-    document.body.removeChild(link); // 다운로드가 시작되었으므로 <a> 요소를 body에서 제거
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleAllDelete = () => {
+    setLikedSongs([]);
   };
 
   const IconStyle = {
@@ -50,45 +52,48 @@ const AppSongPlayList = () => {
   };
 
   return (
-    <SongPlayerContent>
-      <Table>
-        <tbody>
-          {likedSongs.map((song, index) => (
-            <TableRow key={index}>
-              <TableCell>
-                <SongTitle>
-                  <p>{song.name} /</p>
-                  <p>{song.singer}</p>
-                </SongTitle>
-              </TableCell>
-              <TableCell>
-                <SongImg src={song.cover} alt={song.name} />
-              </TableCell>
-              <TableCell>
-                <StyledBtn>
-                  <StyledButton onClick={() => playSelectedTrack(song.index)}>Play</StyledButton> {/* 재생 버튼 */}
-                  <div>
-                    <GetAppIcon style={IconStyle} onClick={() => downSelectedTrack(song.musicSrc)} /> {/* 다운 버튼 */}
-                  </div>
-                </StyledBtn>
-              </TableCell>
-              <TableCell>
-                <Spectrum>
-                  <MusicSpectrum song={song} />
-                </Spectrum>
-              </TableCell>
-            </TableRow>
-          ))}
-        </tbody>
-      </Table>
-      <ReactJkMusicPlayer
-         key={likedSongs.length} // likedSongs 배열의 길이를 key로 사용
-        audioLists={likedSongs} // likedSongs를 사용하여 노래 목록을 표시
-        mode="full"
-        showMiniModeCover={false}
-        autoPlay={false}
-      />
-    </SongPlayerContent>
+    <>
+      <AppSongPlayerDelete  onClick={handleAllDelete} /> 
+      <SongPlayerContent>
+        <Table>
+          <tbody>
+            {likedSongs.map((song, index) => (
+              <TableRow key={index}>
+                <TableCell>
+                  <SongTitle>
+                    <p>{song.name} /</p>
+                    <p>{song.singer}</p>
+                  </SongTitle>
+                </TableCell>
+                <TableCell>
+                  <SongImg src={song.cover} alt={song.name} />
+                </TableCell>
+                <TableCell>
+                  <StyledBtn>
+                    <StyledButton onClick={() => playSelectedTrack(song.index)}>Play</StyledButton>
+                    <div>
+                      <GetAppIcon style={IconStyle} onClick={() => downSelectedTrack(song.musicSrc)} />
+                    </div>
+                  </StyledBtn>
+                </TableCell>
+                <TableCell>
+                  <Spectrum>
+                    <MusicSpectrum song={song} />
+                  </Spectrum>
+                </TableCell>
+              </TableRow>
+            ))}
+          </tbody>
+        </Table>
+        <ReactJkMusicPlayer
+          key={likedSongs.length}
+          audioLists={likedSongs}
+          mode="full"
+          showMiniModeCover={false}
+          autoPlay={false}
+        />
+      </SongPlayerContent>
+    </>
   );
 };
 
