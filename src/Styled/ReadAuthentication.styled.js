@@ -1,19 +1,19 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
-export const StyledMainHomeWrapper = styled.div`
-position: fixed;
-top: 0; /* 위에서 부터 0위치*/
-right: 0; /* 오른쪽 부터 0위치 */
-width: 70em;
-height: 100%;
+export const StyledMainHomeWrapper = styled.div `
+  position: fixed;
+  top: 0; /* 위에서 부터 0위치*/
+  right: 0; /* 오른쪽 부터 0위치 */
+  width: 70em;
+  height: 100%;
 
-background-color: lightgreen;
-overflow: hidden;
-border-left: 10px solid green;
+  background-color: lightgreen;
+  overflow: hidden;
+  border-left: 10px solid green;
 `;
 
 // CSS 애니메이션 키프레임 정의
-export const slide = keyframes`
+export const slide = keyframes `
 0% {
   transform: translateX(100%); /* 시작 위치: 오른쪽에서 왼쪽으로 이동, 자신의 100%넓이 만큼 이동 */
 }
@@ -29,7 +29,7 @@ export const slide = keyframes`
 `;
 
 // 스타일드 컴포넌트로 Text 컴포넌트 정의
-export const Text = styled.div`
+export const Text = styled.div `
 animation: ${slide} 5s ease infinite; /* 애니메이션 적용: 5초 동안 반복 */
 
 position: absolute; /* 절대 위치 지정 */
