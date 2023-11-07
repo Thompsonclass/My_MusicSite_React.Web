@@ -74,7 +74,6 @@ function AppSongClassicContent() {
     }
   };  
   
-
   const handleLikeClick = (index) => {
     // 클라이언트에서 서버로 보낼 데이터 정의
     const likedSongData = audioAllLists[index];

@@ -5,12 +5,12 @@ import { AppSongBackgroundBtn } from '../../../Styled/ReadSongKindBtn.styled'
 function AppSongClassicBtn() {
   const navigate = useNavigate();
   
-  const IdolInBtn = () => {
+  const ClassicInBtn = () => {
     navigate('/main/Music_player_main/Classic_List');
   }
 
   return (
-    <AppSongBackgroundBtn onClick={IdolInBtn}>
+    <AppSongBackgroundBtn onClick={ClassicInBtn}>
         Classic
     </AppSongBackgroundBtn>
   );

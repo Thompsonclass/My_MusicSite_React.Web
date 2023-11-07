@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppSongBackgroundBtn } from '../../../Styled/ReadSongKindBtn.styled'
 
-function AppSongCalm() {
+function AppSongCalmBtn() {
   const navigate = useNavigate();
   
   const CalmInBtn = () => {
@@ -16,4 +16,4 @@ function AppSongCalm() {
   );
 }
 
-export default AppSongCalm;
+export default AppSongCalmBtn;

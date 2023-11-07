@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import axios from 'axios';
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import 'react-jinke-music-player/assets/index.css';
@@ -6,6 +6,7 @@ import AppSongPlayerDelete from './AppSongPlayerDelete'; // 중괄호 제거
 import {useGlobalStateContext} from '../../Component_GlobalState/GlobalStateContent';
 import MusicSpectrum from '../Component_Music_Spectrum/MusicSpectrumPlay';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import {PlayArrow, Pause} from '@material-ui/icons';
 import {
     SongPlayerContent,
     SongTitle,
@@ -19,8 +20,9 @@ import {
 } from '../../Styled/ReadAppSongPlayList.styled';
 
 const AppSongPlayList = () => {
-    const {setTrackIndex, playing, setPlaying} = useGlobalStateContext();
+    const {setTrackIndex, playing, setPlaying, currentTrackIndex, setCurrentTrackIndex} = useGlobalStateContext();
     const [likedSongs, setLikedSongs] = useState([]);
+    const audioRef = useRef(null);
 
     const fetchLikedSongsData = async () => {
         try {
@@ -41,7 +43,31 @@ const AppSongPlayList = () => {
     }, []);
 
     const playSelectedTrack = (index) => {
-        setPlaying(!playing);
+        if (!audioRef.current) {
+            audioRef.current = new Audio(likedSongs[index].musicSrc);
+        }
+
+        if (currentTrackIndex === index) {
+            if (audioRef.current.paused) {
+                audioRef
+                    .current
+                    .play();
+                setPlaying(true);
+            } else {
+                audioRef
+                    .current
+                    .pause();
+                setPlaying(false);
+            }
+        } else {
+            setCurrentTrackIndex(index);
+            audioRef.current.src = likedSongs[index].musicSrc;
+            audioRef
+                .current
+                .play();
+            setPlaying(true);
+        }
+
         setTrackIndex(index);
     };
 
@@ -86,7 +112,13 @@ const AppSongPlayList = () => {
                                 </TableCell>
                                 <TableCell>
                                     <StyledBtn>
-                                        <StyledButton onClick={() => playSelectedTrack(song.index)}>Play</StyledButton>
+                                        <StyledButton onClick={() => playSelectedTrack(index)}>
+                                            {
+                                                playing && currentTrackIndex === index
+                                                    ? <Pause/>
+                                                    : <PlayArrow/>
+                                            }
+                                        </StyledButton>
                                         <div>
                                             <GetAppIcon style={IconStyle} onClick={() => downSelectedTrack(song.musicSrc)}/>
                                         </div>
