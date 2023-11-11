@@ -43,38 +43,38 @@ const JoinApp = memo(() => {
     };
 
     return (
-        <> < Authentication /> {/* 슬라이드 */
-        } < Title > YMusic⍥</Title> < LoginAppBackground > {/* Styled-component */
-        } < LoginTitle > <h1>Sing up</h1>
-    </LoginTitle>
-    <div>
-        <Label>아이디 :
-        </Label>
-        <Input
-            type='text'
-            value={inputIdValue}
-            placeholder='설정할 아이디를 입력하세요.'
-            onChange={(e) => {
-                setInputIdValue(e.target.value);
-            }}/>
-    </div>
-    <div>
-        <Label>비밀번호 :
-        </Label>
-        <Input
-            type='password'
-            value={inputPassValue}
-            placeholder='설정할 비밀번호를 입력하세요.'
-            onChange={(e) => {
-                setInputPassValue(e.target.value);
-            }}/>
-    </div>
-    <div>
-        <LoginButton>로그인</LoginButton>
-        <LoginButton onClick={mainJoin}>회원가입</LoginButton>
-    </div>
-</LoginAppBackground>
-</>
+        <> 
+            < Authentication /> {/* 슬라이드 */} 
+            < Title > YMusic⍥</Title> 
+            < LoginAppBackground > {/* Styled-component */} 
+            < LoginTitle > <h1>Sing up</h1>
+            </LoginTitle>
+            <div>
+                <Label>아이디 :</Label>
+                <Input
+                    type='text'
+                    value={inputIdValue}
+                    placeholder='설정할 아이디를 입력하세요.'
+                    onChange={(e) => {
+                    setInputIdValue(e.target.value);
+                }}/>
+            </div>
+            <div>
+            <Label>비밀번호 :</Label>
+            <Input
+                type='password'
+                value={inputPassValue}
+                placeholder='설정할 비밀번호를 입력하세요.'
+                onChange={(e) => {
+                    setInputPassValue(e.target.value);
+                }}/>
+            </div>
+            <div>
+                <LoginButton>로그인</LoginButton>
+                <LoginButton onClick={mainJoin}>회원가입</LoginButton>
+            </div>
+                </LoginAppBackground>
+        </>
     );
 });
 

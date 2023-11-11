@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginAppBackground = styled.div`
+export const LoginAppBackground = styled.div `
   position: absolute;
   top: 20%;
   left: 4%;
@@ -21,12 +21,12 @@ export const LoginAppBackground = styled.div`
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 `;
 
-export const Label = styled.label`
+export const Label = styled.label `
   font-weight: bold;
   margin: 20px;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input `
   width: 200px;
   padding: 15px;
   margin: 15px;
@@ -34,7 +34,7 @@ export const Input = styled.input`
   border-radius: 5px;
 `;
 
-export const LoginButton = styled.button`
+export const LoginButton = styled.button `
   background-color: #667a8f;
   color: #fff;
   padding: 10px 30px;
@@ -48,12 +48,12 @@ export const LoginButton = styled.button`
   }
 `;
 
-export const LoginTitle = styled.div`
+export const LoginTitle = styled.div `
   padding-bottom: 70px;
   font-size: 25px;
 `;
 
-export const Title = styled.div`
+export const Title = styled.div `
   position: absolute;
   top: 1%;
   left: 1%;

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const MainHomeImg1 = styled.img`
+export const MainHomeImg1 = styled.img `
   width: 100%;
   height: 40em;
   object-fit: cover;
 `;
 
-export const MainTitle = styled.div`
+export const MainTitle = styled.div `
   font-size: 50px;
   margin-top: 2em;
   margin-left: 4em;

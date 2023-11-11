@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AppSongBackgroundBtn = styled.button`
+export const AppSongBackgroundBtn = styled.button `
   width: 325px;
   height: 300px;
   background-color: lightgray;

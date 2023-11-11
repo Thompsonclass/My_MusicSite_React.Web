@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ParentContainer = styled.div`
+export const ParentContainer = styled.div `
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,7 +9,7 @@ export const ParentContainer = styled.div`
   background-color: #525252;
 `;
 
-export const ListsContainer = styled.div`
+export const ListsContainer = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,24 +25,24 @@ export const ListsContainer = styled.div`
   text-align: center;
 `;
 
-export const SongImgContainer = styled.img`
+export const SongImgContainer = styled.img `
   width: 100px;
   height: 100px;
   border-radius: 50%;
 `;
 
-export const SongTitleContainer = styled.div`
+export const SongTitleContainer = styled.div `
   display: flex;
   flex-direction: column;
   margin-top: 1em;
 `;
 
-export const DivSinger = styled.div`
+export const DivSinger = styled.div `
   color: white;
   margin-top: 0.5em;
 `;
 
-export const LikeBtn = styled.button`
+export const LikeBtn = styled.button `
   font-size: 16px;
   padding: 10px 20px;
   margin-left: 20px;
@@ -53,7 +53,7 @@ export const LikeBtn = styled.button`
   cursor: pointer;
 `;
 
-export const IconDivContainer = styled.div`
+export const IconDivContainer = styled.div `
   display: flex;
   flex-direction: row;
   justify-contents: center;
