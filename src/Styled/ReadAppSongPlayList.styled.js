@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const SongPlayerContent = styled.div `
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-  margin-top: 20px;
+  margin-left: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 `;
 
 export const SongTitle = styled.h3 `
@@ -12,8 +11,8 @@ export const SongTitle = styled.h3 `
 `;
 
 export const SongImg = styled.img `
-  width: 40px;
-  height: 50px;
+  width: 60px;
+  height: 70px;
 `;
 
 export const StyledButton = styled.button `
@@ -33,7 +32,7 @@ export const Spectrum = styled.div `
 `;
 
 export const Table = styled.table `
-  width: 115em;
+  width: 114em;
   border-collapse: collapse; /* 테이블 테두리룰 합칩니다.*/
 `;
 
@@ -43,11 +42,25 @@ export const TableRow = styled.tr `
   height: 10em;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   margin-bottom: 10px;
-  background-color: #999999;
 `;
 
 export const TableCell = styled.td `
   padding: 10px;
+
+  &:first-child {
+    width: 20%;
+  }
+
+  &:nth-child(2) {
+    width: 10%;
+  }
+
+  &:nth-child(3) {
+    width: 10%;
+  }
+  &:nth-child(4) {
+    width: 60%;
+  }
 `;
 
 export const StyledBtn = styled.div `
