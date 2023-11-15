@@ -37,7 +37,7 @@ app.post("/likedSongs", (req, res) => {
 });
 
 // 좋아요한 노래 목록 삭제
-app.delete("/likedSongsDelete", (_, res) => {
+app.post("/likedSongsDelete", (_, res) => {
   likedSongsData = []; // 노래 목록을 비웁니다.
   res.json({ message: "노래 목록이 성공적으로 삭제되었습니다." });
 });

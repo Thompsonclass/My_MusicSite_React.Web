@@ -14,6 +14,7 @@
     "@types/node": "^20.4.1",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "audiocontext": "^0.1.0",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "css.gg": "^2.1.1",
@@ -27,8 +28,11 @@
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "react-spring": "^9.7.2",
+    "react-waveform": "^0.1.0",
+    "react-wavesurfer": "^0.8.6",
     "react-wavify": "^1.9.0",
     "styled-components": "^6.0.7",
+    "wavesurfer.js": "^7.4.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

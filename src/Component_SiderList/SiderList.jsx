@@ -34,7 +34,7 @@ const SiderList = () => {
                 <ListItem button="button" component={Link} to="/main/Music_player_main">
                     <ListItemText primary="뮤직 음악 목록"/>
                 </ListItem>
-                <ListItem button="button" component={Link} to="">
+                <ListItem button="button" component={Link} to="/main/Music_player_eq">
                     <ListItemText primary="24시간 자유 음악"/>
                 </ListItem>
             </List>

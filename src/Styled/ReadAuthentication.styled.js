@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
-export const StyledMainHomeWrapper = styled.div`
+export const StyledMainHomeWrapper = styled.div `
   position: fixed;
   top: 0;
   right: 0;
@@ -11,7 +11,7 @@ export const StyledMainHomeWrapper = styled.div`
   border-left: 10px solid green;
 `;
 
-export const slide = keyframes`
+export const slide = keyframes `
   0% {
     transform: translateX(100%);
   }
@@ -26,11 +26,12 @@ export const slide = keyframes`
   }
 `;
 
-export const Text = styled.div`
+export const Text = styled.div `
   animation: ${slide} 5s ease infinite;
+  font-size: 2em; 
+  /* 가운데 정렬 */
   position: absolute;
   top: 30%;
-  left: 50%; /* 변경: 가운데 정렬 */
-  transform: translateX(-50%); /* 변경: 수평 가운데 정렬 */
-  font-size: 2em; /* 변경: 텍스트 크기 조정 */
+  left: 20%; 
+  transform: translateX(-50%); 
 `;
