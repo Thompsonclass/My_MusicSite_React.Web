@@ -1,7 +1,6 @@
-// App.js
-
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import WaveForm from "./WaveForm";
+import {AppContainer, Title, AudioControls, Audio, AnalyzeButton} from "../../Styled/ReadAppSongEqList.styled"
 
 const AppSongEqList = () => {
   const [audioUrl, setAudioUrl] = useState("/songs/best-time-112194.mp3");
@@ -26,23 +25,15 @@ const AppSongEqList = () => {
   };
 
   return (
-    <div className="App">
-      <h1>Audio Visualizer</h1>
+    <AppContainer>
+      <Title>Audio Visualizer</Title>
       {analyzerData && <WaveForm analyzerData={analyzerData} />}
-      <div
-        style={{
-          height: 80,
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center"
-        }}
-      >
-        {/* 파일 입력 대신 하드코딩된 오디오 URL을 사용합니다. */}
-        <audio src={audioUrl} controls ref={audioElmRef} />
-        <button onClick={audioAnalyzer}>Analyze Audio</button>
-      </div>
-    </div>
+      <AudioControls>
+        <Audio src={audioUrl} controls ref={audioElmRef} />
+        <AnalyzeButton onClick={audioAnalyzer}>Analyze Audio</AnalyzeButton>
+      </AudioControls>
+    </AppContainer>
   );
-}
+};
 
 export default AppSongEqList;

@@ -314,12 +314,12 @@ app.post("/", (req, res) => {
 
 app.listen(3000, () => {
   console.log(`
-    서버 실행 중입니다.
-    라이브러리 실행 중입니다.
-    Jazz 노래 실행 중입니다.
-    Idol 노래 실행 중입니다.
-    Bgm 노래 실행 중입니다.
-    로그인, 회원가입 로직 실행 중입니다.
-    http://localhost:${port}
+  "Server is running..."
+  "Library is operational..."
+  "Now playing Jazz song..."
+  "Now playing Idol song..."
+  "Now playing Bgm song..."
+  "Executing login and registration logic..."
+  "Server address: http://localhost:${port}"
     `);
 });
