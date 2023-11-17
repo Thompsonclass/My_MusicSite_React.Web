@@ -2,6 +2,7 @@ import React from 'react';
 import ReactWaves from "@dschoon/react-waves";
 import { useGlobalStateContext } from '../../Component_GlobalState/GlobalStateContent';
 
+
 const MusicSpectrumPlay = ({ song, index }) => {
   // GlobalStateContext를 통해 현재 재생 중인 상태(playing)와 현재 트랙의 인덱스(currentTrackIndex)를 가져옴
   const { playing, currentTrackIndex } = useGlobalStateContext();

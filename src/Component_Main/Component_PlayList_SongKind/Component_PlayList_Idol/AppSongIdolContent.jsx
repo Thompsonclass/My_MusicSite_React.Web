@@ -1,8 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle'
-import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled'
-import { SongImgContainer, SongTitleContainer, DivSinger, IconDivContainer, LikeBtn, JazzParentContainer, ListsContainer } from '../../../Styled/ReadMainSongJazzContent.styled';
+import AppSongMainTitle from '../../../Component_Title/AppSongMainTitle';
+import { MainWrapper } from '../../../Styled/ReadMainWrapper.styled';
+import {
+  SongImgContainer,
+  SongTitleContainer,
+  DivSinger,
+  IconDivContainer,
+  LikeBtn,
+  JazzParentContainer,
+  ListsContainer,
+  SliderContainer,
+} from '../../../Styled/ReadMainSongJazzContent.styled';
 import { IconButton, Slider } from '@material-ui/core';
 import { PlayArrow, Pause } from '@material-ui/icons';
 
@@ -10,12 +19,13 @@ function AppSongIdolContent() {
   const audioRef = useRef(null);
   const [audioAllData, setAudioAllData] = useState([]);
   const [playing, setPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.2);
+  const [volumeList, setVolumeList] = useState(Array(10).fill(0.2)); // 예시로 10개의 트랙을 가정
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/main/Music_player_Idol")
-      .then((response) => { 
+    axios
+      .get('http://localhost:3000/main/Music_player_Idol')
+      .then((response) => {
         setAudioAllData(response.data);
       })
       .catch((error) => {
@@ -33,9 +43,11 @@ function AppSongIdolContent() {
 
   // 볼륨을 조절하는 함수
   const handleVolumeChange = (_, newValue) => {
-    // 볼륨 상태 업데이트
-    setVolume(newValue);
-  
+    // 특정 트랙의 볼륨 상태 업데이트
+    const newVolumeList = [...volumeList];
+    newVolumeList[currentTrackIndex] = newValue;
+    setVolumeList(newVolumeList);
+
     // 오디오 요소가 존재하면
     if (audioRef.current) {
       // 오디오 요소의 볼륨을 새로운 값으로 설정
@@ -50,7 +62,7 @@ function AppSongIdolContent() {
       // 새로운 오디오 요소를 생성하고 선택한 트랙의 음악 소스로 설정
       audioRef.current = new Audio(audioAllLists[index].musicSrc);
     }
-  
+
     // 현재 재생 중인 트랙의 인덱스와 선택한 트랙의 인덱스를 비교
     if (currentTrackIndex === index) {
       if (audioRef.current.paused) {
@@ -63,23 +75,22 @@ function AppSongIdolContent() {
         setPlaying(false);
       }
     } else {
-      // 다른 트랙을 선택한 경우
-      // 현재 재생 중인 트랙의 인덱스를 새로 선택한 트랙의 인덱스로 업데이트
+      // 다른 트랙을 선택한 경우 현재 재생 중인 트랙의 인덱스를 새로 선택한 트랙의 인덱스로 업데이트
       setCurrentTrackIndex(index);
       audioRef.current.src = audioAllLists[index].musicSrc;
       // 오디오를 재생하고 재생 상태 업데이트
       audioRef.current.play();
       setPlaying(true);
     }
-  };  
-  
+  };
 
   const handleLikeClick = (index) => {
     // 클라이언트에서 서버로 보낼 데이터 정의
     const likedSongData = audioAllLists[index];
-  
+
     // 서버로 POST 요청 보내기
-    axios.post("http://localhost:3000/likedSongs", likedSongData)
+    axios
+      .post('http://localhost:3000/likedSongs', likedSongData)
       .then((response) => {
         console.log(response.data.message); // 서버에서의 응답 메시지 출력
       })
@@ -112,18 +123,24 @@ function AppSongIdolContent() {
                   height: '40px',
                 }}
               >
-                {playing && currentTrackIndex === index ? <Pause /> : <PlayArrow />} {/* 재생 버튼 */}
+                {playing && currentTrackIndex === index ? <Pause /> : <PlayArrow />}
+                {/* 재생 버튼 */}
               </IconButton>
-              <LikeBtn onClick={() => handleLikeClick(index)}> 좋아요 </LikeBtn> {/* 좋아요 버튼, 노래 위치 정보 */}
+              <LikeBtn onClick={() => handleLikeClick(index)}>좋아요</LikeBtn>
+              {/* 좋아요 버튼, 노래 위치 정보 */}
             </IconDivContainer>
-            <Slider
-              value={volume}
-              onChange={handleVolumeChange}
-              min={0}
-              max={1}
-              step={0.01}
-              style={{ width: '80%' }}
-            />
+            <SliderContainer>
+              <Slider
+                value={volumeList[index]}
+                onChange={(_, newValue) => handleVolumeChange(_, newValue)}
+                min={0}
+                max={1}
+                step={0.01}
+                style={{
+                  width: '80%',
+                }}
+              />
+            </SliderContainer>
           </ListsContainer>
         ))}
       </JazzParentContainer>
@@ -131,4 +148,4 @@ function AppSongIdolContent() {
   );
 }
 
-export default AppSongIdolContent
+export default AppSongIdolContent;

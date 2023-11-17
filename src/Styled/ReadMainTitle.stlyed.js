@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const AppSongMainTitleBackground = styled.div `
   display: flex;
   flex-direction: row; /* 가로 설정 */
+  background-color: gray;
   `;
 
 export const Title = styled.h1 `

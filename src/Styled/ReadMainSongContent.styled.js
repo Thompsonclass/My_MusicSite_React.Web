@@ -7,6 +7,11 @@ export const ParentContainer = styled.div `
   gap: 1em;
   padding: 1em;
   background-color: #525252;
+  position: relative; /* 상대적 위치 지정 */
+`;
+
+export const SliderContainer = styled.div `
+  width: 40%; /* 원하는 너비로 조절 */
 `;
 
 export const ListsContainer = styled.div `

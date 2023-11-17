@@ -5,7 +5,7 @@ import LoginApp from './Component_Authentication/LoginApp';
 import AppSongMainHome from './Component_Main/Component_Music_MainHome/AppSongMainHome';
 import AppSongMainShowBgm from './Component_Main/Component_PlayList_MainSong/AppSongMainShowBgm';
 import AppSongPlayListSongKind from './Component_Main/Component_PlayList_SongKind/AppSongPlayListSongKind';
-import AppSongEqList from './Component_Main/Component_PlayList_EqList/AppSongEqList';
+import AppSongEqList from './Component_Main/Component_PlayList_Eq_24List/AppSongEqList';
 import AppSongBgmContent from './Component_Main/Component_PlayList_SongKind/Componetn_PlayList_Bgm/AppSongBgmContent'
 import AppSongJazzContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Jazz/AppSongJazzContent';
 import AppSongCalmContent from './Component_Main/Component_PlayList_SongKind/Component_PlayList_Calm/AppSongCalmContent';
