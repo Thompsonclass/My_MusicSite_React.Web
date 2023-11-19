@@ -15,26 +15,47 @@ import AppSongRomanticContent from './Component_Main/Component_PlayList_SongKind
 import JoinApp from './Component_Authentication/JoinApp';
 
 const App = () => {
-  return (
-    <GlobalStateProvider> {/*props의 효율적인 라이브러리*/}
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<LoginApp />} /> {/*로그인 컴포넌트*/}
-          <Route path='/Join' element={<JoinApp />} /> {/* 가입 컴포넌트 */}
-          <Route path="/main" element={<AppSongMainHome />} /> {/*홈페이지 컴포넌트*/}
-          <Route path="/main/Music_player" element={<AppSongMainShowBgm />} /> {/*개별 음악 컴포넌트*/}
-          <Route path="/main/Music_player_main" element={<AppSongPlayListSongKind/>} /> {/*모든 음악 컴포넌트*/}
-          <Route path="/main/Music_player_eq" element={<AppSongEqList />} /> {/*eq 음악 컴포넌트*/}
-          <Route path='/main/Music_player_main/Bgm_List' element={<AppSongBgmContent/>} /> {/* BGM 음악 */} 
-          <Route path='/main/Music_player_main/Calm_List' element={<AppSongCalmContent/>} /> {/* Calm 음악 */}
-          <Route path='/main/Music_player_main/Jazz_List' element={<AppSongJazzContent/>} /> {/* Jazz 음악 */}
-          <Route path='/main/Music_player_main/Classic_List' element={<AppSongClassicContent/>} /> {/* Classic 음악 */}
-          <Route path='/main/Music_player_main/Cool_List' element={<AppSongCoolContent/>} /> {/* Cool 음악 */}
-          <Route path='/main/Music_player_main/Romantic_List' element={<AppSongRomanticContent/>} /> {/* Romantic 음악 */}
-        </Routes>
-      </Router>
-    </GlobalStateProvider>
-  );
+    return (
+        <GlobalStateProvider>
+            {/*props의 효율적인 라이브러리*/}
+            <Router>
+                <Routes>
+                    <Route exact="exact" path="/" element={<LoginApp />}/> {/*로그인 컴포넌트*/}
+                    <Route path='/Join' element={<JoinApp />}/> {/* 가입 컴포넌트 */}
+                    <Route path="/main" element={<AppSongMainHome />}/> {/*홈페이지 컴포넌트*/}
+                    <Route path="/main/Music_player" element={<AppSongMainShowBgm />}/> {/*개별 음악 컴포넌트*/}
+                    <Route path="/main/Music_player_main" element={<AppSongPlayListSongKind/>}/> {/*모든 음악 컴포넌트*/}
+                    <Route path="/main/Music_player_eq" element={<AppSongEqList />}/> {/*eq 음악 컴포넌트*/}
+                    <Route path='/main/Music_player_main/Bgm_List' element={<AppSongBgmContent/>}/> {/* BGM 음악 */}
+                    <Route
+                        path='/main/Music_player_main/Calm_List'
+                        element={<AppSongCalmContent/>
+                        }
+                    /> {/* Calm 음악 */}
+                    <Route
+                        path='/main/Music_player_main/Jazz_List'
+                        element={<AppSongJazzContent/>
+                        }
+                    /> {/* Jazz 음악 */}
+                    <Route
+                        path='/main/Music_player_main/Classic_List'
+                        element={<AppSongClassicContent/>
+                        }
+                    /> {/* Classic 음악 */}
+                    <Route
+                        path='/main/Music_player_main/Cool_List'
+                        element={<AppSongCoolContent/>
+                        }
+                    /> {/* Cool 음악 */}
+                    <Route
+                        path='/main/Music_player_main/Romantic_List'
+                        element={<AppSongRomanticContent/>
+                        }
+                    /> {/* Romantic 음악 */}
+                </Routes>
+            </Router>
+        </GlobalStateProvider>
+    );
 };
 
 export default App;
