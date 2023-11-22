@@ -5,10 +5,6 @@ export const AppContainer = styled.div`
   padding: 20px;
 `;
 
-export const Title = styled.h1`
-  margin-bottom: 20px;
-`;
-
 export const AudioControls = styled.div`
   display: flex;
   justify-content: space-around;
@@ -18,10 +14,4 @@ export const AudioControls = styled.div`
 
 export const Audio = styled.audio`
   width: 60%;
-`;
-
-export const AnalyzeButton = styled.button`
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
 `;

@@ -58,7 +58,7 @@ app.get(
                 name: 'fun times together',
                 singer: 'Musictown',
                 cover: '/songImages/funtimestogether.jpg',
-                musicSrc: '/songs/fun-times-together-112809.mp3',
+                musicSrc: ' ',
                 index: "2"
             }, {
                 name: 'happy cooking show',
@@ -277,6 +277,7 @@ app.get(
         res.json(songsData);
     }
 );
+
 
 const userDatabase = {
     users: [], // 여러 사용자 정보를 저장하기 위한 배열

@@ -100,6 +100,10 @@ const AppSongPlayList = () => {
                                         </SongTitle>
                                     </TableCell>
 
+                                    <TableCell>
+
+                                    </TableCell>
+
                                     {/* 노래 커버 이미지 */}
                                     <TableCell>
                                         <SongImg src={song.cover} alt={song.name}/>
