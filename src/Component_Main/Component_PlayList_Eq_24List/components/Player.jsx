@@ -5,6 +5,8 @@ import {
   faAngleRight,
   faPause,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import WaveForm from "../WaveForm";  // WaveForm 컴포넌트를 임포트합니다.
 
 const Player = ({
   currentSong,
@@ -15,10 +17,39 @@ const Player = ({
   songInfo,
   songs,
   setCurrentSong,
-  id,
   setSongs,
 }) => {
-  //useEffect
+  const [analyzerData, setAnalyzerData] = useState(null);
+
+  const audioAnalyzer = () => {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  
+    // Check if analyzerData is already set
+    if (analyzerData) {
+      return;
+    }
+  
+    const analyzer = audioCtx.createAnalyser();
+    analyzer.fftSize = 2048;
+    const bufferLength = analyzer.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+    const source = audioCtx.createMediaElementSource(audioRef.current);
+  
+    source.disconnect();
+    source.connect(analyzer);
+    source.connect(audioCtx.destination);
+  
+    source.onended = () => {
+      source.disconnect();
+    };
+  
+    setAnalyzerData({ analyzer, bufferLength, dataArray });
+  };
+
+  const handlePlay = () => {
+    audioAnalyzer();
+  };
+
   const activeLibraryHandler = (nextPrev) => {
     const newSongs = songs.map((song) => {
       if (song.id === nextPrev.id) {
@@ -36,11 +67,12 @@ const Player = ({
     setSongs(newSongs);
     console.log("Hey from useEffect form player JS");
   };
-  //Event Handlers
+
   const dragHandler = (e) => {
     audioRef.current.currentTime = e.target.value;
     setSongInfo({ ...songInfo, currentTime: e.target.value });
   };
+
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -48,11 +80,13 @@ const Player = ({
     } else {
       audioRef.current.play();
       setIsPlaying(!isPlaying);
+      handlePlay(); // 재생 시 Waveform도 표시되도록 호출
     }
   };
 
   const getTime = (time) =>
     Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2);
+
   const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "skip-forward") {
@@ -62,9 +96,7 @@ const Player = ({
     if (direction === "skip-back") {
       if ((currentIndex - 1) % songs.length === -1) {
         await setCurrentSong(songs[songs.length - 1]);
-        // playAudio(isPlaying, audioRef);
         activeLibraryHandler(songs[songs.length - 1]);
-
         return;
       }
       await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
@@ -72,10 +104,11 @@ const Player = ({
     }
     if (isPlaying) audioRef.current.play();
   };
-  //adding the styles
+
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`,
   };
+
   return (
     <div className="player">
       <div className="time-control">
@@ -119,7 +152,6 @@ const Player = ({
             icon={faPause}
           />
         )}
-
         <FontAwesomeIcon
           onClick={() => skipTrackHandler("skip-forward")}
           size="2x"
@@ -127,6 +159,7 @@ const Player = ({
           icon={faAngleRight}
         />
       </div>
+      {analyzerData && <WaveForm analyzerData={analyzerData} />}
     </div>
   );
 };

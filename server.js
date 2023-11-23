@@ -3,6 +3,13 @@ const app = express();
 const port = 3000; // 서버와 클라이언트 분리, 분리된 서버가 클라이언트에서 동작확인을 위해
 const path = require('path');
 const cors = require('cors'); // cors 패키지를 불러오기
+//const expressStatic = require("express-static")
+
+// React 프로젝트의 build 파일을 저장할 디렉토리 지정
+const buildDir = path.join(__dirname, "build");
+// express-static 모듈을 사용하여 build 디렉토리의 파일을 제공
+app.use(express.static(buildDir));
+
 // 출처가 다른 서버에서 이미지나 데이터를 로드하려고 할 때, 이 정책으로 인해 보안 문제가 발생
 app.use(cors()); // 모든 라우트에 대해 CORS를 활성화
 
@@ -33,7 +40,6 @@ app.post("/likedSongs", (req, res) => {
         res.json({message: "좋아요한 노래가 성공적으로 추가되었습니다."});
     } else {
         res
-            .status(400)
             .json({error: "이미 좋아요한 노래입니다."});
     }
 });

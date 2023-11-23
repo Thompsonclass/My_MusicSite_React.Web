@@ -65,10 +65,21 @@ const AppSongPlayList = () => {
             .removeChild(link);
     };
 
-    // 모든 노래를 제거하는 함수
+    // 클라이언트에서 서버로 "전부 제거" 요청 보내기
     const handleAllDelete = async () => {
-        setLikedSongs([]);
-        alert("전부 제거되었습니다.");
+        try {
+            // 서버에 POST 요청을 보냄
+            const response = await axios.post("http://localhost:3000/likedSongsDelete");
+        
+            // 서버로부터 받은 응답을 기반으로 클라이언트의 likedSongs 갱신
+            if (response.data.message === "노래 목록이 성공적으로 삭제되었습니다.") {
+                setLikedSongs([]);
+            } else {
+                console.error("노래 목록 삭제 실패");
+            }
+        } catch (error) {
+            console.error("오류가 발생했습니다.", error);
+        }
     };
 
     // 다운로드 아이콘 스타일
@@ -133,7 +144,7 @@ const AppSongPlayList = () => {
             )
             : (
                 // 좋아요한 노래가 없을 경우 메시지 출력
-                <p>No liked songs available</p>
+                <p></p>
             )
     } {/* 음악 플레이어 */
     } < ReactJkMusicPlayer key = {

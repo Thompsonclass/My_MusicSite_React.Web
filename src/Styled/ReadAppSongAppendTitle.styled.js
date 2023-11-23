@@ -7,7 +7,7 @@ export const TitleWrapper = styled.div `
   text-align: center; // 텍스트를 가운데 정렬
   margin-left: 1em; // 왼쪽 여백을 1em으로 설정
   height: 23em; // 높이를 23em으로 설정
-  width: 111em; // 너비를 111em으로 설정
+  width: 114em; // 너비를 111em으로 설정
 `;
 
 export const NoticeText = styled.div `

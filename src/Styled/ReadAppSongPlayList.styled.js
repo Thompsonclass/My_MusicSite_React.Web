@@ -59,7 +59,7 @@ export const TableCell = styled.td `
     width: 10%;
   }
   &:nth-child(4) {
-    width: 60%;
+    width: 10%;
   }
 `;
 

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+
 function chillHop() {
   return [
     {
@@ -6,7 +7,8 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/0255e8b8c74c90d4a27c594b3452b2daafae608d-1024x1024.jpg",
       artist: "Aso, Middle School, Aviino",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
+      audio: "/songs/abstract-future-bass-162604.mp3",
+      //audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       active: true,
@@ -16,7 +18,8 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ef95e219a44869318b7806e9f0f794a1f9c451e4-1024x1024.jpg",
       artist: "Aiguille",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
+      audio: "/songs/best-time-112194.mp3",
+      //audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
       color: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
       active: false,
@@ -26,7 +29,8 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ff35dede32321a8aa0953809812941bcf8a6bd35-1024x1024.jpg",
       artist: "Swørn",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
+      audio: "/songs/watr-double-overhead-11517.mp3",
+      //audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
       active: false,
@@ -36,7 +40,8 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ef95e219a44869318b7806e9f0f794a1f9c451e4-1024x1024.jpg",
       artist: "Aiguille",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=9148",
+      audio: "/songs/eco-technology-145636.mp3",
+      //audio: "https://mp3.chillhop.com/serve.php/?mp3=9148",
       color: ["#EF8EA9", "#ab417f"],
       id: uuidv4(),
       active: false,
@@ -46,7 +51,8 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/07/ff35dede32321a8aa0953809812941bcf8a6bd35-1024x1024.jpg",
       artist: "Swørn",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=9228",
+      audio: "/songs/lofi-study-112191.mp3",
+      //audio: "https://mp3.chillhop.com/serve.php/?mp3=9228",
       color: ["#CD607D", "#c94043"],
       id: uuidv4(),
       active: false,
@@ -56,7 +62,8 @@ function chillHop() {
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/0255e8b8c74c90d4a27c594b3452b2daafae608d-1024x1024.jpg",
       artist: "Aso, Middle School, Aviino",
-      audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
+      audio: "/songs/piano-moment-9835.mp3",
+      //audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
       color: ["#205950", "#2ab3bf"],
       id: uuidv4(),
       active: false,

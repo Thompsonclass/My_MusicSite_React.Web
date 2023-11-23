@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const AppContainer = styled.div`
   text-align: center;
-  padding: 20px;
+  padding: 30px;
 `;
 
 export const AudioControls = styled.div`

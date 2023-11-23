@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LoginAppBackground = styled.div `
   position: absolute;
   top: 20%;
-  left: 4%;
+  left: 3%;
 
   display: flex; 
   align-items: center; /* 내용물 수평 가운데 배치*/
@@ -13,8 +13,8 @@ export const LoginAppBackground = styled.div `
 
   padding: 100px;
   border: none;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 20px;
   background-color: #cdcdcd;
 
@@ -27,7 +27,7 @@ export const Label = styled.label `
 `;
 
 export const Input = styled.input `
-  width: 200px;
+  width: 20em;
   padding: 15px;
   margin: 15px;
   border: 3px solid #ffffff;

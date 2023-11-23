@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const AppSongMainTitleBackground = styled.div `
   display: flex;
   flex-direction: row; /* 가로 설정 */
-  background-color: gray;
+  background-color: #666666;
   `;
 
 export const Title = styled.h1 `
@@ -20,7 +20,7 @@ export const Title = styled.h1 `
 export const Solid = styled.hr `
   width: 100%;
   border: 2px solid #808080;
-  margin-top: 40px;
+  margin-top: 70px;
 
   position: relative; /* 자식 요소를 기준으로 z-index 값을 설정합니다. */
   z-index: 3; /* 숫자가 높을수록 위에 위치합니다. */
