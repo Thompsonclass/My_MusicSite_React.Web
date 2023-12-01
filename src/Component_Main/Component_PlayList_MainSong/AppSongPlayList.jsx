@@ -23,8 +23,8 @@ import {DeleteWallpaper, ButtonAllDelete} from '../../Styled/ReadAppSongPlayerDe
 const AppSongPlayList = () => {
     // Global state로부터 필요한 값들 가져오기
     const {setTrackIndex, playing, setPlaying, setCurrentTrackIndex} = useGlobalStateContext();
-    const [likedSongs, setLikedSongs] = useState([]); // 좋아요 노래 목록 리스트
-
+    const [likedSongs, setLikedSongs] = useState([]); // 좋아요 노래 목록 리스트'
+    
     // 좋아요한 노래 목록을 가져오는 함수
     const fetchLikedSongsData = async () => {
         try {
@@ -32,6 +32,8 @@ const AppSongPlayList = () => {
             return response.data;
         } catch (error) {
             console.error("오류가 발생했습니다.", error);
+            // 오류가 발생하면 빈 배열을 반환하도록 처리
+            return [];
         }
     };
 
@@ -70,7 +72,7 @@ const AppSongPlayList = () => {
         try {
             // 서버에 POST 요청을 보냄
             const response = await axios.post("http://localhost:3000/likedSongsDelete");
-        
+
             // 서버로부터 받은 응답을 기반으로 클라이언트의 likedSongs 갱신
             if (response.data.message === "노래 목록이 성공적으로 삭제되었습니다.") {
                 setLikedSongs([]);
@@ -86,12 +88,10 @@ const AppSongPlayList = () => {
     const IconStyle = {
         fontSize: '30px'
     };
-
     // JSX를 반환
     return (<> {/* 전체 노래 제거 버튼 */
     } < DeleteWallpaper > <ButtonAllDelete onClick={handleAllDelete}>전부 제거</ButtonAllDelete>
 </DeleteWallpaper>
-
         {/* 노래 목록 및 음악 플레이어 */
     } < SongPlayerContent > {
         likedSongs.length > 0
@@ -110,16 +110,12 @@ const AppSongPlayList = () => {
                                             <p>{song.singer}</p>
                                         </SongTitle>
                                     </TableCell>
-
                                     <TableCell>
-
                                     </TableCell>
-
                                     {/* 노래 커버 이미지 */}
                                     <TableCell>
                                         <SongImg src={song.cover} alt={song.name}/>
                                     </TableCell>
-
                                     {/* 재생 및 다운로드 버튼 */}
                                     <TableCell>
                                         <StyledBtn>
@@ -131,7 +127,6 @@ const AppSongPlayList = () => {
                                             </div>
                                         </StyledBtn>
                                     </TableCell>
-
                                     {/* 음악 스펙트럼 플레이어 */}
                                     <TableCell>
                                         <MusicSpectrumPlay song={song} index={index}/>
@@ -145,22 +140,21 @@ const AppSongPlayList = () => {
             : (
                 // 좋아요한 노래가 없을 경우 메시지 출력
                 <p></p>
-            )
-    } {/* 음악 플레이어 */
-    } < ReactJkMusicPlayer key = {
-        likedSongs.length
-    }
-    audioLists = {
-        likedSongs
-    }
-    mode = "full" showMiniModeCover = {
-        false
-    }
-    autoPlay = {
-        false
-    } /> </SongPlayerContent> </>
-    );
-};
-
-// 컴포넌트를 내보냄
-export default AppSongPlayList;
+                )
+        } {/* 음악 플레이어 */
+        } < ReactJkMusicPlayer key = {
+            likedSongs.length
+        }
+        audioLists = {
+            likedSongs
+        }
+        mode = "full" showMiniModeCover = {
+            false
+        }
+        autoPlay = {
+            false
+        } /> </SongPlayerContent> </>
+        );
+    };
+    // 컴포넌트를 내보냄
+    export default AppSongPlayList;

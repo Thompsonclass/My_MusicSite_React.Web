@@ -25,7 +25,7 @@ function AppSongClassicContent() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/main/Music_player_Bgm')
+      .get('http://localhost:3000/main/Music_player_Classic')
       .then((response) => {
         setAudioAllData(response.data);
       })

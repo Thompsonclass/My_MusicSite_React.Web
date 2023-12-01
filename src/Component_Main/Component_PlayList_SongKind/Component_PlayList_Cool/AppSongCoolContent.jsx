@@ -24,7 +24,7 @@ function AppSongCoolContent() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:3000/main/Music_player_Bgm')
+            .get('http://localhost:3000/main/Music_player_Cool')
             .then((response) => {
                 setAudioAllData(response.data);
             })
